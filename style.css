@@ -80,9 +80,7 @@ li
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
-  
-  /*background-color: #33ff33;
-  background: linear-gradient(green, black)*/ }
+  }
   
 header
 { height: 120px;
@@ -100,7 +98,8 @@ footer
   background: #004d00;
   }
 
-
+  
+  
  
 nav
 { height: 50px;}  
@@ -130,7 +129,7 @@ nav
   color: #008000;} 
   
   
-  
+
 
   
 ul#nav
@@ -203,6 +202,28 @@ ul#nav li.current a, ul#nav li:hover a
   margin: 20px 10px 0 0;
   float: left;}
 
+  
+  
+.item_owner {
+   text-align: left;
+   margin-left: 100px;
+}
+
+.item_details {
+	text-align: left;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.item_description {
+	text-align: left;
+	margin-left: 20px;
+}
 
 
-
+h2.price {
+	text-align: left;
+	margin-bottom: 75px;
+}
