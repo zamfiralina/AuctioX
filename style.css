@@ -244,12 +244,14 @@ ul#nav li.current a, ul#nav li:hover a
 #content
 { width: 680px;
   margin: 0 0 20px 20px;
-  float: left;}
+  float: left;
+ }
 
 .content_item
 { width: 680px;
   margin-top: 20px;
-  margin-bottom: 20px;}
+  margin-bottom: 20px;
+}
   
 .content_container
 { width: 330px;
@@ -413,3 +415,12 @@ h2.price {
   padding-left: 5px;
 }
 
+.adv_search{
+	color:white;
+    font-family: verdana;
+    font-size: 125%;
+    display: table;
+	width: 680px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
