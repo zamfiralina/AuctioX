@@ -141,9 +141,7 @@ li
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
-  
-  /*background-color: #33ff33;
-  background: linear-gradient(green, black)*/ }
+  }
   
 header
 { height: 120px;
@@ -158,10 +156,10 @@ footer
   margin-left: 205px;
   width: 960px;
   height: 50px;
- 
-  color: #FFF;
-  background: #004d00;
-  }
+  
+  /*background: #004d00;*/
+  
+}
 
 
  

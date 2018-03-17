@@ -21,9 +21,10 @@
 	  <nav>
 	    <div id="menubar">
           <ul id="nav">
+		  
             <li class="current"><a href="index.html">Home</a></li>
 			<li> <a href = "">Buttons (to be continued...)</a> </li>
-            
+           
           </ul>
         </div><!--close menubar-->	
       </nav>
@@ -36,36 +37,35 @@
           <div class="sidebar_item">
 		  
 		  <h2>Login Form</h2>
+		  
+			<div class="container">
+				<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+				<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
         
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+				<button type="submit" onclick = "location.href='profilePage.html'">Login</button>
+				<label>
+				<input type="checkbox" checked="checked" name="remember"> Remember me
+				</label>
+			</div>
 
- 
 		  <button type="button" onclick="location.href='register.html';">Register</button>
 		  
             
-          </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->
-       </div><!--close sidebar_container-->	
+       </div><!--close sidebar_item--> 
+      </div><!--close sidebar-->
+     </div><!--close sidebar_container-->	
 
 	   
 	  <div id="content">
         <div class="content_item">
 		
 		<form class="example" style="max-width:400px;max-height:nne">
-  <input type="text" placeholder="Search item" name="search2">
-   <button type="button" onclick="location.href='AdvancedSearch.html';">Search</button>
-</form>
+			<input type="text" placeholder="Search item" name="search2">
+			<button type="button" onclick="location.href='AdvancedSearch.html';">Search</button>
+		</form>
 
 		        
 				<table style = "width : 100%">
