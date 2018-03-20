@@ -41,24 +41,36 @@
 		<h3>Category:</h3><br>
 		
 	<form action="" method="get">
-	<input type="checkbox" name="Animal"> Animals<br>
-	<input type="checkbox" name="vehicle"> Cars<br>
-	<input type="checkbox" name="bike"> Bikes<br>
-	<input type="checkbox" name="toy"> Toys<br>
-	<input type="checkbox" name="other"> Other<br><br>
+		<input type="checkbox" name="category"> Animals<br>
+		<input type="checkbox" name="category"> Cars<br>
+		<input type="checkbox" name="category"> Bikes<br>
+		<input type="checkbox" name="category"> Toys<br>
+		<input type="checkbox" name="category"> Electronics<br>
+		<input type="checkbox" name="category"> Home & Garden<br>
+		<input type="checkbox" name="category"> Fashion<br>
+		<input type="checkbox" name="category"> Books<br>
+		<input type="checkbox" name="category"> Sport & hobbies<br>
+		<input type="checkbox" name="category"> Other<br><br>
 	<h3>Country:</h3><br>
-	<input type="checkbox" name="Ro"> Romania<br>
-	<input type="checkbox" name="Esp"> Spain<br>
-	<input type="checkbox" name="Fr"> France<br>
-	<input type="checkbox" name="Gr"> Greece<br>
-	<input type="checkbox" name="It"> Italy<br>
-	<input type="checkbox" name="other_c"> Other<br><br>
-	<h3>Relevance:</h3><br>
-	<input type="checkbox" name="viewed"> Most viewed<br>
-	<input type="checkbox" name="bidded"> Most bidded<br>
-	<input type="checkbox" name="viewed"> Most recent<br><br>
+		<input type="checkbox" name="country"> Romania<br>
+		<input type="checkbox" name="country"> Spain<br>
+		<input type="checkbox" name="country"> France<br>
+		<input type="checkbox" name="country"> Greece<br>
+		<input type="checkbox" name="country"> Italy<br>
+		<input type="checkbox" name="country"> Other<br><br>
+	<h3>Sort by:</h3><br>
+		<input type="radio" id="sortChoice1" name="sort" value="viewed">
+		<label for="sortChoice1">Most viewed</label><br>
+
+		<input type="radio" id="sortChoice2" name="sort" value="bid">
+		<label for="sortChoice2">Most bidded</label><br>
+
+		<input type="radio" id="sortChoice3" name="sort" value="recent">
+		<label for="sortChoice3">Most recent</label><br><br>
 	<button type="submit" value="submit">Submit</button>
 	</form>
+
+
    
   </div>
 
