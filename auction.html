@@ -34,38 +34,95 @@
      
 	  <div id="content">
         <div class="content_item">
-          <div class="form_settings" style="padding-left: 200px;">   
+          <div class="form_settings" style="padding-left: 200px;">
            <h1>New auction</h1>
            <br><br><br>
             <span>Country: </span>
-              <select >
-                <option >Romania</option>
-                <option >Spain</option>
-                <option >Italy</option>
-                <option >Brasil</option>
-                <option >Portugal</option>
-                <option >U.S.A</option>
-                <option >New Zealand</option>
-                <option >Austria</option>
-                <option >Cuba</option>
-                <option >France</option>
-                <option >Panama</option>
-             </select>
+              <select>
+                  <option >Romania</option>
+                  <option >Spain</option>
+                  <option >Italy</option>
+                  <option >Brasil</option>
+                  <option >Portugal</option>
+                  <option >U.S.A</option>
+                  <option >New Zealand</option>
+                  <option >Austria</option>
+                  <option >Cuba</option>
+                  <option >France</option>
+                  <option >Panama</option>
+                  <option >Greece</option>
+                  <option >Israel</option>
+                  <option >China</option>
+                  <option >Japan</option>
+                  <option >India</option>
+                  <option >Other</option>
+              </select>
            <br><br><br>
            <span>City: </span><input type="text" name="auct_city" value="" /><br> <br> <br>
            <span>Product Name: </span><input type="text" name="prod_name" value="" /><br> <br> <br> 
            <span>Category: </span>
-             <select >
-                <option >Animals</option>
-                <option >Cars</option>
-                <option >Bikes</option>
-                <option >Toys</option>
-                <option >Books</option>
-                <option >Art</option>
-                <option >Electronics</option>
-                <option >Toys</option>
-                <option >Others</option>
-             </select>
+              <select>
+                  <optgroup label="Animals">
+                      <option value="Cat">Cat</option>
+                      <option value="Dog">Dog</option>
+                      <option value="Parrots">Parrots</option>
+                      <option value="Others">Others</option>
+                  </optgroup>
+                  <optgroup label="Cars">
+                      <option>BMW</option>
+                      <option>Dog</option>
+                      <option>Parrots</option>
+                      <option>Others</option>
+                  </optgroup>
+                  <optgroup label="Animals">
+                      <option> BMW</option>
+                      <option> Citroen</option>
+                      <option> Ferrari</option>
+                      <option> Lexus</option>
+                      <option> Peugeot</option>
+                      <option> Volkswagen</option>
+                      <option> Others</option>
+                  </optgroup>
+                  <optgroup label="Clothing, Shoes & Accessories">
+                      <option> Women's Dresses</option>
+                      <option> Women's Coats</option>
+                      <option> Men's Coats</option>
+                      <option> Men's Jeans</option>
+                      <option> Women's Jeans</option>
+                      <option> Women's Tops</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label=" Toys & Hobbies">
+                      <option> Toys</option>
+                      <option> Cosplay & Costumes</option>
+                      <option> Puzzle & Educational Toys</option>
+                      <option> Gifts</option>
+                      <option> Gadget Toys</option>
+                      <option> Dolls & Stuffed Toys</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label="Motorcycles">
+                      <option> Yamaha</option>
+                      <option> Honda</option>
+                      <option> Ducati</option>
+                      <option> Kawasaki</option>
+                      <option> Harley Davidson</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label="Home & Office">
+                      <option> Alarm & Protection</option>
+                      <option> Home Improvement</option>
+                      <option> Kitchen & Dining</option>
+                      <option> Pet Supplies</option>
+                      <option> Gardening Supplies</option>
+                      <option> Decor</option>
+                      <option> Others</option>
+                  </optgroup>
+                  <option>Other</option>
+              </select>
            <br> <br> <br>
            <span>Tag: </span><input type="text" name="auct_tag" value="" /><br> <br> <br>
            <span>Short description: </span>
@@ -90,7 +147,7 @@
            <span>End date: </span><input type="date" name="end_date" value="" /><br> <br> <br>
            
 
-           <input class="submit_button" type="submit" name="details_change" value="Submit" />
+           <input class="submit_button" type="submit" name="add_auction" value="Submit" />
           </div><!--close auction-->
 		  
 		    </div><!--close content_item-->
