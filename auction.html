@@ -5,8 +5,8 @@
   <title>AuctioX</title>
 
     <script type="text/javascript" src="functions.js"></script>
-  
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
   
 </head>
@@ -60,8 +60,8 @@
                   <option >Other</option>
               </select>
            <br><br><br>
-           <span>City: </span><input type="text" name="auct_city" value="" /><br> <br> <br>
-           <span>Product Name: </span><input type="text" name="prod_name" value="" /><br> <br> <br> 
+           <span>City: </span><input type="text" placeholder="Enter city name" name="auct_city" value="" /><br> <br> <br>
+           <span>Product Name: </span><input type="text" placeholder="Enter the product name" name="prod_name" value="" /><br> <br> <br>
            <span>Category: </span>
               <select>
                   <optgroup label="Animals">
@@ -75,15 +75,6 @@
                       <option>Dog</option>
                       <option>Parrots</option>
                       <option>Others</option>
-                  </optgroup>
-                  <optgroup label="Animals">
-                      <option> BMW</option>
-                      <option> Citroen</option>
-                      <option> Ferrari</option>
-                      <option> Lexus</option>
-                      <option> Peugeot</option>
-                      <option> Volkswagen</option>
-                      <option> Others</option>
                   </optgroup>
                   <optgroup label="Clothing, Shoes & Accessories">
                       <option> Women's Dresses</option>
@@ -123,12 +114,46 @@
                       <option> Decor</option>
                       <option> Others</option>
                   </optgroup>
+
+                  <optgroup label="Health & Beauty">
+                      <option> Wigs</option>
+                      <option> Health Caren</option>
+                      <option> Hairdressing Supplies</option>
+                      <option> Makeup Supplies</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label="Sports & Outdoors">
+                      <option> Sports Bags</option>
+                      <option> Knives & Multi-Tools</option>
+                      <option> Fitness</option>
+                      <option> Camping & Hiking</option>
+                      <option> Cycling</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label="Electrical & Tools">
+                      <option> Gadgets</option>
+                      <option> Power Tools</option>
+                      <option> Plugs & Sockets</option>
+                      <option> Switches & Adapters</option>
+                      <option> Others</option>
+                  </optgroup>
+
+                  <optgroup label="Consumer Electronics">
+                      <option> Smart Devices</option>
+                      <option> Portable Audio & Video</option>
+                      <option> Cameras, Photo & Video</option>
+                      <option> Bluetooth Devices</option>
+                      <option> Headphones & Accessories</option>
+                      <option> Others</option>
+                  </optgroup>
+
                   <option>Other</option>
               </select>
            <br> <br> <br>
-           <span>Tag: </span><input type="text" name="auct_tag" value="" /><br> <br> <br>
-           <span>Short description: </span>
-             <textarea></textarea>
+           <span>Short description: </span><br>
+             <textarea placeholder="A few words about the product"></textarea>
            <br><br><br>
            <span>Condition: </span>
              <select >
@@ -137,14 +162,14 @@
                 <option >Not specified </option>
              </select>
            <br> <br> <br>
-           <span>Instructions: </span>
-             <textarea></textarea>
+           <span>Instructions: </span><br>
+             <textarea placeholder="Relevant informations on how to use the product"></textarea>
             <br><br><br>
-           <span>Special characteristics: </span>
-             <textarea></textarea>
+           <span>Special characteristics: </span><br>
+             <textarea placeholder="Details about special characteristics"></textarea>
            <br><br><br>
-           <span>Link to a picture: </span><input type="url" name="prod_pic" value="" /><br> <br> <br>
-           <span>Start price: </span><input type="number" name="start_price" value="" /><br> <br> <br>
+           <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" name="prod_pic" value="" /><br> <br> <br>
+           <span>Start price: </span><input type="number" placeholder="Starting price of the product" name="start_price" value="" /><br> <br> <br>
            <span>Start date: </span><input type="date" name="start_date" value="" /><br> <br> <br>
            <span>End date: </span><input type="date" name="end_date" value="" /><br> <br> <br>
            
