@@ -338,7 +338,7 @@ h2{
 
 
 
-form.example input[type=text] {
+form.search-bar input[type=text] {
     padding: 10px;
     font-size: 15px;
     float: left;
@@ -346,7 +346,7 @@ form.example input[type=text] {
     background: #f1f1f1;
 }
 
-form.example button {
+form.search-bar button {
     float: left;
     width: 100%;
     padding: 10px;
@@ -357,11 +357,11 @@ form.example button {
     cursor: pointer;
 }
 
-form.example button:hover {
+form.search-bar button:hover {
     background: green;
 }
 
-form.example::after {
+form.search-bar::after {
     content: "";
     clear: both;
     display: table;
