@@ -30,7 +30,7 @@ button {
 button:hover {
     opacity: 0.8;
     background-color: #4CAF50;
-    color: white;
+    color: black;
 }
 
 .cancelbtn {
@@ -68,7 +68,7 @@ html
 
 body
 { font: normal 80% Arial, Helvetica, sans-serif;
-  color: #000;
+  color: black;
 }
 
 p
@@ -301,8 +301,8 @@ h2
 { font:100%verdana;
   font-size:17px;
   font-stretch: 10px;
-  font-color: white;
-  color:white;
+  font-color: black;
+  color:black;
 
 }
  
@@ -440,7 +440,7 @@ h2.price {
 }
 
 .adv_search{
-  color:white;
+  color:black;
   font-family: verdana, sans serif;
   font-size: 125%;
   display: table;
