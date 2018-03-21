@@ -539,8 +539,21 @@ h2.price {
     font-size: 14px;
 }
 
+@media screen and (min-width:768px) and (max-width:959px){
+    #header { width:100%;}
+    #site_content{width: 100%}
+    #sidebar_container{width:20%;}
+    #content{width:70%;}}
+@media screen and (min-width:480px)and(max-width:767px){
+    #header { width:100%;}
+    #site_content{width: 100%}
+    #sidebar_container{width:20%;}
+    #content{width:70%;}}
+@media screen and (max-width:479px){
+    #header { width:100%;}
+    #site_content{width: 100%}
+    #sidebar_container{width:20%;}
+    #content{width:70%;}}
+@media screen and (orientation:landscape){}
 
-@media screen and(min-width:768px) and (max-width:959px){}
-@media screen and(min-width:480px)and(max-width:767px){}
-@media screen and (max-width:479px){}
-@media screen and(orientation:landscape){}
+
