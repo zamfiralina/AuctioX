@@ -30,7 +30,7 @@ button {
 button:hover {
     opacity: 0.8;
     background-color: #4CAF50;
-    color: white;
+    color: black;
 }
 
 .cancelbtn {
@@ -68,13 +68,12 @@ html
 
 body
 { font: normal 80% Arial, Helvetica, sans-serif;
-  color: #000;
+  color: black;
 }
 
 p
 { 
-  color: #FFF;
-  text-shadow: 1px 1px #000;
+  color: black;
   font-size: 100% }
 
 img
@@ -84,7 +83,7 @@ img
 
 h1, h2, h3, h4, h5, h6 
 { font: Arial, sans-serif;
-  color: #FFF;
+  color: black;
   text-shadow: 0 1px 0 #000;
   }
 
@@ -97,7 +96,8 @@ h3
 h4, h5, h6
 { 
   font: Arial, Helvetica, sans-serif;
-  color: #FFF;
+  color: black;
+
   }
 
 h5, h6
@@ -110,7 +110,7 @@ span
   font-size: 20px;}
 
 a, a:hover
-{ color: #FFF;
+{ color: black;
   background: transparent;
   font-weight: bold;
   outline: none;
@@ -138,20 +138,20 @@ li
 #main
 { 
   /*background: transparent url(../images/background2.jpg);*/
-    background: #00ba41;
+    /*background: #00ba41;*/
+    background: white;
   /*background-repeat: repeat;*/
   /*background-size: auto;
   background-attachment: fixed;*/
     height: 100%;
   }
+
   
 header
-{ height: 120px;
-  width: 960px;
-  background: #004d00;
-  background: linear-gradient(#66cc66,#339933);
-   border-radius: 15px 15px 0 0;
-    }
+{ height: 100px;
+  width: 100%;
+    background: #006624;
+}
   
 
 
@@ -180,9 +180,11 @@ nav
   margin: 0 auto;}
   
 #welcome_slogan H3
-{ font: normal 275% Consolas, sans-serif;
+{ font: normal 275% "Bookman Old Style";
   text-shadow: 0 1px 0 #FFF;
-  color: #008000;} 
+  color: white;
+    font-size: 45px;
+}
   
   
   
@@ -212,14 +214,19 @@ ul#nav li a
   
 ul#nav li.current a, ul#nav li:hover a
 { color: #FFF;
-  background: #006600;
   }
 
 #site_content
 { width: 960px;
   overflow: hidden;
-  margin-bottom: 30px;
-  background: transparent url(../images/transparent.png) repeat;
+  /*margin-bottom: 0px;
+  padding-left: 120px;
+  padding-right: 70px;*/
+  /*background: transparent url(../images/transparent.png) repeat;*/
+   background:#e6e6e6;
+   /*margin-left: 50px;
+    margin-right: 20px;*/
+    margin:auto;
   } 
 
 .sidebar_container
@@ -297,8 +304,8 @@ h2
 { font:100%verdana;
   font-size:17px;
   font-stretch: 10px;
-  font-color: white;
-  color:white;
+  font-color: black;
+  color:black;
 
 }
  
@@ -325,9 +332,13 @@ h2
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  }
 
+h2{
+    color: black;
+}
 
 
-form.example input[type=text] {
+
+form.search-bar input[type=text] {
     padding: 10px;
     font-size: 15px;
     float: left;
@@ -335,7 +346,7 @@ form.example input[type=text] {
     background: #f1f1f1;
 }
 
-form.example button {
+form.search-bar button {
     float: left;
     width: 100%;
     padding: 10px;
@@ -346,11 +357,11 @@ form.example button {
     cursor: pointer;
 }
 
-form.example button:hover {
+form.search-bar button:hover {
     background: green;
 }
 
-form.example::after {
+form.search-bar::after {
     content: "";
     clear: both;
     display: table;
@@ -432,7 +443,7 @@ h2.price {
 }
 
 .adv_search{
-  color:white;
+  color:black;
   font-family: verdana, sans serif;
   font-size: 125%;
   display: table;
@@ -521,8 +532,8 @@ h2.price {
 
 
 .collapsible {
-    background-color: #004A1A;
-    color: white;
+    background-color:#e6e6e6;
+    color: black;
     cursor: pointer;
     /*padding: 18px;*/
     width: 100%;
@@ -533,7 +544,7 @@ h2.price {
 }
 
 .active, .collapsible:hover {
-    background-color: #004A1A;
+    background-color: #e6e6e6;
 }
 
 .content {
@@ -545,6 +556,7 @@ h2.price {
 
 .search-content {
     font-size: 14px;
+    color:black;
 }
 
 @media screen and (min-width:768px) and (max-width:959px){
