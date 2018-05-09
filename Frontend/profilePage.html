@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>AuctioX</title>
+
+	<script type="text/javascript" src="functions.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  
+</head>
+
+<body>
+  <div id="main">		
+
+    <header class="'header">
+	  <div id="strapline">
+	    <div id="welcome_slogan">
+	      <h3>AuctioX</h3>
+	    </div><!--close welcome_slogan-->
+      </div><!--close strapline-->	  
+	  
+	  <nav>
+	    <div id="menubar">
+          <ul id="nav">
+			  <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+            
+          </ul>
+        </div><!--close menubar-->	
+      </nav>
+    </header>
+    
+	<div id="site_content">		
+	  
+	  <div class="sidebar_container">       
+		<div class="sidebar">
+          <div class="sidebar_item">
+		  	<button type="button" onclick="gotoPage('auction')">New auction</button>
+		  	<button onclick="document.getElementById('id01').style.display='block'">My auctions</button>
+
+			<div id="id01" class="modal">
+  
+  				<form class="modal-content animate">
+    		   		<div class="imgcontainer">
+      			    	<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    		   		</div>
+
+   			  		<div class="container">
+      					<h3 id="auctionsheader"> My auctions: </h3>
+      					<br>
+      					<ul>
+      					<li> Auction 1 </li>
+      					<li> Auction 2 </li>
+      					<li> ........  </li>
+      					<li> ........  </li>
+      					<li> ........  </li>
+      					<li> ........  </li>
+      					</ul>
+    				</div>
+
+    				<div class="container" style="background-color:#f1f1f1">
+     					 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    				</div>
+  				</form>
+			</div><!--close id01-->
+
+            
+          </div><!--close sidebar_item--> 
+        </div><!--close sidebar-->
+       </div><!--close sidebar_container-->	
+
+	     <div id="content">
+        <div class="content_item">
+
+	       <div id='parent_div_1'>
+             <div class ='child_div_1'>
+	           <img src = "https://i.pinimg.com/originals/2a/c8/18/2ac818cafbf8582397fbf7002b4e4b50.jpg" height="150" width="150" alt="Wolf">
+	           <br><br>
+	           <p><span>First name: </span>Harry</p><br>
+	           <p><span>Last name: </span> Potter</p><br>
+    		   <p><span>Country: </span> Narnia </p><br>
+			   <p><span>City: </span> City </p><br>
+			   <p><span>Email: </span> myMagic@</p><br>
+			   <p><span>Tel: </span> +40722..</p><br>
+			   <button class="Cg_Details_Button" type="button" onclick="gotoPage('changeDetails')">Change Details</button>
+              </div><!--close child_div_1-->
+            </div><!--close parent_div_1-->
+        </div><!--close content_item-->
+      </div><!--close content-->   
+	</div><!--close site_content-->  	
+
+
+ </div><!--close main-->
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+  
+</body>
+</html>
