@@ -23,6 +23,7 @@ CREATE TABLE ITEMS (ITEM_ID NUMBER ,
                     TITLE VARCHAR2(100) NOT NULL ,
                     DESCRIPTION VARCHAR2(3000) NOT NULL ,
                     START_DATE TIMESTAMP(6) NOT NULL ,
+                    END_DATE TIMESTAMP(6) NOT NULL ,
                     
                     CONSTRAINT items_pk PRIMARY KEY (ITEM_ID),
                     CONSTRAINT items_users_fk FOREIGN KEY (USER_ID) REFERENCES SITE_USERS(USER_ID));
@@ -44,6 +45,8 @@ CREATE TABLE ITEM_CATEGORY (ID NUMBER ,
                             CONSTRAINT item_category_pk       PRIMARY KEY (ID),
                             CONSTRAINT constraint_to_items      FOREIGN KEY (ITEM_ID)     REFERENCES ITEMS(ITEM_ID),
                             CONSTRAINT constraint_to_categories FOREIGN KEY (CATEGORY_ID) REFERENCES CATEGORIES(CATEGORY_ID));
+
+
                             
                             
                             
