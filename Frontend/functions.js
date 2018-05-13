@@ -18,7 +18,5 @@ function getInput(elementID) {
     else
         window.alert(input);
 
-
-
     console.log(input);
 }
