@@ -1,7 +1,11 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
+from Backend.DBController.DBConnection import DBConnection
+
 
 class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
+
+    db_conn = DBConnection.connect("WEB", "WEB", "localhost")
 
     def _set_headers(self):
         self.send_response(200)
@@ -13,6 +17,7 @@ class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
 
     # =================================GET==============================================#
     def do_GET(self):
+        print(self.db_conn.version())
 
         if self.path == '/':
             self.path = '/index.html'
@@ -41,7 +46,7 @@ def run():
     print('starting server...')
 
     # Server settings
-    server_address = ('127.0.0.1', 8081)
+    server_address = ('127.0.0.1', 8085)
     httpd = HTTPServer(server_address, testHTTPServer_RequestHandler)
     print('running server...')
     httpd.serve_forever()
