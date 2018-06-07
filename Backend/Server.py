@@ -1,12 +1,9 @@
+import os
+
+from typing import Tuple
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from Backend.DBController.DBConnection import DBConnection
-
-
-import os
-from typing import Tuple
-
-from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
 class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
@@ -34,6 +31,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                 try:
                     self.wfile.write(content_body)
+
                 except Exception as e:
                     print("==========================================================================\n"
                           + str(e) +
@@ -66,13 +64,6 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                 requestContents = self.requestline.split()[1]
 
-                # if self.path == '/':
-                #         return open('Frontend/index.html').read()
-                #
-                # if self.path == '/favicon.ico':
-                #         return open('index.html').read()
-
-
                 if requestContents == '/' or requestContents == self.path:
                     if self.path == '/' or self.path == '/favicon.ico':
                         self.path = '/index.html'
@@ -80,17 +71,6 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                     content_type = self.__class__.content_types[os.path.splitext(self.path)[1]]
 
                     content_body = open('../Frontend' + self.path, 'rb').read()
-
-
-                # if requestContents.startswith('/GET_button_pressed'):
-                #         fname = self.requestline.split()[1].split('?')[1]
-                #         lname = self.requestline.split()[1].split('?')[2]
-                #         return f'Hello {fname} {lname}, you pressed GET at server time: {time.asctime()}'
-                #
-                # if requestContents.startswith('/Login_button_pressed'):
-                #         fname = requestContents.split('?')[1]
-                #         lname = requestContents.split('?')[2]
-                #         return "Login successful" if login(fname, lname) is True else "Login failed"
 
                 return content_type, content_body
 
@@ -104,7 +84,6 @@ def run():
 
         print('running server...')
         httpd.serve_forever()
-
 
 run()
 
