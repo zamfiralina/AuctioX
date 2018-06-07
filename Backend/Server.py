@@ -3,53 +3,108 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from Backend.DBController.DBConnection import DBConnection
 
 
-class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
+import os
+from typing import Tuple
 
-    db_conn = DBConnection.connect("WEB", "WEB", "localhost")
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
-    def _set_headers(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
 
-    def do_HEAD(self):
-        self._set_headers()
+class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
+        db_conn = DBConnection.connect("WEB", "WEB", "localhost")
 
-    # =================================GET==============================================#
-    def do_GET(self):
-        print(self.db_conn.version())
+        content_types = {'.css' : 'text/css',
+                         '.gif' : 'image/gif',
+                         '.htm' : 'text/html',
+                         '.html': 'text/html',
+                         '.jpeg': 'image/jpeg',
+                         '.jpg' : 'image/jpg',
+                         '.js'  : 'text/javascript',
+                         '.png' : 'image/png',
+                         '.text': 'text/plain',
+                         '.txt' : 'text/plain'}
 
-        if self.path == '/':
-            self.path = '/index.html'
+        def do_GET(self):
+                self.send_response(200)
 
-        self.path = ".../Frontend" + self.path
-        try:
-            file_to_open = open(self.path[1:]).read( )
-            self.send_response(200)
-        except:
-            file_to_open = "File not found"
-            self.send_response(404)
+                content_type, content_body = self.dispatch()
 
-        self.end_headers()
+                self.send_header('Content-type', content_type)
 
-        self.wfile.write (bytes(file_to_open, "utf8"))
+                self.end_headers()
 
-    #================================POST=====================================#
-    def do_POST(self):
-        # Doesn't do anything with posted data
-        self._set_headers( )
-        #self.wfile.write ("<html><body><h1>POST!</h1></body></html>")
-        
+                try:
+                    self.wfile.write(content_body)
+                except Exception as e:
+                    print("==========================================================================\n"
+                          + str(e) +
+                          f'\nRequest:                             \n'
+                          f'   type       : <{self.command}>     \n'
+                          f'   path       : <{self.path}>        \n'
+                          f'   requestline: <{self.requestline}> \n'
+                          f'      requestline.split(" ")[0]: <{self.requestline.split(" ")[0]}> \n'
+                          f'      requestline.split(" ")[1]: <{self.requestline.split(" ")[1]}> \n'
+                          f'      requestline.split(" ")[2]: <{self.requestline.split(" ")[2]}> \n'
+                          "========================================================================\n")
+
+
+        def do_POST(self):
+                print('\n\n===\n\nyey\n\n===\n\n')
+
+
+        def dispatch(self) -> Tuple[str, bytes]:
+
+                print(f'Request:                             \n'
+                      f'   type       : <{self.command}>     \n'
+                      f'   path       : <{self.path}>        \n'
+                      f'   requestline: <{self.requestline}> \n'
+                      f'      requestline.split(" ")[0]: <{self.requestline.split(" ")[0]}> \n'
+                      f'      requestline.split(" ")[1]: <{self.requestline.split(" ")[1]}> \n'
+                      f'      requestline.split(" ")[2]: <{self.requestline.split(" ")[2]}> \n')
+
+                content_type = "text/html"
+                content_body = "Error in the dispatch function"
+
+                requestContents = self.requestline.split()[1]
+
+                # if self.path == '/':
+                #         return open('Frontend/index.html').read()
+                #
+                # if self.path == '/favicon.ico':
+                #         return open('index.html').read()
+
+
+                if requestContents == '/' or requestContents == self.path:
+                    if self.path == '/' or self.path == '/favicon.ico':
+                        self.path = '/index.html'
+
+                    content_type = self.__class__.content_types[os.path.splitext(self.path)[1]]
+
+                    content_body = open('../Frontend' + self.path, 'rb').read()
+
+
+                # if requestContents.startswith('/GET_button_pressed'):
+                #         fname = self.requestline.split()[1].split('?')[1]
+                #         lname = self.requestline.split()[1].split('?')[2]
+                #         return f'Hello {fname} {lname}, you pressed GET at server time: {time.asctime()}'
+                #
+                # if requestContents.startswith('/Login_button_pressed'):
+                #         fname = requestContents.split('?')[1]
+                #         lname = requestContents.split('?')[2]
+                #         return "Login successful" if login(fname, lname) is True else "Login failed"
+
+                return content_type, content_body
 
 
 def run():
-    print('starting server...')
+        print('starting server...')
 
-    # Server settings
-    server_address = ('127.0.0.1', 8085)
-    httpd = HTTPServer(server_address, testHTTPServer_RequestHandler)
-    print('running server...')
-    httpd.serve_forever()
+        server_address = ('127.0.0.1', 8081)
+
+        httpd = HTTPServer(server_address, TestHTTPServerRequestHandler)
+
+        print('running server...')
+        httpd.serve_forever()
 
 
 run()
+
