@@ -19,5 +19,86 @@ class DBConnection:
     def version(self):
         return self.__dbConnection.version
 
-    def execute(self):
-        pass
+    def execute(self, command):
+        # executes the string as an SQL command, returning a list of tuples corresponding to the result
+        try:
+            self.__dbCursor.execute(command)
+            self.__statementResult = self.__dbCursor.fetchall()
+            return self.__statementResult
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+
+            if str(command).startswith("select") or str(command).startswith("SELECT"):
+                print("Error" + e)
+                return "Error" + e
+
+
+    def getResults(self, n):
+        # Returns a list of tuples corresponding to the first n results of the last executed command
+        try:
+
+            return self.__statementResult[:n - 1]
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+            print("Error" + e)
+            return e
+
+    def getResultsAll(self):
+            # Returns a list of tuples corresponding to the results of the last executed command
+        try:
+            return self.__statementResult
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+            print("Error" + e)
+            return e
+
+    def getResultsInRange(self, start, stop):
+            # Returns a list of tuples corresponding to the results of the last executed command, with an index in the [start, stop] range
+        try:
+            return self.__statementResult[start:stop]
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+            print("Error" + e)
+            return e
+
+    def getResultsInPagesOf(self, pageSize):
+            # Returns a list of "pages", lists of tuples, corresponding to the results of the last executed command
+        try:
+            pages = int(len(self.__statementRestul)/pageSize)
+            resultPages = []
+
+            for i in range(pages):
+                resultPages.append(self.__statementRestul[pages * pageSize : i * pageSize + pageSize])
+
+            resultPages.append(self.__statementRestul[pages * pageSize :])
+            return resultPages
+
+        except cx_Oracle.Error as e:
+
+            e, = e.args
+            print("Error" + e)
+            return e
+
+    def callFunction(self, funcName, returnType, parameters):
+            # Calls the DB function with the given name and arguments, returning the result as a variable of the given type
+        try:
+            return self.__dbCursor.callfunc(funcName, returnType, parameters)
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+            print("Error" + e)
+            return e
+
+    def callProcedure(self, procName, parameters):
+            # Calls the provided procedure with the provided arguments, returning a copy of the parameres list, with the "out" parameters modified
+        try:
+            return self.__dbCursor.callproc(procName, parameters)
+
+        except cx_Oracle.Error as e:
+            e, = e.args
+            print("Error" + e)
+            return e
