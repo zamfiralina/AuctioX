@@ -20,3 +20,20 @@ function getInput(elementID) {
 
     console.log(input);
 }
+
+function testSearch() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+                    //document.getElementById("getText").innerHTML = this.responseText
+                    window.alert(this.responseText)
+                }
+            };
+
+            var requestText = "SEARCH" +
+                    "?" + document.getElementById("index_search").value;
+
+            xhttp.open("GET", requestText, true);
+            xhttp.send();
+}

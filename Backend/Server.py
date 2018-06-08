@@ -4,6 +4,7 @@ from typing import Tuple
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.testSearch import testSearch
 
 
 class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
@@ -64,7 +65,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                 requestContents = self.requestline.split()[1]
 
-                if requestContents == '/' or requestContents == self.path:
+                if requestContents == '/' or requestContents == self.path and self.path == self.path.split('?')[0]:
                     if self.path == '/' or self.path == '/favicon.ico':
                         self.path = '/index.html'
 
@@ -72,7 +73,12 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                     content_body = open('../Frontend' + self.path, 'rb').read()
 
+                if requestContents.startswith("/SEARCH"):
+                    toBeSearched = requestContents.split("?")[1]
+                    content_body = testSearch(toBeSearched, self.__class__.db_conn)
+
                 return content_type, content_body
+
 
 
 def run():
