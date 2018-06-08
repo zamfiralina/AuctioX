@@ -30,8 +30,8 @@ class DBConnection:
             e, = e.args
 
             if str(command).startswith("select") or str(command).startswith("SELECT"):
-                print("Error" + e)
-                return "Error" + e
+                print("Error" + e.message)
+                return "Error" + e.message
 
 
     def getResults(self, n):

@@ -37,3 +37,20 @@ function testSearch() {
             xhttp.open("GET", requestText, true);
             xhttp.send();
 }
+
+function login() {
+    var requestText = "LOGIN" + "?" + document.getElementById("username_id").value + "?"
+                    + document.getElementById("password_id").value;
+
+    var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+                    //document.getElementById("getText").innerHTML = this.responseText
+                    window.alert(this.responseText)
+                }
+            };
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
