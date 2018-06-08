@@ -492,20 +492,27 @@ ul#nav li.current a, ul#nav li:hover a{
 
 .adv_search_carac{
   color:black;
-  font-family: verdana, sans serif;
+  /*font-family: verdana, sans serif;*/
   font-size: 125%;
   display: table;
   width: 680px;
   margin-top: 20px;
   margin-bottom: 20px;
+ padding-left: 80px;
 }
 
 .adv_search_carac input{
-  width:200px;
+  width:400px;
 }
+
 .adv_search_carac select{
   width: 200px;
-  font-size: 17px;
+  font-size: 20px;
+}
+
+.adv_search_carac span{
+  font-size: 22px;
+}
 }
 
 #adv_carac{
