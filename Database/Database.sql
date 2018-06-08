@@ -6,11 +6,15 @@ DROP TABLE ITEM_CATEGORY    CASCADE CONSTRAINTS ;
 
 
 CREATE TABLE SITE_USERS ( USER_ID NUMBER ,
-                          FIRST_NAME VARCHAR2(30) NOT NULL ,
+                          FIRST_NAME VARCHAR2(50) NOT NULL ,
                           LAST_NAME VARCHAR2(50)NOT NULL ,
                           EMAIL VARCHAR2(100) NOT NULL ,
                           USERNAME VARCHAR2(50) UNIQUE NOT NULL ,
                           PASSWORD VARCHAR2(50) NOT NULL ,
+                          COUNTRY VARCHAR2(100) NOT NULL ,
+                          CITY VARCHAR2(100) NOT NULL ,
+                          TELEPHONE VARCHAR2(100) NOT NULL ,
+                          LINK_PIC VARCHAR2(200) NOT NULL ,
 
                           CONSTRAINT site_users_pk PRIMARY KEY (USER_ID),
                           CONSTRAINT valid_email CHECK (EMAIL LIKE '%@%.%'));
@@ -63,16 +67,16 @@ CREATE TABLE AUCTIONS (USER_ID NUMBER NOT NULL ,
 
                        
 
-insert into site_users values(1,'Nume','Prenume','email@gmail.com','username','pass');
-insert into site_users values(2,'Anca','Moisa','anca@gmail.com','ancam','parola1');
-insert into site_users values(3,'Alina','Zamfir','alina@gmail.com','alinaz','hr327g');
-insert into site_users values(4,'Iulian','Andronache','iulian@gmail.com','aiuian','p32ruih');
-insert into site_users values(5,'Flori','Tanasiu','tanasiu@gmail.com','florentina','387yhu');
-insert into site_users values(6,'Rares','Dima','rdima@gmail.com','rdima','387yhu');
-insert into site_users values(7,'Matei','Tarevici','mtarevici@gmail.com','mtarevici','yhuuu');
-insert into site_users values(8,'Vasile','Popescu','vasi@gmail.com','vasipop','vasip');
-insert into site_users values(9,'Ion','Ionescu','ionescu@gmail.com','ionion','387ion');
-insert into site_users values(10,'Alex','Alexa','alex@gmail.com','alex','alehu');
+insert into site_users values(1,'Nume','Prenume','email@gmail.com','username','pass','Romania', 'Iasi', '0232245456', 'https://www.bluecross.org.uk/sites/default/files/assets/images/124044lpr.jpg');
+insert into site_users values(2,'Anca','Moisa','anca@gmail.com','ancam','parola1', 'Germania', 'Berlin', '0893294234', 'http://www.keresztenyelet.hu/wp-content/uploads/2018/03/Igazi-%C3%A1llatbar%C3%A1t.jpg');
+insert into site_users values(3,'Alina','Zamfir','alina@gmail.com','alinaz','hr327g', 'Austria', 'Viena', '8364762398', 'https://www.moje-kocka.cz/foto-clanky/lkal2.jpg');
+insert into site_users values(4,'Iulian','Andronache','iulian@gmail.com','aiuian','p32ruih', 'Romania', 'Brasov' , '073436277', 'https://d2kwjcq8j5htsz.cloudfront.net/2016/07/12163020/cat-elizabethan-collar-cone-TS-523822772-3.jpg');
+insert into site_users values(5,'Flori','Tanasiu','tanasiu@gmail.com','florentina','387yhu', 'Romania', 'Dorohoi', '0745262353', 'http://i0.kym-cdn.com/entries/icons/original/000/002/232/bullet_cat.jpg');
+insert into site_users values(6,'Rares','Dima','rdima@gmail.com','rdima','387yhu', 'Romania', 'Buzau', '072343645', 'http://r.ddmcdn.com/s_f/o_1/cx_0/cy_157/cw_1327/ch_1327/w_720/APL/uploads/2013/01/smart-cat-article.jpg');
+insert into site_users values(7,'Matei','Tarevici','mtarevici@gmail.com','mtarevici','yhuuu', 'Romania', 'Suceava', '07482765842', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWB6W7GLsVLLDYp72NtIGnB4r1aJVpVnOed17IB2abKLY_8tAl');
+insert into site_users values(8,'Vasile','Popescu','vasi@gmail.com','vasipop','vasip', 'Franta', 'Paris', '015423542', 'https://cdn.shopify.com/s/files/1/0344/6469/products/New-Cute-Pet-Cat-Costume-Cartoon-Funny-Pet-Cat-Clothes-Hot-Puppy-Clothing-Doctor-Uniform-Hat_copy_1024x1024.jpg?v=1504800100');
+insert into site_users values(9,'Ion','Ionescu','ionescu@gmail.com','ionion','387ion', 'Romania', 'Radauti', '072543372', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbviSJcx2a4U01BRinV9aTIrdxUBzy9ZCHs2WdNG49aanJilZG');
+insert into site_users values(10,'Alex','Alexa','alex@gmail.com','alex','alehu', 'Romania', 'Vaslui', '0231255255', 'https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg');
 
 insert into items values(12,2,'sticla','sticla plastic suc piersici',sysdate,sysdate);
 insert into items values(13,4,'cutit','cutit spania ascutit',sysdate,sysdate);
