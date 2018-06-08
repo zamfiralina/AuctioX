@@ -2,56 +2,62 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
     <title>AuctioX</title>
     <script  src="functions.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
-<body>	
+<body>
 
-   <header id="header">
-	  <div id="strapline">
-	    <div id="welcome_slogan">
-	      <h3>AuctioX</h3>
-	    </div><!--close welcome_slogan-->
-      </div><!--close strapline-->	  
-	  
-	  <nav>
-	    <div id="menubar">
-          <ul id="nav">
-			  <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
-			  <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
-			  <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
-          </ul>
-        </div><!--close menubar-->	
-      </nav>
-    </header>
-    <!--end_header-->
+  <header id="header">
+    <div id="strapline">
+      <div id="welcome_slogan">
+        <h3>AuctioX</h3>
+      </div><!--close welcome_slogan-->
+    </div><!--close strapline-->    
     
+    <nav>
+      <div id="menubar">
+          <ul id="nav">
+             <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
+          </ul>
+      </div><!--close menubar-->  
+    </nav>
+  </header>
+    <!--end_header-->
 
-	<div id="site_content">		
-	        
-		<div class="sidebar">
-			<div class="adv_search_carac">
-		  
-            <h3>Advaced Search</h3><br>
-		    <h4>Category:</h4>
+    
+	<div id="site_content">
+      
+      <div class="adv_search_carac" >
+
+            <br><br>
+            <h1>Advaced Search</h1><br><br>
+
+            <h2>Category:</h2><br>
+             <div>
                 <select >
-                	<option >Animals</option>
-                	<option >Chloting, Shoes & Accessories</option>
-                	<option >Toys & Hobbies</option>
-                	<option >Motorcycles</option>
-                	<option >Home & Office<</option>
-                	<option >Health & Beauty</option>
-                	<option >Electrical & Tools</option>
-                	<option >Consumer Electronics<</option>
+                  <option >Animals</option>
+                  <option >Chloting, Shoes & Accessories</option>
+                  <option >Toys & Hobbies</option>
+                  <option >Motorcycles</option>
+                  <option >Home & Office<</option>
+                  <option >Health & Beauty</option>
+                  <option >Electrical & Tools</option>
+                  <option >Consumer Electronics<</option>
                 </select>
+             </div>
+            <br><br>
+            <span>Item name: </span><br>
+                <input type="text" placeholder="ex. cat, doll, dress.." name="item_name" value="" />
             <br><br><br>
-            <h4>Category <br> caracteristics:</h4><br>
-			<span>Fabrication Country: </span><br>
+
+            <h2>Item caracteristics:</h2><br>
+            <span>Fabrication Country: </span><br>
             <input type="text" placeholder="Enter fabrication country" name="fab_country" value="" />
             <br><br>
             <span>Year of fabrication: </span><br>
@@ -65,125 +71,17 @@
             <br><br>
             <span>Color: </span><br>
             <input type="text" placeholder="Enter the color" name="color" value="" />
-           	<br> <br>
+            <br> <br>
             <span>Other specification: </span><br>
             <input type="text" placeholder="ex. scratched, rusty.." name="spec_carac" value="" />
             <br><br>
 
-				<button type="submit" value="submit">Submit</button>
+            <button type="submit" value="submit">Submit</button>
 
-            </div> <!--adv_search_carac-->
-            
-        </div><!--close sidebar-->
-   
+      </div> <!--close form_settings-->
 
-	   
-	    <div id="content">
-		
-			<form class="search-bar" style="max-width:400px">
-				<table>
-					<tr>
-			        	<th><input type="text" id = "index_search" placeholder="Search item" name="search2"></th>
-			        	<th></th>
-			        	<td></td>
-						<th><button type="button" id = "button_search" onclick="testSearch()">Search</button></th>
-					</tr>
-				</table>
-			</form>
+  </div><!--close site_content--> 
 
-		        
-			<table style = "width : 100%">
-				<tr>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a> 
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-
-				</tr>
-
-				<tr>
-
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-
-				</tr>
-
-				<tr>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
-						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-						 </a>
-						 <p>Wolf</p>
-						 <p>Last price: 1000 </p>
-						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
-					</td>
-				</tr>
-
-			</table>
-		  
-		</div><!--close content-->   
-	</div><!--site_content-->
-	 	
 </body>
 
 </html>
