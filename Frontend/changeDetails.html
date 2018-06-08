@@ -1,22 +1,18 @@
 <!DOCTYPE html> 
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>AuctioX</title>
-
-  <script type="text/javascript" src="functions.js"></script>
-  
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-
-  
+    <title>AuctioX</title>
+    <script  src="functions.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
-<body>
-  <div id="main">   
 
-    <header id="header">
+<body>
+  
+  <header id="header">
     <div id="strapline">
       <div id="welcome_slogan">
         <h3>AuctioX</h3>
@@ -26,19 +22,19 @@
     <nav>
       <div id="menubar">
           <ul id="nav">
-            <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
-            
+              <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
           </ul>
         </div><!--close menubar-->  
       </nav>
     </header>
+    <!--end_header-->
     
+
+
 	<div id="site_content">
-     
-	  <div id="content">
-        <div class="content_item">
-          <div class="form_settings">   
-           <br><br>
+
+    <div class="form_settings">   
+      <br><br>
       <span>First Name: </span><input type="text" placeholder="Add New Name" name="your_fstname" value="" /><br> <br> <br>
       <span>Last Name: </span><input type="text" placeholder="Add New Last Name" name="your_lstname" value="" /><br> <br> <br>
       <span>Country: </span>
@@ -65,14 +61,11 @@
       <span>City: </span><input type="text" placeholder="Add New City" name="your_city" value="" /><br> <br> <br>
       <span>Tel.: </span><input type="tel" placeholder="Add New Tel." name="your_tel" value="" /><br> <br> <br>
       <span>Email Address: </span><input type="email" placeholder="Add New Email Adress" name="your_email" value="" /><br> <br> <br>
-      <span>Link to profile picture: </span><input type="url" placeholder="Add New Profile Image" name="your_picture" value="" /><br> <br> <br>
+      <span>Link to profile picture: </span><input type="url" placeholder="Add New Profile Image" name="your_picture" value="" /><br><br><br> 
       <input class="submit_button" type="submit" name="details_change" value="Change" />
-     </div><!--close form_settings-->
-		  
-	 </div><!--close content_item-->
-  </div><!--close content-->   
- </div><!--close site_content-->  	
-	
-</div><!--close main-->
+     
+    </div><!--close form_settings-->
+	 
+  </div><!--close site_content-->  	
 </body>
 </html>

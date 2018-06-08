@@ -14,88 +14,81 @@
 </head>
 
 <body>
-  <div id="main">		
 
-    <header class="header">
-	  <div id="strapline">
-	    <div id="welcome_slogan">
-	      <h3>AuctioX</h3>
-	    </div><!--close welcome_slogan-->
-      </div><!--close strapline-->	  
-	  
-	  <nav>
-	    <div id="menubar">
-          <ul id="nav">
-            <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
-            
-          </ul>
-        </div><!--close menubar-->	
-      </nav>
-    </header>
+	<header id="header">
+    	<div id="strapline">
+      		<div id="welcome_slogan">
+        		<h3>AuctioX</h3>
+      		</div><!--close welcome_slogan-->
+    	</div><!--close strapline-->    
+    
+    	<nav>
+      		<div id="menubar">
+          		<ul id="nav">
+             		<li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+          		</ul>
+      		</div><!--close menubar-->  
+    	</nav>
+  	</header>
+    <!--end_header-->
     
 	<div id="site_content">		
-	  
-	  <div class="sidebar_container">       
+	      
 		<div class="sidebar">
-          <div class="sidebar_item">
 
-			  <form>
-			  <input id = "new_offer" type="number" placeholder="New offer" required> <button id = "new_offer_button" type="submit" onclick=""> Make an offer </button>
-			  </form>
-          </div><!--close sidebar_item--> 
+			<form>
+				<input id = "new_offer" type="number" placeholder="New offer" required> <button id = "new_offer_button" type="submit" onclick=""> Make an offer </button>
+			</form>
         </div><!--close sidebar-->
-       </div><!--close sidebar_container-->	
 
 	   
-	  <div id="content">
-        <div class="content_item">
+	    <div id="content">
 		
-		  <table>
-			<th><td><h1 class = "item_title"> Wolf </h1></td></th>
+	    	<table>
+				<th><td><h1 class = "item_title"> Wolf </h1></td></th>
 
-			<tr>
-				<td> 
-					<a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-					<img id = "item_img" src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" alt="Wolf" >
-					</a>
-				</td>
-				<td class = "item_description"> 
-					<h2 class = "price"> Last price: **1000** </h2>
-
-				 <p class = "item_details">**Some general details (age, gender, name, size, weight, RAM, color, accesories, ingredients etc)** </p>
-					<p class = "item_details"> **Maybe some recommendations or... ** </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-					<p class = "item_details"> * </p>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<p class = "item_description"> ** Description... 1-3 paragraphs, depends on the owner of the product ** </p>
-				</td>
-				<td class = "item_owner">
-				<p class = "item_owner"> Owner: <a id = "testID" href = "#" onclick="gotoPage('profilePage')"> Username </a></p>
-				<p class = "item_owner"> Tel: 0123456789 </p>
-				<p class = "item_owner"> Email: owneremail@gmail.com </p>
-				<p class = "item_owner"> Address: Romania, Iasi (country, city)</p>
-				</td>
-			</tr>
-		  </table>
+			    <tr>
+					<td> 
+						<a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
+						<img id = "item_img" src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" alt="Wolf" >
+						</a>
+					</td>
 				
-		</div><!--close content_item-->
-      </div><!--close content-->   
+					<td class = "item_description"> 
+						<h2 class = "price"> Last price: **1000** </h2>
+                    	<p class = "item_details">**Some general details (age, gender, name, size, weight, RAM, color, accesories, ingredients etc)** </p>
+						<p class = "item_details"> **Maybe some recommendations or... ** </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+						<p class = "item_details"> * </p>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<p class = "item_description"> ** Description... 1-3 paragraphs, depends on the owner of the product ** </p>
+					</td>
+				
+					<td class = "item_owner">
+						<p class = "item_owner"> Owner: <a id = "testID" href = "#" onclick="gotoPage('profilePage')"> Username </a></p>
+						<p class = "item_owner"> Tel: 0123456789 </p>
+						<p class = "item_owner"> Email: owneremail@gmail.com </p>
+						<p class = "item_owner"> Address: Romania, Iasi (country, city)</p>
+					</td>
+				</tr>
+		 	</table>
+
+        </div><!--close content-->   
 	</div><!--close site_content-->
 	
-  </div><!--close main-->
-
 </body>
 </html>
+

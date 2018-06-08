@@ -1,19 +1,15 @@
 <!DOCTYPE html> 
-<html>
+<html lang="en">
 
 <head>
+	<meta charset="UTF-8">
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>AuctioX</title>
-
-	<script type="text/javascript" src="functions.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
+    <title>AuctioX</title>
+    <script  src="functions.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
-  <div id="main">		
 
     <header id="header">
 	  <div id="strapline">
@@ -26,177 +22,197 @@
 	    <div id="menubar">
           <ul id="nav">
 			  <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
-            
           </ul>
         </div><!--close menubar-->	
       </nav>
     </header>
+    <!--end_header-->
+
+
+
 	<div id="site_content">		
-	  
-	  <div class="sidebar_container">       
+	      
 		<div class="sidebar">
-          <div class="sidebar_item">
 		  
-		 
+		    <div class="adv_search">
+                <h3>Advaced Search</h3><br>
+		        <h4>Category:</h4><br>
 
-  <div class="adv_search">
-    <h3>Advanced Search</h3><br>
-		<h4>Category:</h4><br>
+	 			<button class="collapsible">Animals</button>
+	 			<div class="search-content">
+					<input type="checkbox" name="category"> Dogs<br>
+					<input type="checkbox" name="category"> Cats<br>
+					<input type="checkbox" name="category"> Parrots<br>
+		   			  <input type="checkbox" name="category"> Others<br>
+				</div>
 
-	  <button class="collapsible">Animals</button>
-	  <div class="search-content">
-		<input type="checkbox" name="category"> Dogs<br>
-			<input type="checkbox" name="category"> Cats<br>
-			<input type="checkbox" name="category"> Parrots<br>
-		    <input type="checkbox" name="category"> Others<br>
-		</div>
+	     		<button class="collapsible">Cars</button>
+	    		<div class="search-content">
+					<input type="checkbox" name="category"> Audi<br>
+			        <input type="checkbox" name="category"> BMW<br>
+			   	    <input type="checkbox" name="category"> Citroen<br>
+					<input type="checkbox" name="category"> Ferrari<br>
+					<input type="checkbox" name="category"> Lexus<br>
+					<input type="checkbox" name="category"> Peugeot<br>
+					<input type="checkbox" name="category"> Volkswagen<br>
+			 		<input type="checkbox" name="category"> Others<br>
+		        </div>
 
-	     <button class="collapsible">Cars</button>
-	     <div class="search-content">
-		<input type="checkbox" name="category"> Audi<br>
-			 <input type="checkbox" name="category"> BMW<br>
-			 <input type="checkbox" name="category"> Citroen<br>
-			 <input type="checkbox" name="category"> Ferrari<br>
-			 <input type="checkbox" name="category"> Lexus<br>
-			 <input type="checkbox" name="category"> Peugeot<br>
-			 <input type="checkbox" name="category"> Volkswagen<br>
-			 <input type="checkbox" name="category"> Others<br>
-		 </div>
+	  			<button class="collapsible">Clothing, Shoes & Accessories</button>
+	  			<div class="search-content">
+		 		 	<input type="checkbox" name="category"> Women's Dresses<br>
+		  			<input type="checkbox" name="category"> Women's Coats<br>
+		 			<input type="checkbox" name="category"> Men's Coats<br>
+		 			<input type="checkbox" name="category"> Men's Jeans<br>
+		 			<input type="checkbox" name="category"> Women's Jeans<br>
+		            <input type="checkbox" name="category"> Women's Tops<br>
+		            <input type="checkbox" name="category"> Others<br>
+	            </div>
 
-	  <button class="collapsible">Clothing, Shoes & Accessories</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Women's Dresses<br>
-		  <input type="checkbox" name="category"> Women's Coats<br>
-		  <input type="checkbox" name="category"> Men's Coats<br>
-		  <input type="checkbox" name="category"> Men's Jeans<br>
-		  <input type="checkbox" name="category"> Women's Jeans<br>
-		  <input type="checkbox" name="category"> Women's Tops<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	            <button class="collapsible">Toys & Hobbies</button>
+	            <div class="search-content">
+		  			<input type="checkbox" name="category"> Toys<br>
+		 			<input type="checkbox" name="category"> Cosplay & Costumes<br>
+		  			<input type="checkbox" name="category"> Puzzle & Educational Toys<br>
+		  			<input type="checkbox" name="category"> Gifts<br>
+		  			<input type="checkbox" name="category"> Gadget Toys<br>
+		  			<input type="checkbox" name="category"> Dolls & Stuffed Toys<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Toys & Hobbies</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Toys<br>
-		  <input type="checkbox" name="category"> Cosplay & Costumes<br>
-		  <input type="checkbox" name="category"> Puzzle & Educational Toys<br>
-		  <input type="checkbox" name="category"> Gifts<br>
-		  <input type="checkbox" name="category"> Gadget Toys<br>
-		  <input type="checkbox" name="category"> Dolls & Stuffed Toys<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	  			<button class="collapsible">Motorcycles</button>
+	  			<div class="search-content">
+		  			<input type="checkbox" name="category"> Yamaha<br>
+		  			<input type="checkbox" name="category"> Honda<br>
+		 			<input type="checkbox" name="category"> Ducati<br>
+		  			<input type="checkbox" name="category"> Kawasaki<br>
+		  			<input type="checkbox" name="category"> Harley Davidson<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Motorcycles</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Yamaha<br>
-		  <input type="checkbox" name="category"> Honda<br>
-		  <input type="checkbox" name="category"> Ducati<br>
-		  <input type="checkbox" name="category"> Kawasaki<br>
-		  <input type="checkbox" name="category"> Harley Davidson<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	  			<button class="collapsible">Home & Office</button>
+	  			<div class="search-content">
+		  			<input type="checkbox" name="category"> Alarm & Protection<br>
+		  			<input type="checkbox" name="category"> Home Improvement<br>
+		  			<input type="checkbox" name="category"> Kitchen & Dining<br>
+		  			<input type="checkbox" name="category"> Pet Supplies<br>
+		  			<input type="checkbox" name="category"> Gardening Supplies<br>
+		  			<input type="checkbox" name="category"> Decor<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Home & Office</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Alarm & Protection<br>
-		  <input type="checkbox" name="category"> Home Improvement<br>
-		  <input type="checkbox" name="category"> Kitchen & Dining<br>
-		  <input type="checkbox" name="category"> Pet Supplies<br>
-		  <input type="checkbox" name="category"> Gardening Supplies<br>
-		  <input type="checkbox" name="category"> Decor<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	  			<button class="collapsible">Health & Beauty</button>
+	  			<div class="search-content">
+		  			<input type="checkbox" name="category">  Wigs<br>
+		  			<input type="checkbox" name="category"> Health Caren<br>
+		  			<input type="checkbox" name="category"> Hairdressing Supplies<br>
+		  			<input type="checkbox" name="category"> Makeup Supplies<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	 			</div>
 
-	  <button class="collapsible">Health & Beauty</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category">  Wigs<br>
-		  <input type="checkbox" name="category"> Health Caren<br>
-		  <input type="checkbox" name="category"> Hairdressing Supplies<br>
-		  <input type="checkbox" name="category"> Makeup Supplies<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	  			<button class="collapsible">Sports & Outdoors</button>
+	  			<div class="search-content">
+		 			<input type="checkbox" name="category"> Sports Bags<br>
+		  			<input type="checkbox" name="category"> Knives & Multi-Tools<br>
+		  			<input type="checkbox" name="category"> Fitness<br>
+		 	 		<input type="checkbox" name="category"> Camping & Hiking<br>
+		  			<input type="checkbox" name="category"> Cycling<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Sports & Outdoors</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Sports Bags<br>
-		  <input type="checkbox" name="category"> Knives & Multi-Tools<br>
-		  <input type="checkbox" name="category"> Fitness<br>
-		  <input type="checkbox" name="category"> Camping & Hiking<br>
-		  <input type="checkbox" name="category"> Cycling<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	 			<button class="collapsible">Electrical & Tools</button>
+	 		 	<div class="search-content">
+		  			<input type="checkbox" name="category"> Gadgets<br>
+		  			<input type="checkbox" name="category"> Power Tools <br>
+		  			<input type="checkbox" name="category"> Plugs & Sockets<br>
+		  			<input type="checkbox" name="category"> Switches & Adapters<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Electrical & Tools</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Gadgets<br>
-		  <input type="checkbox" name="category"> Power Tools <br>
-		  <input type="checkbox" name="category"> Plugs & Sockets<br>
-		  <input type="checkbox" name="category"> Switches & Adapters<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	  			<button class="collapsible">Consumer Electronics</button>
+	  			<div class="search-content">
+		 			<input type="checkbox" name="category"> Smart Devices<br>
+		  			<input type="checkbox" name="category"> Portable Audio & Video<br>
+		  			<input type="checkbox" name="category"> Cameras, Photo & Video<br>
+		  			<input type="checkbox" name="category"> Bluetooth Devices<br>
+		  			<input type="checkbox" name="category"> Headphones & Accessories<br>
+		  			<input type="checkbox" name="category"> Others<br>
+	  			</div>
 
-	  <button class="collapsible">Consumer Electronics</button>
-	  <div class="search-content">
-		  <input type="checkbox" name="category"> Smart Devices<br>
-		  <input type="checkbox" name="category"> Portable Audio & Video<br>
-		  <input type="checkbox" name="category"> Cameras, Photo & Video<br>
-		  <input type="checkbox" name="category"> Bluetooth Devices<br>
-		  <input type="checkbox" name="category"> Headphones & Accessories<br>
-		  <input type="checkbox" name="category"> Others<br>
-	  </div>
+	 			<button class="collapsible">Others</button>
+	 			<div>
 
-	  <button class="collapsible">Others</button>
+				<span>Country: </span><br>
+                <select >
+                	<option >Romania</option>
+                	<option >Spain</option>
+                	<option >Italy</option>
+                	<option >Brasil</option>
+                	<option >Portugal</option>
+                	<option >U.S.A</option>
+                	<option >New Zealand</option>
+                	<option >Austria</option>
+                	<option >Cuba</option>
+                	<option >France</option>
+                	<option >Panama</option>
+                	<option >Greece</option>
+                	<option >Israel</option>
+                	<option >China</option>
+                	<option >Japan</option>
+                	<option >India</option>
+                	<option >Other</option>
+                </select><br><br>
 
-	<h4>Country:</h4><br>
-		<input type="checkbox" name="country"> Romania<br>
-		<input type="checkbox" name="country"> Spain<br>
-		<input type="checkbox" name="country"> France<br>
-		<input type="checkbox" name="country"> Greece<br>
-		<input type="checkbox" name="country"> Italy<br>
-		<input type="checkbox" name="country"> Other<br><br>
-		<h3>Price:</h3><br>
-		<select>
-			<option value="all">All prices</option>
-			<option value="min"> 1$ - 100$</option>
-			<option value="mid1">100$-500$</option>
-			<option value="mid2">500$-1000$</option>
-			<option value="max">>1S000$</option>
-		</select><br><br>
+				<span>Price:</span><br>
+				<select>
+					<option value="all">All prices</option>
+					<option value="min"> 1$ - 100$</option>
+					<option value="mid1">100$-500$</option>
+					<option value="mid2">500$-1000$</option>
+					<option value="max">>1S000$</option>
+				</select><br><br>
+			   </div>
 
-	<h4>Sort by:</h4><br>
-		<input type="radio" id="sortChoice1" name="sort" value="viewed">
-		<label for="sortChoice1">Most viewed</label><br>
+				<button class="collapsible">Sort by:</button>
+				<div class="search-content">
+					<input type="radio" id="sortChoice1" name="sort" value="viewed">
+					<label for="sortChoice1">Most viewed</label><br>
 
-		<input type="radio" id="sortChoice2" name="sort" value="bid">
-		<label for="sortChoice2">Most bidded</label><br>
+					<input type="radio" id="sortChoice2" name="sort" value="bid">
+					<label for="sortChoice2">Most bidded</label><br>
 
-		<input type="radio" id="sortChoice3" name="sort" value="recent">
-		<label for="sortChoice3">Most recent</label><br><br>
-	<button type="submit" value="submit">Submit</button>
-  </div>  
-          </div><!--close sidebar_item--> 
+					<input type="radio" id="sortChoice3" name="sort" value="recent">
+					<label for="sortChoice3">Most recent</label><br><br>
+			    </div>
+
+				<button type="submit" value="submit">Submit</button>
+
+            </div> <!--adv_search-->
+            
         </div><!--close sidebar-->
-       </div><!--close sidebar_container-->	
 
-	<div id="content">
-        <div class="content_item">
+
+
+	    <div id="content">
+        
            
-        <form class="search-barS" style="max-width:400px">
-			<table>
-				<tr>
-			        <th><input type="text" placeholder="Search item" name="search2"></th>
-			        <th></th>
-			        <td></td>
-					<th><button type="button" onclick="gotoPage('AdvancedSearch')">Search</button></th>
-				</tr>
-			</table>
-		</form>
+        	<form class="search-barS" style="max-width:400px">
+				<table>
+					<tr>
+			        	<th><input type="text" placeholder="Search item" name="search2"></th>
+			        	<th></th>
+			        	<td></td>
+						<th><button type="button" onclick="gotoPage('AdvancedSearch')">Search</button></th>
+					</tr>
+				</table>
+			</form>
 
 
 
 			<table style = "width : 100%">
 				<tr>
 					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width="150" height = "150" alt="Wolf" >
 					</a>
 						<p>Wolf</p>
 						<p>Last price: 1000 </p>
@@ -273,13 +289,10 @@
 					</td>
 				</tr>
 			</table>
-		  
-		</div><!--close content_item-->
-      </div><!--close content-->   
-	</div><!--close site_content-->  	
-
 	
-  </div><!--close main-->
+        </div><!--close content--> 	
+    </div><!--site_content-->
+
 
   <script>
       var coll = document.getElementsByClassName("collapsible");
