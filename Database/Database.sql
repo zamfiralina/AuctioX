@@ -94,15 +94,15 @@ insert into item_category values(1,12,3);
 insert into item_category values(2,10,4);
 insert into item_category values(3,10,4);
 insert into item_category values(4,10,2);
-insert into item_category values(4,5,2);
+insert into item_category values(13,5,2);
 insert into item_category values(5,5,4);
 insert into item_category values(6,4,4);
 insert into item_category values(7,3,3);
 insert into item_category values(8,2,4);
 insert into item_category values(9,1,2);
 insert into item_category values(10,1,4);
-insert into item_category values(10,6,4);
-insert into item_category values(10,7,4);
+insert into item_category values(12,6,4);
+insert into item_category values(11,7,4);
 
 
 insert into auctions values(4,12,123);
