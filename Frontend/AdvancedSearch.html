@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AuctioX</title>
     <script  src="functions.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
-<body>
+<body>	
 
-    <header id="header">
+   <header id="header">
 	  <div id="strapline">
 	    <div id="welcome_slogan">
 	      <h3>AuctioX</h3>
@@ -22,294 +23,167 @@
 	    <div id="menubar">
           <ul id="nav">
 			  <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+			  <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
+			  <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
           </ul>
         </div><!--close menubar-->	
       </nav>
     </header>
     <!--end_header-->
-
-
+    
 
 	<div id="site_content">		
-	      
+	        
 		<div class="sidebar">
+			<div class="adv_search_carac">
 		  
-		    <div class="adv_search">
-                <h3>Advaced Search</h3><br>
-		        <h4>Category:</h4><br>
-
-	 			<button class="collapsible">Animals</button>
-	 			<div class="search-content">
-					<input type="checkbox" name="category"> Dogs<br>
-					<input type="checkbox" name="category"> Cats<br>
-					<input type="checkbox" name="category"> Parrots<br>
-		   			  <input type="checkbox" name="category"> Others<br>
-				</div>
-
-	     		<button class="collapsible">Cars</button>
-	    		<div class="search-content">
-					<input type="checkbox" name="category"> Audi<br>
-			        <input type="checkbox" name="category"> BMW<br>
-			   	    <input type="checkbox" name="category"> Citroen<br>
-					<input type="checkbox" name="category"> Ferrari<br>
-					<input type="checkbox" name="category"> Lexus<br>
-					<input type="checkbox" name="category"> Peugeot<br>
-					<input type="checkbox" name="category"> Volkswagen<br>
-			 		<input type="checkbox" name="category"> Others<br>
-		        </div>
-
-	  			<button class="collapsible">Clothing, Shoes & Accessories</button>
-	  			<div class="search-content">
-		 		 	<input type="checkbox" name="category"> Women's Dresses<br>
-		  			<input type="checkbox" name="category"> Women's Coats<br>
-		 			<input type="checkbox" name="category"> Men's Coats<br>
-		 			<input type="checkbox" name="category"> Men's Jeans<br>
-		 			<input type="checkbox" name="category"> Women's Jeans<br>
-		            <input type="checkbox" name="category"> Women's Tops<br>
-		            <input type="checkbox" name="category"> Others<br>
-	            </div>
-
-	            <button class="collapsible">Toys & Hobbies</button>
-	            <div class="search-content">
-		  			<input type="checkbox" name="category"> Toys<br>
-		 			<input type="checkbox" name="category"> Cosplay & Costumes<br>
-		  			<input type="checkbox" name="category"> Puzzle & Educational Toys<br>
-		  			<input type="checkbox" name="category"> Gifts<br>
-		  			<input type="checkbox" name="category"> Gadget Toys<br>
-		  			<input type="checkbox" name="category"> Dolls & Stuffed Toys<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	  			<button class="collapsible">Motorcycles</button>
-	  			<div class="search-content">
-		  			<input type="checkbox" name="category"> Yamaha<br>
-		  			<input type="checkbox" name="category"> Honda<br>
-		 			<input type="checkbox" name="category"> Ducati<br>
-		  			<input type="checkbox" name="category"> Kawasaki<br>
-		  			<input type="checkbox" name="category"> Harley Davidson<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	  			<button class="collapsible">Home & Office</button>
-	  			<div class="search-content">
-		  			<input type="checkbox" name="category"> Alarm & Protection<br>
-		  			<input type="checkbox" name="category"> Home Improvement<br>
-		  			<input type="checkbox" name="category"> Kitchen & Dining<br>
-		  			<input type="checkbox" name="category"> Pet Supplies<br>
-		  			<input type="checkbox" name="category"> Gardening Supplies<br>
-		  			<input type="checkbox" name="category"> Decor<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	  			<button class="collapsible">Health & Beauty</button>
-	  			<div class="search-content">
-		  			<input type="checkbox" name="category">  Wigs<br>
-		  			<input type="checkbox" name="category"> Health Caren<br>
-		  			<input type="checkbox" name="category"> Hairdressing Supplies<br>
-		  			<input type="checkbox" name="category"> Makeup Supplies<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	 			</div>
-
-	  			<button class="collapsible">Sports & Outdoors</button>
-	  			<div class="search-content">
-		 			<input type="checkbox" name="category"> Sports Bags<br>
-		  			<input type="checkbox" name="category"> Knives & Multi-Tools<br>
-		  			<input type="checkbox" name="category"> Fitness<br>
-		 	 		<input type="checkbox" name="category"> Camping & Hiking<br>
-		  			<input type="checkbox" name="category"> Cycling<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	 			<button class="collapsible">Electrical & Tools</button>
-	 		 	<div class="search-content">
-		  			<input type="checkbox" name="category"> Gadgets<br>
-		  			<input type="checkbox" name="category"> Power Tools <br>
-		  			<input type="checkbox" name="category"> Plugs & Sockets<br>
-		  			<input type="checkbox" name="category"> Switches & Adapters<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	  			<button class="collapsible">Consumer Electronics</button>
-	  			<div class="search-content">
-		 			<input type="checkbox" name="category"> Smart Devices<br>
-		  			<input type="checkbox" name="category"> Portable Audio & Video<br>
-		  			<input type="checkbox" name="category"> Cameras, Photo & Video<br>
-		  			<input type="checkbox" name="category"> Bluetooth Devices<br>
-		  			<input type="checkbox" name="category"> Headphones & Accessories<br>
-		  			<input type="checkbox" name="category"> Others<br>
-	  			</div>
-
-	 			<button class="collapsible">Others</button>
-	 			<div>
-
-				<span>Country: </span><br>
+            <h3>Advaced Search</h3><br>
+		    <h4>Category:</h4>
                 <select >
-                	<option >Romania</option>
-                	<option >Spain</option>
-                	<option >Italy</option>
-                	<option >Brasil</option>
-                	<option >Portugal</option>
-                	<option >U.S.A</option>
-                	<option >New Zealand</option>
-                	<option >Austria</option>
-                	<option >Cuba</option>
-                	<option >France</option>
-                	<option >Panama</option>
-                	<option >Greece</option>
-                	<option >Israel</option>
-                	<option >China</option>
-                	<option >Japan</option>
-                	<option >India</option>
-                	<option >Other</option>
-                </select><br><br>
-
-				<span>Price:</span><br>
-				<select>
-					<option value="all">All prices</option>
-					<option value="min"> 1$ - 100$</option>
-					<option value="mid1">100$-500$</option>
-					<option value="mid2">500$-1000$</option>
-					<option value="max">>1S000$</option>
-				</select><br><br>
-			   </div>
-
-				<button class="collapsible">Sort by:</button>
-				<div class="search-content">
-					<input type="radio" id="sortChoice1" name="sort" value="viewed">
-					<label for="sortChoice1">Most viewed</label><br>
-
-					<input type="radio" id="sortChoice2" name="sort" value="bid">
-					<label for="sortChoice2">Most bidded</label><br>
-
-					<input type="radio" id="sortChoice3" name="sort" value="recent">
-					<label for="sortChoice3">Most recent</label><br><br>
-			    </div>
+                	<option >Animals</option>
+                	<option >Chloting, Shoes & Accessories</option>
+                	<option >Toys & Hobbies</option>
+                	<option >Motorcycles</option>
+                	<option >Home & Office<</option>
+                	<option >Health & Beauty</option>
+                	<option >Electrical & Tools</option>
+                	<option >Consumer Electronics<</option>
+                </select>
+            <br><br><br>
+            <h4>Category <br> caracteristics:</h4><br>
+			<span>Fabrication Country: </span><br>
+            <input type="text" placeholder="Enter fabrication country" name="fab_country" value="" />
+            <br><br>
+            <span>Year of fabrication: </span><br>
+            <input type="text" placeholder="Enter the year" name="fab_year" value="" />
+            <br> <br> 
+            <span>Condition: </span><br>
+            <input type="text" placeholder="ex. new, old.." name="condition" value="" />
+            <br> <br>
+            <span>Material: </span><br>
+            <input type="text" placeholder="ex. leather, steel, plastic, iron.." name="material" value="" />
+            <br><br>
+            <span>Color: </span><br>
+            <input type="text" placeholder="Enter the color" name="color" value="" />
+           	<br> <br>
+            <span>Other specification: </span><br>
+            <input type="text" placeholder="ex. scratched, rusty.." name="spec_carac" value="" />
+            <br><br>
 
 				<button type="submit" value="submit">Submit</button>
 
-            </div> <!--adv_search-->
+            </div> <!--adv_search_carac-->
             
         </div><!--close sidebar-->
+   
 
-
-
+	   
 	    <div id="content">
-        
-           
-        	<form class="search-barS" style="max-width:400px">
+		
+			<form class="search-bar" style="max-width:400px">
 				<table>
 					<tr>
-			        	<th><input type="text" placeholder="Search item" name="search2"></th>
+			        	<th><input type="text" id = "index_search" placeholder="Search item" name="search2"></th>
 			        	<th></th>
 			        	<td></td>
-						<th><button type="button" onclick="gotoPage('AdvancedSearch')">Search</button></th>
+						<th><button type="button" id = "button_search" onclick="testSearch()">Search</button></th>
 					</tr>
 				</table>
 			</form>
 
-
-
+		        
 			<table style = "width : 100%">
 				<tr>
 					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width="150" height = "150" alt="Wolf" >
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a> 
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
+
 				</tr>
+
 				<tr>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
+
 				</tr>
+
 				<tr>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
-					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg">
-						<img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
-					</a>
-						<p>Wolf</p>
-						<p>Last price: 1000 </p>
-						<p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
-						<a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
+					<td> <a href = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg"> 
+						 <img src = "http://elelur.com/data_images/mammals/wolf/wolf-01.jpg" width = "150" height = "150" alt="Wolf">
+						 </a>
+						 <p>Wolf</p>
+						 <p>Last price: 1000 </p>
+						 <p> A domestic wolf, the perfect pet, loyal and friendly, good for families :) </p>
+						 <a href = "#" onclick="gotoPage('ItemPage')"> Read more... </a>
 					</td>
 				</tr>
+
 			</table>
-	
-        </div><!--close content--> 	
-    </div><!--site_content-->
-
-
-  <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-              this.classList.toggle("active");
-              var content = this.nextElementSibling;
-              if (content.style.display === "block") {
-                  content.style.display = "none";
-              } else {
-                  content.style.display = "block";
-              }
-          });
-      }
-  </script>
-
+		  
+		</div><!--close content-->   
+	</div><!--site_content-->
+	 	
 </body>
+
 </html>

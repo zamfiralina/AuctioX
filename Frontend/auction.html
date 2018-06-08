@@ -22,6 +22,8 @@
       <div id="menubar">
           <ul id="nav">
              <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
           </ul>
       </div><!--close menubar-->  
     </nav>
@@ -34,144 +36,71 @@
       <div class="form_settings" >
         <h1>New auction</h1>
         <br><br><br>
-        <div id="data_content">
-        <span>Country: </span>
-          <select>
-            <option >Romania</option>
-            <option >Spain</option>
-            <option >Italy</option>
-            <option >Brasil</option>
-            <option >Portugal</option>
-            <option >U.S.A</option>
-            <option >New Zealand</option>
-            <option >Austria</option>
-            <option >Cuba</option>
-            <option >France</option>
-            <option >Panama</option>
-            <option >Greece</option>
-            <option >Israel</option>
-            <option >China</option>
-            <option >Japan</option>
-            <option >India</option>
-            <option >Other</option>
-          </select>
-          <br><br><br>
-          <span>City: </span><input type="text" placeholder="Enter city name" name="auct_city" value="" /><br> <br> <br>
-          <span>Product Name: </span><input type="text" placeholder="Enter the product name" name="prod_name" value="" /><br> <br> <br>
+        <div id="data-auction">
+        <span>Product name: </span><input type="text" placeholder="Enter the product name" name="prod_name" value="" /><br> <br> <br>
           <span>Category: </span>
             <select>
-              <optgroup label="Animals">
-                      <option value="Cat">Cat</option>
-                      <option value="Dog">Dog</option>
-                      <option value="Parrots">Parrots</option>
-                      <option value="Others">Others</option>
-              </optgroup>
-                  
-              <optgroup label="Cars">
-                      <option>BMW</option>
-                      <option>Dog</option>
-                      <option>Parrots</option>
-                      <option>Others</option>
-              </optgroup>
-                  
-              <optgroup label="Clothing, Shoes & Accessories">
-                      <option> Women's Dresses</option>
-                      <option> Women's Coats</option>
-                      <option> Men's Coats</option>
-                      <option> Men's Jeans</option>
-                      <option> Women's Jeans</option>
-                      <option> Women's Tops</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label=" Toys & Hobbies">
-                      <option> Toys</option>
-                      <option> Cosplay & Costumes</option>
-                      <option> Puzzle & Educational Toys</option>
-                      <option> Gifts</option>
-                      <option> Gadget Toys</option>
-                      <option> Dolls & Stuffed Toys</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Motorcycles">
-                      <option> Yamaha</option>
-                      <option> Honda</option>
-                      <option> Ducati</option>
-                      <option> Kawasaki</option>
-                      <option> Harley Davidson</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Home & Office">
-                      <option> Alarm & Protection</option>
-                      <option> Home Improvement</option>
-                      <option> Kitchen & Dining</option>
-                      <option> Pet Supplies</option>
-                      <option> Gardening Supplies</option>
-                      <option> Decor</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Health & Beauty">
-                      <option> Wigs</option>
-                      <option> Health Caren</option>
-                      <option> Hairdressing Supplies</option>
-                      <option> Makeup Supplies</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Sports & Outdoors">
-                      <option> Sports Bags</option>
-                      <option> Knives & Multi-Tools</option>
-                      <option> Fitness</option>
-                      <option> Camping & Hiking</option>
-                      <option> Cycling</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Electrical & Tools">
-                      <option> Gadgets</option>
-                      <option> Power Tools</option>
-                      <option> Plugs & Sockets</option>
-                      <option> Switches & Adapters</option>
-                      <option> Others</option>
-              </optgroup>
-
-              <optgroup label="Consumer Electronics">
-                      <option> Smart Devices</option>
-                      <option> Portable Audio & Video</option>
-                      <option> Cameras, Photo & Video</option>
-                      <option> Bluetooth Devices</option>
-                      <option> Headphones & Accessories</option>
-                      <option> Others</option>
-              </optgroup>
-
+              <option>Animals</option>
+              <option>Chloting, Shoes & Accessories</option>
+              <option>Toys & Hobbies</option>
+              <option>Motorcycles</option>
+              <option>Home & Office</option>
+              <option>Health & Beauty</option>
+              <option>Electrical & Tools</option>
+              <optioan>Consumer Electronics</option>
               <option>Other</option>
             </select>
             <br> <br> <br>
+            <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" name="prod_pic" value="" /><br> <br> <br>
+            <span>Start price: </span><input type="number" placeholder="Starting price of the product" name="start_price" value="" /><br> <br> <br>
+            <span>Start date: </span><input type="date" name="start_date" value="" /><br> <br> <br>
+            <span>End date: </span><input type="date" name="end_date" value="" /><br> <br> <br>
+            
             <span>Short description: </span><br>
             <textarea placeholder="A few words about the product"></textarea>
             <br><br><br>
-            <span>Condition: </span>
-             <select >
-                <option >New</option>
-                <option >Used</option>
-                <option >Not specified </option>
-             </select>
-            <br> <br> <br>
-           <span>Instructions: </span><br>
-            <textarea placeholder="Relevant informations on how to use the product"></textarea>
+
+
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Fabrication country: </span>
+              <select>
+                <option >Romania</option>
+                <option >Spain</option>
+                <option >Italy</option>
+                <option >Brasil</option>
+                <option >Portugal</option>
+                <option >U.S.A</option>
+                <option >New Zealand</option>
+                <option >Austria</option>
+                <option >Cuba</option>
+                <option >France</option>
+                <option >Panama</option>
+                <option >Greece</option>
+                <option >Israel</option>
+                <option >China</option>
+                <option >Japan</option>
+                <option >India</option>
+                <option >Not specified</option>
+              </select>
             <br><br><br>
-           <span>Special characteristics: </span><br>
-             <textarea placeholder="Details about special characteristics"></textarea>
-           <br><br><br>
-           <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" name="prod_pic" value="" /><br> <br> <br>
-           <span>Start price: </span><input type="number" placeholder="Starting price of the product" name="start_price" value="" /><br> <br> <br>
-           <span>Start date: </span><input type="date" name="start_date" value="" /><br> <br> <br>
-           <span>End date: </span><input type="date" name="end_date" value="" /><br> <br> <br>
-           <input class="submit_button" type="submit" name="add_auction" value="Submit" />
-          </div><!--data_content-->
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Year of fabrication: </span><input type="text" placeholder="Enter the year" name="fab_year" value="" />
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Condition: </span><input type="text" placeholder="ex. new, old.." name="condition" value="" />
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Material: </span><input type="text" placeholder="ex. leather, steel, plastic, iron.." name="material" value="" />
+            <br><br><br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Color: </span><input type="text" placeholder="Enter the color" name="color" value="" />
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Other specification: </span><input type="text" placeholder="ex. scratched, rusty.." name="spec_carac" value="" />
+            <br><br><br>
+            <button type="button">Search</button></th>
+           
+          </div><!--data-auction-->
 
        </div><!--close form_setings--> 
 
