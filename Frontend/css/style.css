@@ -15,6 +15,7 @@ body {
   font: normal 80%  sans-serif;*/
   color: black;
   max-width: 100%;
+
 }
 
 
@@ -69,11 +70,12 @@ nav
 #site_content{ 
   width: 960px;
   overflow: hidden;
-  margin-bottom: 0px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 100px;
   padding-right: 50px;
   background:#e6e6e6; 
-  margin-left: 120px;
   }
 
 
@@ -110,7 +112,7 @@ h2.price {
   /*ChangeDetails ProfilePage and auction*/ 
 
   .form_settings {
-   width: 300px;
+   width: 350px;
    /*padding-left: 50px;*/
    padding-left: 100px;
    display: block;
@@ -118,7 +120,7 @@ h2.price {
 
   .form_settings #data_content{
     max-width:100%;
-    width:300px;
+    width:500px;
     height: 100%;
 
   }
@@ -407,7 +409,7 @@ ul#nav li.current a, ul#nav li:hover a{
 }
 
 
-/*advanceSearch si itemPage content*/
+/*AdvSearch si itemPage content*/
 
 .content {
     padding: 0 18px;
@@ -427,15 +429,20 @@ ul#nav li.current a, ul#nav li:hover a{
     /*background-color:#e6e6e6;*/
     color: black;
     cursor: pointer;
+    width: 200px;
     /*padding: 18px;*/
-    width: 100%;
+    max-width: 100%;
+    /*padding: 25px 40px;*/
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 15px;
     box-shadow: none;
-    background-size: 10px;
+    /*background-size: 10px;*/
     background-color: #A9A9A9;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
 }
 
 .active, .collapsible:hover {
@@ -471,7 +478,9 @@ ul#nav li.current a, ul#nav li:hover a{
     padding: 5px;
 }
 
-.adv_search{
+
+
+/*.adv_search{
   color:black;
   font-family: verdana, sans serif;
   font-size: 125%;
@@ -479,8 +488,28 @@ ul#nav li.current a, ul#nav li:hover a{
   width: 680px;
   margin-top: 20px;
   margin-bottom: 20px;
+}*/
 
+.adv_search_carac{
+  color:black;
+  font-family: verdana, sans serif;
+  font-size: 125%;
+  display: table;
+  width: 680px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.adv_search_carac input{
+  width:200px;
+}
+.adv_search_carac select{
+  width: 200px;
+  font-size: 17px;
+}
+
+#adv_carac{
+  margin-left: 15px;
 }
 
 
@@ -531,6 +560,22 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
+
+#data-auction{
+  max-width: 100%;
+  width:600;
+}
+
+#data-auction input {
+  width:400px; 
+  height:40px;
+}
+
+#data-auction textarea {
+  width:405px; 
+  height:89px;
+}
+
 
 
 
