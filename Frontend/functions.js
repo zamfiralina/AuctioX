@@ -1,3 +1,15 @@
+function getValueFromCookies(key) {
+    var cookie = document.cookie.split("; ").filter(function (c) { return !c.split("=")[0].localeCompare("ceva"); } );
+    if (cookie.length == 0)
+        return "";
+    else
+        return cookie[0].split("=")[1];
+}
+
+function putValueInCookies(key, value) {
+    document.cookie = key + "=" + value;
+}
+
 function gotoPage(page) {
     //document.getElementById("elementID").onclick.apply(location.href, location.href = page.toString().concat(".html"));
 
@@ -46,11 +58,18 @@ function login() {
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200){
-                    //document.getElementById("getText").innerHTML = this.responseText
-                    window.alert(this.responseText)
+                    putValueInCookies("userHash=", this.responseText.split("?")[1]);
+
+                    window.alert(getValueFromCookies("userHash"));
                 }
             };
 
     xhttp.open("GET", requestText, true);
     xhttp.send();
+}
+
+function gotoMyProfile() {
+
+
+
 }

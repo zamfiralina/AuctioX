@@ -11,6 +11,8 @@ from Backend.Functions.testSearch import testSearch
 class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
         db_conn = DBConnection.connect("WEB", "WEB", "localhost")
 
+        activeUsers = dict()
+
         content_types = {'.css': 'text/css',
                          '.gif': 'image/gif',
                          '.htm': 'text/html',
@@ -79,7 +81,8 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith("/LOGIN"):
                         receivedUsername = requestContents.split("?")[1]
                         receivedPassword = requestContents.split("?")[2]
-                        content_body = login(receivedUsername, receivedPassword, self.__class__.db_conn)
+                        content_body = login(receivedUsername, receivedPassword, self.__class__.db_conn, self.__class__.activeUsers)
+                        print(content_body)
 
                 return content_type, content_body
 

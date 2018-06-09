@@ -1,5 +1,8 @@
 import cx_Oracle
 
+from Backend.DBController.SyntaxFormatter import SyntaxFormatter
+
+
 class DBConnection:
 
     def __init__(self, address):
@@ -22,6 +25,7 @@ class DBConnection:
     def execute(self, command):
         # executes the string as an SQL command, returning a list of tuples corresponding to the result
         try:
+            command = SyntaxFormatter.formatCommand(command)
             self.__dbCursor.execute(command)
             self.__statementResult = self.__dbCursor.fetchall()
             return self.__statementResult
