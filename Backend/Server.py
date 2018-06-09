@@ -4,7 +4,7 @@ from typing import Tuple
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from Backend.DBController.DBConnection import DBConnection
-from Backend.Functions.login import login
+from Backend.Functions.login import login, logout
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.testSearch import testSearch
 
@@ -82,6 +82,10 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         receivedPassword = requestContents.split("?")[2]
                         content_body = login(receivedUsername, receivedPassword, self.__class__.db_conn, self.__class__.activeUsers)
                         print(content_body)
+
+                if requestContents.startswith("/LOGOUT"):
+                        userHash = requestContents.split("?")[1].replace("%20", " ")
+                        content_body = logout(userHash, self.__class__.activeUsers)
 
                 if requestContents.startswith("/GETPROFILEINFO"):
                         userHash = requestContents.split("?")[1].replace("%20", " ")

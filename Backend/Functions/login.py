@@ -24,3 +24,11 @@ def login(username: str, password: str, db_conn: DBConnection, activeUsers: dict
                 userHash = unicodeHash(username + password + str(time.asctime()))
                 activeUsers[userHash] = username
                 return ("LOGINSUCCESS?" + userHash).encode()
+
+
+def logout(userHash: str, activeUsers: dict) -> bytes:
+        try:
+                del activeUsers[userHash]
+                return b'LOGOUTSUCCESS'
+        except:
+                return b'LOGOUTFAIL'
