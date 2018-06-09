@@ -11,6 +11,8 @@ class DBConnection:
         self.__dbCursor = self.__dbConnection.cursor()
         self.__statementResult = []
 
+        self._DEBUG_dbCursor = self.__dbCursor
+
     @staticmethod
     def connect(username, password, dbAddress):
         return DBConnection(str(username + "/" + password + "@" + dbAddress))
@@ -22,12 +24,19 @@ class DBConnection:
     def version(self):
         return self.__dbConnection.version
 
-    def execute(self, command):
+    def execute(self, *command):
         # executes the string as an SQL command, returning a list of tuples corresponding to the result
         try:
-            command = SyntaxFormatter.formatCommand(command)
-            self.__dbCursor.execute(command)
-            self.__statementResult = self.__dbCursor.fetchall()
+            if type(command) is tuple:
+                args = command[1:]
+                command = command[0]
+                command = SyntaxFormatter.formatCommand(command)
+                self.__dbCursor.execute(command, *args)
+                self.__statementResult = self.__dbCursor.fetchall()
+            else:
+                command = SyntaxFormatter.formatCommand(command)
+                self.__dbCursor.execute(command)
+                self.__statementResult = self.__dbCursor.fetchall()
             return self.__statementResult
 
         except cx_Oracle.Error as e:
