@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from Backend.DBController.DBConnection import DBConnection
 from Backend.Functions.login import login, logout
 from Backend.Functions.profile import getProfileInfo
+from Backend.Functions.register import register
 from Backend.Functions.testSearch import testSearch
 
 
@@ -90,6 +91,20 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith("/GETPROFILEINFO"):
                         userHash = requestContents.split("?")[1].replace("%20", " ")
                         content_body = getProfileInfo(self.__class__.activeUsers[userHash], self.__class__.db_conn)
+
+                if requestContents.startswith("/REGISTER"):
+                    print(requestContents)
+                    fname = requestContents.split("?")[1]
+                    lname = requestContents.split("?")[2]
+                    username = requestContents.split("?")[3]
+                    password = requestContents.split("?")[4]
+                    country = requestContents.split("?")[5]
+                    city = requestContents.split("?")[6]
+                    tel = requestContents.split("?")[7]
+                    email = requestContents.split("?")[8]
+                    link = requestContents.split("?")[9]
+                    content_body = register(fname, lname, username, password, country, city, tel, email, link, self.__class__.db_conn)
+
 
                 return content_type, content_body
 
