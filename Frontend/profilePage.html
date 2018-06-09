@@ -70,7 +70,7 @@
 
 	      <div id='parent_div_1'>
             <div class ='child_div_1'>
-				<a id = "userImage"><img src = "https://i.pinimg.com/originals/2a/c8/18/2ac818cafbf8582397fbf7002b4e4b50.jpg" height="150" width="150" alt="Wolf"></a>
+				<a id = "userImage"></a>
 	           <br><br>
 				<p><span>First name: </span><a id = "userFirstName"> </a></p><br>
 				<p><span>Last name: </span><a id = "userLastName"> </a></p><br>
@@ -80,6 +80,9 @@
 				<p><span>Tel: </span><a id = "userTel"> </a></p><br>
 			       <button class="Cg_Details_Button" type="button" onclick="gotoPage('changeDetails')">Change Details</button>
             </div><!--close child_div_1-->
+			  <script>
+			  		getLoggedInUserProfileInfo()
+			  </script>
         </div><!--close parent_div_1-->
        
     </div><!--close content-->   

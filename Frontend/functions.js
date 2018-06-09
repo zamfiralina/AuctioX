@@ -62,7 +62,7 @@ function login() {
                         window.alert("Login failed, incorrect username or password.");
                     else {
                         putValueInCookies("userHash", this.responseText.split("?")[1]);
-                        gotoMyProfile();
+                        gotoPage("profilePage");
                     }
                 }
             };
@@ -71,7 +71,36 @@ function login() {
     xhttp.send();
 }
 
-function gotoMyProfile() {
+function getLoggedInUserIndexInfo() {
+     var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+
+                    var profileFields = this.responseText.split("?");
+
+                    var firstName = profileFields[0];
+                    var lastName  = profileFields[1];
+                    var email     = profileFields[2];
+                    var username  = profileFields[3];
+                    var country   = profileFields[4];
+                    var city      = profileFields[5];
+                    var tel       = profileFields[6];
+                    var picLink   = profileFields[7];
+
+                    document.getElementById("loginArea").innerHTML = "<div align='right' onclick = \"gotoPage('profilePage')\">"+username+"</div>";
+                    document.getElementById("loginAreaHeader").innerHTML = "Logged in:";
+                }
+            };
+
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
+
+function getLoggedInUserProfileInfo() {
     var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
 
     var xhttp = new XMLHttpRequest();
@@ -79,11 +108,32 @@ function gotoMyProfile() {
     xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200){
 
-                    window.alert(this.responseText);
+                    var profileFields = this.responseText.split("?");
+
+                    var firstName = profileFields[0];
+                    var lastName  = profileFields[1];
+                    var email     = profileFields[2];
+                    var username  = profileFields[3];
+                    var country   = profileFields[4];
+                    var city      = profileFields[5];
+                    var tel       = profileFields[6];
+                    var picLink   = profileFields[7];
+
+                    document.getElementById("userFirstName").innerHTML = firstName;
+                    document.getElementById("userLastName").innerHTML = lastName;
+                    document.getElementById("userCountryID").innerHTML = email;
+                    document.getElementById("userCity").innerHTML = country;
+                    document.getElementById("userEmail").innerHTML = city;
+                    document.getElementById("userTel").innerHTML = tel;
+                    document.getElementById("userImage").innerHTML = "<img src = '" + picLink + "'></img>";
                 }
             };
 
 
     xhttp.open("GET", requestText, true);
     xhttp.send();
+}
+
+function isUserLoggedIn() {
+    return getValueFromCookies("userHash").localeCompare("");
 }

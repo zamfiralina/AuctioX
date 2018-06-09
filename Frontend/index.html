@@ -34,22 +34,21 @@
 	        
 		<div class="sidebar">
 
-			<h2>Login</h2>
+			<h2 id = "loginAreaHeader">Login</h2>
 		  
-			<div class="container">
+			<div class="container"> <a id = "loginArea">
 				<label for="u_name"><b>Username</b></label>
 					<input type="text" id="username_id" placeholder="Enter Username" required>
 
 				<label><b>Password</b></label>
 					<input type="password"  id="password_id" placeholder="Enter Password" required>
-        
+
 				<button type="submit" onclick = "login()">Login</button>
 
 				<br><br>
 
 				<button type="button" onclick="gotoPage('register')">Register</button>
-
-			</div>
+			</a></div>
  
 		</div><!--close sidebar-->
    
@@ -160,6 +159,11 @@
 		  
 		</div><!--close content-->   
 	</div><!--site_content-->
+
+   <script>
+	   if(isUserLoggedIn())
+	       getLoggedInUserIndexInfo();
+   </script>
 	 	
 </body>
 
