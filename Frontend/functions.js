@@ -1,5 +1,5 @@
 function getValueFromCookies(key) {
-    var cookie = document.cookie.split("; ").filter(function (c) { return !c.split("=")[0].localeCompare("ceva"); } );
+    var cookie = document.cookie.split("; ").filter(function (c) { return !c.split("=")[0].localeCompare(key); } );
     if (cookie.length == 0)
         return "";
     else
@@ -58,9 +58,12 @@ function login() {
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200){
-                    putValueInCookies("userHash=", this.responseText.split("?")[1]);
-
-                    window.alert(getValueFromCookies("userHash"));
+                    if(!this.responseText.localeCompare("LOGINFAIL"))
+                        window.alert("Login failed, incorrect username or password.");
+                    else {
+                        putValueInCookies("userHash", this.responseText.split("?")[1]);
+                        gotoMyProfile();
+                    }
                 }
             };
 
@@ -69,7 +72,18 @@ function login() {
 }
 
 function gotoMyProfile() {
+    var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+
+                    window.alert(this.responseText);
+                }
+            };
 
 
-
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
 }

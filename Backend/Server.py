@@ -5,6 +5,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from Backend.DBController.DBConnection import DBConnection
 from Backend.Functions.login import login
+from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.testSearch import testSearch
 
 
@@ -69,9 +70,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents == '/' or requestContents == self.path and self.path == self.path.split('?')[0]:
                         if self.path == '/' or self.path == '/favicon.ico':
                                 self.path = '/index.html'
-
                         content_type = self.__class__.content_types[os.path.splitext(self.path)[1]]
-
                         content_body = open('../Frontend' + self.path, 'rb').read()
 
                 if requestContents.startswith("/SEARCH"):
@@ -83,6 +82,10 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         receivedPassword = requestContents.split("?")[2]
                         content_body = login(receivedUsername, receivedPassword, self.__class__.db_conn, self.__class__.activeUsers)
                         print(content_body)
+
+                if requestContents.startswith("/GETPROFILEINFO"):
+                        userHash = requestContents.split("?")[1].replace("%20", " ")
+                        content_body = getProfileInfo(self.__class__.activeUsers[userHash], self.__class__.db_conn)
 
                 return content_type, content_body
 
