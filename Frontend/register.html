@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,8 +15,8 @@
       <div id="welcome_slogan">
         <h3>AuctioX</h3>
       </div><!--close welcome_slogan-->
-    </div><!--close strapline-->    
-    
+    </div><!--close strapline-->
+
     <nav>
       <div id="menubar">
           <ul id="nav">
@@ -24,24 +24,24 @@
              <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
              <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
           </ul>
-      </div><!--close menubar-->  
+      </div><!--close menubar-->
     </nav>
   </header>
     <!--end_header-->
-    
+
 	<div id="site_content">
-  
+
 		<div class="form_settings">
 
        <div id="data_content">
         <h1>Register:</h1>
-        <br><br><br>       
-			  <span>First Name: </span><input type="text" placeholder="Add Name" name="your_fstname" value="" /><br> <br> <br>
-        <span>Last Name: </span><input type="text" placeholder="Add Last Name" name="your_lstname" value="" /><br> <br> <br>
-        <span>Username: </span><input type="text" placeholder="Add Username" name="your_username" value="" /><br> <br> <br>
-        <span>Password: </span><input type="password" placeholder="Add Password" name="your_pass" value="" /><br> <br> <br>
-        <span>Confirm password: </span><input class="contact" placeholder="Confirm Password" type="password" name="your_pass_conf" value="" /><br><br> <br>
-        <span>Country: </span>
+        <br><br><br>
+			  <span>First Name: </span><input type="text" placeholder="Add Name" id="your_fsname" value="" /><br> <br> <br>
+        <span>Last Name: </span><input type="text" placeholder="Add Last Name" id="your_lsname" value=""/><br> <br> <br>
+        <span>Username: </span><input type="text" placeholder="Add Username" id="your_username" value=""/><br> <br> <br>
+        <span>Password: </span><input type="password" placeholder="Add Password" id="your_pass" value=""/><br> <br> <br>
+        <span>Confirm password: </span><input class="contact" placeholder="Confirm Password" type="password" id="your_pass_conf" value=""/><br><br> <br>
+        <span id="your_country">Country: </span>
         <select>
               <option >Romania</option>
               <option >Spain</option>
@@ -62,17 +62,18 @@
               <option >Other</option>
         </select>
         <br><br><br>
-        <span>City: </span><input type="text" placeholder="Add City" name="your_city" value="" /><br> <br> <br>
-        <span>Tel.: </span><input type="text" placeholder="Add Tel." name="your_tel" value="" /><br> <br>
-        <span>Email Address: </span><input type="email" placeholder="Add Email" autocomplete="on" name="your_email" value="" /><br> <br> <br>
-        <span>Link to profile picture: </span><input type="url" placeholder="Add Picture" name="your_picture" value="" /><br> <br> <br>
-        
-      	<input class="submit_button" type="submit" name="contact_submitted" value="Send" />
+        <span>City: </span><input type="text" placeholder="Add City" id="your_city" value=""/><br> <br> <br>
+        <span>Tel.: </span><input type="text" placeholder="Add Tel." id="your_tel" value=""/><br> <br>
+        <span>Email Address: </span><input type="email" placeholder="Add Email" autocomplete="on" id="your_email" value=""/><br> <br> <br>
+        <span>Link to profile picture: </span><input type="url" placeholder="Add Picture" id="your_picture" value=""/><br> <br> <br>
+
+      <!--	<input class="submit_button" type="submit" name="contact_submitted" value="Send" onclick="register()"/> -->
+           <button type="submit" onclick="register()">Send</button>
       </div><!-- data-content-->
 
     </div><!--close form_settings-->
 
-	</div><!--close site_content-->  	
-  
+	</div><!--close site_content-->
+
 </body>
 </html>
