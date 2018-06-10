@@ -147,9 +147,9 @@ function getLoggedInUserProfileInfo() {
 
             document.getElementById("userFirstName").innerHTML = firstName;
             document.getElementById("userLastName").innerHTML = lastName;
-            document.getElementById("userCountryID").innerHTML = email;
-            document.getElementById("userCity").innerHTML = country;
-            document.getElementById("userEmail").innerHTML = city;
+            document.getElementById("userCountryID").innerHTML = country;
+            document.getElementById("userCity").innerHTML = city;
+            document.getElementById("userEmail").innerHTML = email;
             document.getElementById("userTel").innerHTML = tel;
             document.getElementById("userImage").innerHTML = "<img src = '" + picLink + "'></img>";
         }
