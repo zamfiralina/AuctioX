@@ -295,3 +295,65 @@ function register() {
             xhttp.open("GET", requestText, true);
             xhttp.send();
 }
+
+function changeInfo() {
+    window.alert("iei");
+     if (isAlphaNumeric(document.getElementById("f_name").value) === false)
+    {
+        window.alert("Enter only alpha numeric values.");
+        return;
+    }
+    if (isAlphaNumeric(document.getElementById("l_name").value) === false)
+    {
+        window.alert("Enter only alpha numeric values.");
+        return;
+    }
+    if (isAlphaNumeric(document.getElementById("city").value) === false)
+    {
+        window.alert("Enter only alpha numeric values.");
+        return;
+    }
+    if (document.getElementById("tel").value.length < 6)
+    {
+        window.alert("Telephone number too short(min. 6 characters).");
+        return;
+    }
+
+    if (isAlphaNumeric(document.getElementById("tel").value) === false)
+    {
+        window.alert("Enter only alphanumeric values.");
+        return;
+    }
+    if (document.getElementById("email").value.length < 4)
+    {
+        window.alert("Email too short(min. 5 characters).");
+        return;
+    }
+    if (document.getElementById("link").value.length < 5)
+    {
+        window.alert("Link too short(min. 5 characters).");
+        return;
+    }
+
+
+
+     var xhttp= new XMLHttpRequest();
+
+    xhttp.onreadystatechange=function() {
+        if (this.readyState === 4 && this.status === 200) {
+            //document.getElementById("getText").innerHTML = this.responseText
+            window.alert(this.responseText);
+        }
+    };
+
+    var requestText= "CHANGE" +
+        "?" + document.getElementById("f_name").value +
+        "?" + document.getElementById("l_name").value +
+        "?" + document.getElementById("city").value +
+        "?" + document.getElementById("tel").value +
+        "?" + document.getElementById("email").value +
+        "?" + document.getElementById("link").value;
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
