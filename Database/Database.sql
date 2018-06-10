@@ -22,37 +22,49 @@ CREATE TABLE SITE_USERS ( USER_ID NUMBER ,
                      
                      
                      
-CREATE TABLE ITEMS (ITEM_ID NUMBER ,
-                    USER_ID NUMBER ,
-                    TITLE VARCHAR2(100) NOT NULL ,
-                    DESCRIPTION VARCHAR2(3000) NOT NULL ,
-                    START_DATE TIMESTAMP(6) NOT NULL ,
-                    END_DATE TIMESTAMP(6) NOT NULL ,
-                    
-                    CONSTRAINT items_pk PRIMARY KEY (ITEM_ID),
-                    CONSTRAINT items_users_fk FOREIGN KEY (USER_ID) REFERENCES SITE_USERS(USER_ID));
-                    
-                    
-                    
-                    
-CREATE TABLE CATEGORIES (CATEGORY_ID NUMBER ,
-                         CATEGORY_NAME VARCHAR2(50) NOT NULL ,
 
-                        CONSTRAINT categories_pk PRIMARY KEY (CATEGORY_ID));
-                         
-                         
-                         
-CREATE TABLE ITEM_CATEGORY (ID NUMBER ,
-                            ITEM_ID NUMBER NOT NULL ,
-                            CATEGORY_ID NUMBER NOT NULL ,
+CREATE TABLE ITEMS (
+ ITEM_ID NUMBER not null ,
+ USER_ID NUMBER not null ,
+ P_NAME VARCHAR2(100) NOT NULL ,
+ CATEGORY_ID NUMBER not null,
+ PICTURE VARCHAR2(1000)not null,
+ S_PRICE NUMBER not null,
+ S_DATE TIMESTAMP(6) NOT NULL ,
+ END_DATE TIMESTAMP(6) NOT NULL ,
+ DESCRIPTION VARCHAR2(3000) ,
 
-                            CONSTRAINT item_category_pk       PRIMARY KEY (ID),
-                            CONSTRAINT constraint_to_items      FOREIGN KEY (ITEM_ID)     REFERENCES ITEMS(ITEM_ID),
-                            CONSTRAINT constraint_to_categories FOREIGN KEY (CATEGORY_ID) REFERENCES CATEGORIES(CATEGORY_ID));
+ CONSTRAINT items_pk PRIMARY KEY (ITEM_ID),
+ CONSTRAINT items_users_fk FOREIGN KEY (USER_ID) REFERENCES SITE_USERS(USER_ID),
+ CONSTRAINT items_category_fk FOREIGN KEY (CATEGORY_ID) REFERENCES CATEGORIES(CATEGORY_ID)
+ )/
 
 
-                            
-                            
+
+
+
+CREATE TABLE CATEGORIES (
+ CATEGORY_ID NUMBER ,
+ CATEGORY_NAME VARCHAR2(50) NOT NULL ,
+
+ CONSTRAINT categories_pk PRIMARY KEY (CATEGORY_ID)
+ )/
+
+
+
+
+CREATE TABLE TAGS (
+ ID NUMBER ,
+ ITEM_ID NUMBER NOT NULL ,
+ CATEGORY_ID NUMBER NOT NULL ,
+ CHARACTERISTIC_NAME VARCHAR2(50),
+ CHARACTERISTIC_VALUE VARCHAR2(50),
+
+ CONSTRAINT item_category_pk       PRIMARY KEY (ID),
+ CONSTRAINT constraint_to_items      FOREIGN KEY (ITEM_ID)     REFERENCES ITEMS(ITEM_ID),
+ CONSTRAINT constraint_to_categories FOREIGN KEY (CATEGORY_ID) REFERENCES CATEGORIES(CATEGORY_ID)
+ );/
+
                             
                             
 CREATE TABLE AUCTIONS (USER_ID NUMBER NOT NULL ,
@@ -78,35 +90,61 @@ insert into site_users values(8,'Vasile','Popescu','vasi@gmail.com','vasipop','v
 insert into site_users values(9,'Ion','Ionescu','ionescu@gmail.com','ionion','387ion', 'Romania', 'Radauti', '072543372', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbviSJcx2a4U01BRinV9aTIrdxUBzy9ZCHs2WdNG49aanJilZG');
 insert into site_users values(10,'Alex','Alexa','alex@gmail.com','alex','alehu', 'Romania', 'Vaslui', '0231255255', 'https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg');
 
-insert into items values(12,2,'sticla','sticla plastic suc piersici',sysdate,sysdate);
-insert into items values(13,4,'cutit','cutit spania ascutit',sysdate,sysdate);
-insert into items values(10,2,'telefon','huawei p9 lite',sysdate,sysdate);
-insert into items values(5,1,'laptop','laptop negru prafuit',sysdate,sysdate);
-insert into items values(4,1,'scaun','scaun verde scartaie',sysdate,sysdate);
-insert into items values(3,10,'cafea','cafea da energie ca sa nu mori',sysdate,sysdate);
-insert into items values(2,9,'geanta','geanta cara chestii something',sysdate,sysdate);
-insert into items values(1,8,'incarcator','something something',sysdate,sysdate);
-insert into items values(6,7,'papuci','talpa verde',sysdate,sysdate);
-insert into items values(7,5,'ochelari','ochelari prafuiti si plini de urme',sysdate,sysdate);
+insert into categories values(1,'Animals');
+insert into categories values(2,'Chloting, Shoes & Accessories');
+insert into categories values(3,'Toys & Hobbies');
+insert into categories values(4,'Motorcycles');
+insert into categories values(5,'Home & Office');
+insert into categories values(6,'Health & Beauty');
+insert into categories values(7,'Electrical & Tools');
+insert into categories values(8,'Consumer Electronics');
 
-insert into categories values(1,'electrocasnice');
-insert into categories values(2,'aparatura');
-insert into categories values(3,'mancare');
-insert into categories values(4,'obiecte');
+/*ITEM_ID NUMBER ,
+ USER_ID NUMBER ,
+ P_NAME VARCHAR2(100) NOT NULL ,
+ CATEGORY_ID NUMBER,
+ PICTURE VARCHAR2(1000),
+ S_PRICE NUMBER,
+ S_DATE TIMESTAMP(6) NOT NULL ,
+ END_DATE TIMESTAMP(6) NOT NULL ,
+ DESCRIPTION VARCHAR2(3000) NOT NULL ,*/
 
-insert into item_category values(1,12,3);
-insert into item_category values(2,10,4);
-insert into item_category values(3,10,4);
-insert into item_category values(4,10,2);
-insert into item_category values(13,5,2);
-insert into item_category values(5,5,4);
-insert into item_category values(6,4,4);
-insert into item_category values(7,3,3);
-insert into item_category values(8,2,4);
-insert into item_category values(9,1,2);
-insert into item_category values(10,1,4);
-insert into item_category values(12,6,4);
-insert into item_category values(11,7,4);
+insert into items values(1,2,'sticla',6,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',20,sysdate,sysdate,'sticla plastic suc piersici');
+insert into items values(2,4,'cutit',7,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',3000,sysdate,sysdate,'cutit spania ascutit');
+insert into items values(3,2,'telefon',8,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',500,sysdate,sysdate,'huawei p9 lite');
+insert into items values(4,1,'laptop',8,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',1000,sysdate,sysdate,'laptop negru prafuit');
+insert into items values(5,1,'scaun',5,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',300,sysdate,sysdate,'scaun verde scartaie');
+insert into items values(6,10,'cafea',6,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',10,sysdate,sysdate,'cafea da energie ca sa nu mori');
+insert into items values(7,9,'geanta',2,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',250,sysdate,sysdate,'geanta cara chestii something');
+insert into items values(8,8,'incarcator',8,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',180,sysdate,sysdate,'something something');
+insert into items values(9,7,'papuci',2,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',80,sysdate,sysdate,'talpa verde');
+insert into items values(10,5,'ochelari',2,'site_poza',200,sysdate,sysdate,'ochelari prafuiti si plini de urme');
+insert into items values(11,7,'pisica',1,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',300,sysdate,sysdate,'cuminte si blanda');
+insert into items values(12,7,'lup',1,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',10000,sysdate,sysdate,'excelent animal de companie');
+insert into items values(13,7,'caiet',5,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',3,sysdate,sysdate,'numai bun de notite');
+insert into items values(14,7,'motocicleta',4,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',600,sysdate,sysdate,'brrrummm brrrumm');
+
+/* ID NUMBER ,
+ ITEM_ID NUMBER NOT NULL ,
+ CATEGORY_ID NUMBER NOT NULL ,
+ CHARACTERISTIC_NAME VARCHAR2(50),
+ CHARACTERISTIC_VALUE VARCHAR2(50),*/
+
+
+
+insert into tags values(14,4,'color','rosie');
+insert into tags values(14,4,'fabrication_year','1900');
+insert into tags values(11,1,'other_spec','birmaneza');
+insert into tags values(5,5,'color','verde');
+/*insert into tags values(13,5,2);
+insert into tags values(5,5,4);
+insert into tags values(6,4,4);
+insert into tags values(7,3,3);
+insert into tags values(8,2,4);
+insert into tags values(9,1,2);
+insert into tags values(10,1,4);
+insert into tags values(12,6,4);
+insert into tags values(11,7,4);*/
 
 
 insert into auctions values(4,12,123);
@@ -119,4 +157,5 @@ insert into auctions values(9,3,200);
 insert into auctions values(10,4,200);
 insert into auctions values(1,5,200);
 insert into auctions values(2,6,200);
+
 
