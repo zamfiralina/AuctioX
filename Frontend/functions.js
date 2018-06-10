@@ -278,6 +278,8 @@ function register() {
                 if (this.readyState === 4 && this.status === 200){
                     //document.getElementById("getText").innerHTML = this.responseText
                     window.alert(this.responseText)
+                    if (this.responseText === "INSERT SUCCES.")
+                        gotoPage('index');
                 }
             };
 
