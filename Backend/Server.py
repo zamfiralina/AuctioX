@@ -16,16 +16,16 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
         activeUsers = dict()
 
-        content_types = {'.css': 'text/css',
-                         '.gif': 'image/gif',
-                         '.htm': 'text/html',
+        content_types = {'.css' : 'text/css',
+                         '.gif' : 'image/gif',
+                         '.htm' : 'text/html',
                          '.html': 'text/html',
                          '.jpeg': 'image/jpeg',
-                         '.jpg': 'image/jpg',
-                         '.js': 'text/javascript',
-                         '.png': 'image/png',
+                         '.jpg' : 'image/jpg',
+                         '.js'  : 'text/javascript',
+                         '.png' : 'image/png',
                          '.text': 'text/plain',
-                         '.txt': 'text/plain'}
+                         '.txt' : 'text/plain'}
 
         def do_GET(self):
                 self.send_response(200)
@@ -114,6 +114,22 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                     newEmail = requestContents.split("?")[5]
                     newLink = requestContents.split("?")[6]
                     content_body = changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, self.__class__.db_conn)
+
+                if requestContents.startswith("/ISUSERLOGGEDIN"):
+                        # try:
+                        #         # if requestContents.split("?")[1] in self.__class__.activeUsers:
+                        #         #         print("HASH ",self.activeUsers[requestContents.split("?")[1]])
+                        #         #         content_body = "USERLOGGEDINSUCCESS".encode()
+                        #         # else:
+                        #         #         content_body = "USERLOGGEDINFAIL".encode()
+                        #         userHash = self.__class__.activeUsers[requestContents.split("?")[1]]
+                        print("requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers", requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers)
+                        if requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers:
+                                content_body = "USERLOGGEDINSUCCESS".encode()
+                        else:
+                        # except Exception as e:
+                                content_body = "USERLOGGEDINFAIL".encode()
+
 
                 return content_type, content_body
 

@@ -38,7 +38,6 @@ function testSearch() {
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200){
-                    //document.getElementById("getText").innerHTML = this.responseText
                     window.alert(this.responseText)
                 }
             };
@@ -127,40 +126,76 @@ function getLoggedInUserIndexInfo() {
 }
 
 function getLoggedInUserProfileInfo() {
-    var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
+    if(isUserLoggedIn()) {
+        var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
 
-    var xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200){
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
 
-            var profileFields = this.responseText.split("?");
+                var profileFields = this.responseText.split("?");
 
-            var firstName = profileFields[0];
-            var lastName  = profileFields[1];
-            var email     = profileFields[2];
-            var username  = profileFields[3];
-            var country   = profileFields[4];
-            var city      = profileFields[5];
-            var tel       = profileFields[6];
-            var picLink   = profileFields[7];
+                var firstName = profileFields[0];
+                var lastName = profileFields[1];
+                var email = profileFields[2];
+                var username = profileFields[3];
+                var country = profileFields[4];
+                var city = profileFields[5];
+                var tel = profileFields[6];
+                var picLink = profileFields[7];
 
-            document.getElementById("userFirstName").innerHTML = firstName;
-            document.getElementById("userLastName").innerHTML = lastName;
-            document.getElementById("userCountryID").innerHTML = country;
-            document.getElementById("userCity").innerHTML = city;
-            document.getElementById("userEmail").innerHTML = email;
-            document.getElementById("userTel").innerHTML = tel;
-            document.getElementById("userImage").innerHTML = "<img src = '" + picLink + "'></img>";
-        }
-    };
+                document.getElementById("userFirstName").innerHTML = firstName;
+                document.getElementById("userLastName").innerHTML = lastName;
+                document.getElementById("userCountryID").innerHTML = country;
+                document.getElementById("userCity").innerHTML = city;
+                document.getElementById("userEmail").innerHTML = email;
+                document.getElementById("userTel").innerHTML = tel;
+                document.getElementById("userImage").innerHTML = "<img src = '" + picLink + "'></img>";
+            }
+        };
 
-    xhttp.open("GET", requestText, true);
-    xhttp.send();
+        xhttp.open("GET", requestText, true);
+        xhttp.send();
+        //window.alert("<" + requestText+ ">");
+    }
+    else {
+        window.alert("You are not logged in.");
+        gotoPage("index");
+    }
+
+
+
 }
 
 function isUserLoggedIn() {
-    return getValueFromCookies("userHash").localeCompare("");
+    //return getValueFromCookies("userHash").localeCompare("");
+
+    // if user hash is empty
+    if(!getValueFromCookies("userHash").localeCompare("")) {
+        window.alert("nohash");
+        return false;
+    }
+    else {
+        var requestText = "ISUSERLOGGEDIN?" + getValueFromCookies("userHash");
+        var result = true;
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                //window.alert(this.responseText);
+                result = (!this.responseText.localeCompare("USERLOGGEDINSUCCESS"));
+            }
+        };
+
+        xhttp.open("GET", requestText, false);
+        xhttp.send();
+
+
+        //window.alert("result " + result);
+        return result;
+    }
 }
 
 function isAlphaNumeric(str) {
