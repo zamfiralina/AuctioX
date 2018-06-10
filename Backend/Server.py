@@ -4,6 +4,7 @@ from typing import Tuple
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.login import login, logout
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.register import register
@@ -105,6 +106,14 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                     link = requestContents.split("?")[9]
                     content_body = register(fname, lname, username, password, country, city, tel, email, link, self.__class__.db_conn)
 
+                if requestContents.startswith("/CHANGE"):
+                    newFirstName = requestContents.split("?")[1]
+                    newLastName = requestContents.split("?")[2]
+                    newCity = requestContents.split("?")[3]
+                    newTel = requestContents.split("?")[4]
+                    newEmail = requestContents.split("?")[5]
+                    newLink = requestContents.split("?")[6]
+                    content_body = changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, self.__class__.db_conn)
 
                 return content_type, content_body
 
