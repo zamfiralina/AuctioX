@@ -179,8 +179,8 @@ function isAlphaNumeric(str) {
 
 function register() {
 
-    if (document.getElementById("your_fsname").value.length <= 5) {
-        window.alert("First name is too short(min. 5 characters).");
+    if (document.getElementById("your_fsname").value.length < 3) {
+        window.alert("First name is too short(min. 3 characters).");
         return;
     }
 
@@ -190,9 +190,9 @@ function register() {
         return;
     }
 
-    if (document.getElementById("your_lsname").value.length <= 5)
+    if (document.getElementById("your_lsname").value.length < 4)
     {
-        window.alert("Last name is too short(min. 5 characters).");
+        window.alert("Last name is too short(min. 4 characters).");
         return;
     }
 
@@ -202,7 +202,7 @@ function register() {
         return;
     }
 
-    if (document.getElementById("your_username").value.length <= 4)
+    if (document.getElementById("your_username").value.length < 4)
     {
         window.alert("Username too short(min. 4 characters).");
         return;
@@ -214,9 +214,9 @@ function register() {
         return;
     }
 
-    if (document.getElementById("your_pass").value.length <= 6)
+    if (document.getElementById("your_pass").value.length < 5)
     {
-        window.alert("Password too short(min. 6 characters).");
+        window.alert("Password too short(min. 5 characters).");
         return;
     }
 
