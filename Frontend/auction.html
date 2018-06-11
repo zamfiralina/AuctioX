@@ -37,33 +37,32 @@
         <h1>New auction</h1>
         <br><br><br>
         <div id="data-auction">
-        <span>Product name: </span><input type="text" placeholder="Enter the product name" name="prod_name" value="" /><br> <br> <br>
+        <span>Product name: </span><input type="text" placeholder="Enter the product name" id="prod_name" ><br> <br> <br>
           <span>Category: </span>
-            <select>
+            <select id="category">
               <option>Animals</option>
-              <option>Chloting, Shoes & Accessories</option>
-              <option>Toys & Hobbies</option>
+              <option>Chloting, Shoes and Accessories</option>
+              <option>Toys and Hobbies</option>
               <option>Motorcycles</option>
-              <option>Home & Office</option>
-              <option>Health & Beauty</option>
-              <option>Electrical & Tools</option>
-              <optioan>Consumer Electronics</option>
-              <option>Other</option>
+              <option>Home and Office</option>
+              <option>Health and Beauty</option>
+              <option>Electrical and Tools</option>
+              <option>Consumer Electronics</option>
             </select>
             <br> <br> <br>
-            <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" name="prod_pic" value="" /><br> <br> <br>
-            <span>Start price: </span><input type="number" placeholder="Starting price of the product" name="start_price" value="" /><br> <br> <br>
-            <span>Start date: </span><input type="date" name="start_date" value="" /><br> <br> <br>
-            <span>End date: </span><input type="date" name="end_date" value="" /><br> <br> <br>
-            
+            <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" id="prod_pic" ><br> <br> <br>
+            <span>Start price: </span><input type="number" min="1" placeholder="Starting price of the product" id="start_price" ><br> <br> <br>
+            <span>Start date: </span><input type="date" id="start_date" ><br> <br> <br>
+            <span>End date: </span><input type="date" id="end_date" ><br> <br> <br>
+
             <span>Short description: </span><br>
-            <textarea placeholder="A few words about the product"></textarea>
+            <textarea placeholder="A few words about the product" id="description"></textarea>
             <br><br><br>
 
 
             <p><span style="color:red;">*</span> optioanal</p><br>
             <span>Fabrication country: </span>
-              <select>
+              <select id="fab_country">
                 <option >Romania</option>
                 <option >Spain</option>
                 <option >Italy</option>
@@ -84,28 +83,29 @@
               </select>
             <br><br><br>
             <p><span style="color:red;">*</span> optioanal</p><br>
-            <span>Year of fabrication: </span><input type="text" placeholder="Enter the year" name="fab_year" value="" />
+            <span>Year of fabrication: </span><input type="text" placeholder="Enter the year" id="fab_year" >
             <br> <br> <br>
             <p><span style="color:red;">*</span> optioanal</p><br>
-            <span>Condition: </span><input type="text" placeholder="ex. new, old.." name="condition" value="" />
+            <span>Condition: </span><input type="text" placeholder="ex. new, old.." id="condition">
             <br> <br> <br>
             <p><span style="color:red;">*</span> optioanal</p><br>
-            <span>Material: </span><input type="text" placeholder="ex. leather, steel, plastic, iron.." name="material" value="" />
+            <span>Material: </span><input type="text" placeholder="ex. leather, steel, plastic, iron.." id="material">
             <br><br><br>
             <p><span style="color:red;">*</span> optioanal</p><br>
-            <span>Color: </span><input type="text" placeholder="Enter the color" name="color" value="" />
+            <span>Color: </span><input type="text" placeholder="Enter the color" id="color">
             <br> <br> <br>
             <p><span style="color:red;">*</span> optioanal</p><br>
-            <span>Other specification: </span><input type="text" placeholder="ex. scratched, rusty.." name="spec_carac" value="" />
+            <span>Other specification: </span><input type="text" placeholder="ex. scratched, rusty.." id="spec_carac">
             <br><br><br>
-            <button type="button">Search</button></th>
-           
+            <button type="button" onclick="newAuction()">Submit</button>
+
           </div><!--data-auction-->
 
-       </div><!--close form_setings--> 
+       </div><!--close form_setings-->
 
-  </div><!--close site_content--> 
+  </div><!--close site_content-->
 
 </body>
 
 </html>
+
