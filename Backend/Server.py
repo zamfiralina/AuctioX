@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from Backend.DBController.DBConnection import DBConnection
 from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.login import login, logout
+from Backend.Functions.newAuction import newAuction
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.register import register
 from Backend.Functions.testSearch import testSearch
@@ -129,6 +130,26 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         else:
                         # except Exception as e:
                                 content_body = "USERLOGGEDINFAIL".encode()
+
+                if requestContents.startswith("/NEWAUCTION"):
+                        #print (requestContents)
+                        receivedName = requestContents.split ("?")[1]
+                        receivedCategory = requestContents.split ("?")[2]
+                        receivedPicture = requestContents.split ("?")[3]
+                        receivedPrice = requestContents.split ("?")[4]
+                        receivedStartD = requestContents.split ("?")[5]
+                        receivedEndD = requestContents.split ("?")[6]
+                        receivedDesc = requestContents.split ("?")[7]
+                        receivedFabCountry= requestContents.split ("?")[8]
+                        receivedFabYear = requestContents.split ("?")[9]
+                        receivedCondition = requestContents.split ("?")[10]
+                        receivedMaterial = requestContents.split ("?")[11]
+                        receivedColor = requestContents.split ("?")[12]
+                        receivedSpecialCarac = requestContents.split ("?")[13]
+                        receivedUsernameHash = requestContents.split("?")[14].replace("%20", " ")
+                        receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
+                        content_body = newAuction (receivedUsername,receivedName, receivedCategory, receivedPicture, receivedPrice, receivedStartD, receivedEndD, receivedDesc, receivedFabCountry, receivedFabYear, receivedCondition, receivedMaterial, receivedColor, receivedSpecialCarac, self.__class__.db_conn)
+                        #print(requestContents,requestContents.startswith("/NEWAUCTION"))
 
 
                 return content_type, content_body
