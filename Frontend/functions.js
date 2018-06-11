@@ -334,7 +334,7 @@ function register() {
 }
 
 function changeInfo() {
-    window.alert("iei");
+
      if (isAlphaNumeric(document.getElementById("f_name").value) === false)
     {
         window.alert("Enter only alpha numeric values.");
@@ -350,7 +350,7 @@ function changeInfo() {
         window.alert("Enter only alpha numeric values.");
         return;
     }
-    if (document.getElementById("tel").value.length < 6)
+    if (document.getElementById("tel").value.length < 6 && document.getElementById("tel").value.length > 0)
     {
         window.alert("Telephone number too short(min. 6 characters).");
         return;
@@ -361,12 +361,12 @@ function changeInfo() {
         window.alert("Enter only alphanumeric values.");
         return;
     }
-    if (document.getElementById("email").value.length < 4)
+    if (document.getElementById("email").value.length < 4 && document.getElementById("email").value.length > 0 )
     {
         window.alert("Email too short(min. 5 characters).");
         return;
     }
-    if (document.getElementById("link").value.length < 5)
+    if (document.getElementById("link").value.length < 5 && document.getElementById("link").value.length > 0)
     {
         window.alert("Link too short(min. 5 characters).");
         return;
@@ -389,7 +389,8 @@ function changeInfo() {
         "?" + document.getElementById("city").value +
         "?" + document.getElementById("tel").value +
         "?" + document.getElementById("email").value +
-        "?" + document.getElementById("link").value;
+        "?" + document.getElementById("link").value +
+        "?" + getValueFromCookies("userHash");
 
     xhttp.open("GET", requestText, true);
     xhttp.send();
