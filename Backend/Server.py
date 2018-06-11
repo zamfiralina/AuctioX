@@ -114,7 +114,12 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                     newTel = requestContents.split("?")[4]
                     newEmail = requestContents.split("?")[5]
                     newLink = requestContents.split("?")[6]
-                    content_body = changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, self.__class__.db_conn)
+                    userHash = requestContents.split("?")[7].replace("%20", " ")
+                    if userHash in self.activeUsers:
+                        username = self.activeUsers[userHash]
+                        content_body = changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, self.__class__.db_conn, username)
+                    else:
+                        content_body = "You are not logged in.".encode()
 
                 if requestContents.startswith("/ISUSERLOGGEDIN"):
                         # try:
