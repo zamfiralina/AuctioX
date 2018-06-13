@@ -174,7 +174,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         # print(requestContents,requestContents.startswith("/NEWAUCTION"))
 
                 if requestContents.startswith("/GETSIMPLESEARCHRESULTSPAGE"):
-                        page, itemName = requestContents.split("?")[1:]
+                        page, itemName = requestContents.replace("%20", " ").split("?")[1:]
                         print("to be searched: ", itemName)
                         print("page:", page)
                         content_body = simpleSearchPage(itemName, page, self.__class__.db_conn)

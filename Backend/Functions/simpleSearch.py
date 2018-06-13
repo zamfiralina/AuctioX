@@ -15,8 +15,6 @@ def simpleSearchPage(toBeSearched: str, page: str, db_handler: DBConnection) -> 
 
         print("Pages:", pages)
 
-        # requestedPage = resultPages[int(page)-1]
-
         requestedPage = pages[int(page) - 1]
 
         print("RequestedPage", requestedPage)
