@@ -81,13 +81,13 @@ class DBConnection:
     def getResultsInPagesOf(self, pageSize):
             # Returns a list of "pages", lists of tuples, corresponding to the results of the last executed command
         try:
-            pages = int(len(self.__statementRestul)/pageSize)
+            pages = int(len(self.__statementResult)/pageSize)
             resultPages = []
 
             for i in range(pages):
-                resultPages.append(self.__statementRestul[pages * pageSize : i * pageSize + pageSize])
+                resultPages.append(self.__statementResult[pages * pageSize : i * pageSize + pageSize])
 
-            resultPages.append(self.__statementRestul[pages * pageSize :])
+            resultPages.append(self.__statementResult[pages * pageSize :])
             return resultPages
 
         except cx_Oracle.Error as e:

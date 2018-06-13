@@ -62,11 +62,13 @@
 			        	<th><input type="text" id = "index_search" placeholder="Search item" name="search2"></th>
 			        	<th></th>
 			        	<td></td>
-						<th><button type="button" id = "button_search" onclick="getSimpleSearchResults()">Search</button></th>
+						<th><button type="button" id = "button_search"
+									onclick="getSimpleSearchResultsPage(document.getElementById('index_search').value, 1)">Search</button></th>
 					</tr>
 				</table>
 			</form>
 
+			<a id = "searched_text"></a>
 
 			<table style = "width : 100%">
 				<tr>
@@ -146,7 +148,15 @@
 
 			</table>
 
+			<br>
 
+			<table>
+				<tr>
+					<td id = "button_prev"></td>
+					<td id = "page"></td>
+					<td id = "button_next"></td>
+				</tr>
+			</table>
 
 		</div><!--close content-->
 	</div><!--site_content-->

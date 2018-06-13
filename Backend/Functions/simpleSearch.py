@@ -1,22 +1,44 @@
 from Backend.DBController.DBConnection import DBConnection
 
 
-def simpleSearch(toBeSearched: str, db_handler: DBConnection) -> bytes:
-    result = db_handler.execute(f"SELECT PICTURE, P_NAME, TO_CHAR(S_PRICE), TO_CHAR(END_DATE) FROM ITEMS WHERE P_NAME LIKE '%{toBeSearched}%'")[:9]
+def simpleSearchPage(toBeSearched: str, page: str, db_handler: DBConnection) -> bytes:
+        allresults = db_handler.execute(
+                f"SELECT TO_CHAR(ITEM_ID), TO_CHAR(USER_ID), P_NAME, TO_CHAR(CATEGORY_ID), PICTURE, TO_CHAR(S_PRICE), TO_CHAR(S_DATE), TO_CHAR(END_DATE), DESCRIPTION FROM ITEMS WHERE P_NAME LIKE '%{toBeSearched}%'")
 
-    print("RESULT:",result)
-    #del result[4]
+        resultPages = db_handler.getResultsInPagesOf(9)
 
-    # firstName, lastName, email, _, country, city, tel, picLink = result
+        print("Result pages: ", resultPages)
 
-    for ind in range(len(result)):
-        print(len(result), ind)
-        print(result[ind])
-        result[ind] = '?'.join(result[ind])
-        print(result[ind])
+        # firstName, lastName, email, _, country, city, tel, picLink = result
 
-    result2 = "#".join(result)
+        pages = [page for page in resultPages if page]
 
-    print("REZULTAT  FINAL:", result2)
+        print("Pages:", pages)
 
-    return result2.encode()
+        # requestedPage = resultPages[int(page)-1]
+
+        requestedPage = pages[int(page) - 1]
+
+        print("RequestedPage", requestedPage)
+
+        print('\n'.join('   |   '.join(row) for row in requestedPage))
+
+        curPage = int(page)
+        maxPage = len(pages)
+
+        hasNextPage = 1 if curPage < maxPage else 0
+        hasPrevPage = 1 if curPage is not 0 else 0
+
+        result = '!'.join((
+                str(hasPrevPage),
+                str(hasNextPage),
+                str(curPage),
+                str(maxPage),
+                '#'.join(
+                        '?'.join(row) for row in requestedPage
+                )
+        ))
+
+        print("RESULT:", result)
+
+        return result.encode()
