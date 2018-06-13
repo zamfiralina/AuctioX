@@ -425,3 +425,118 @@ function newAuction(){
     xhttp.open("GET", requestText, true);
     xhttp.send();
 }
+
+
+function getSimpleSearchResults() {
+            var requestText = "GETSIMPLESEARCHRESULTS?" + document.getElementById("index_search").value;
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200){
+
+            var itemRows = this.responseText;
+
+            window.alert(this.responseText);
+
+            var numberOfObjects = this.responseText.charAt(this.responseText.length)
+
+
+            // TODO split the rows of each item into the corresponding item fields and inser the item info into html
+
+            var itemImage1 = itemRows.split("#")[0].split("?")[0];
+            var itemName1  = itemRows.split("#")[0].split("?")[1];
+            var itemPrice1     = itemRows.split("#")[0].split("?")[2];
+            var itemEndDate1  = itemRows.split("#")[0].split("?")[3];
+            /*window.alert(itemRows.split("#")[0]);*/
+
+            var itemImage2   = itemRows.split("#")[1].split("?")[0];
+            var itemName2      = itemRows.split("#")[1].split("?")[1];
+            var itemPrice2      = itemRows.split("#")[1].split("?")[2];
+            var itemEndDate2   = itemRows.split("#")[1].split("?")[3];
+
+            var itemImage3   = itemRows.split("#")[2].split("?")[0];
+            var itemName3      = itemRows.split("#")[2].split("?")[1];
+            var itemPrice3      = itemRows.split("#")[2].split("?")[2];
+            var itemEndDate3   = itemRows.split("#")[2].split("?")[3];
+
+            var itemImage4   = itemRows.split("#")[3].split("?")[0];
+            var itemName4      = itemRows.split("#")[3].split("?")[1];
+            var itemPrice4      = itemRows.split("#")[3].split("?")[2];
+            var itemEndDate4   = itemRows.split("#")[3].split("?")[3];
+
+            var itemImage5   = itemRows.split("#")[4].split("?")[0];
+            var itemName5      = itemRows.split("#")[4].split("?")[1];
+            var itemPrice5      = itemRows.split("#")[4].split("?")[2];
+            var itemEndDate5   = itemRows.split("#")[4].split("?")[3];
+
+            var itemImage6   = itemRows.split("#")[5].split("?")[0];
+            var itemName6      = itemRows.split("#")[5].split("?")[1];
+            var itemPrice6      = itemRows.split("#")[5].split("?")[2];
+            var itemEndDate6   = itemRows.split("#")[5].split("?")[3];
+
+            var itemImage7   = itemRows.split("#")[6].split("?")[0];
+            var itemName7      = itemRows.split("#")[6].split("?")[1];
+            var itemPrice7      = itemRows.split("#")[6].split("?")[2];
+            var itemEndDate7   = itemRows.split("#")[6].split("?")[3];
+
+            var itemImage8   = itemRows.split("#")[7].split("?")[0];
+            var itemName8      = itemRows.split("#")[7].split("?")[1];
+            var itemPrice8      = itemRows.split("#")[7].split("?")[2];
+            var itemEndDate8   = itemRows.split("#")[7].split("?")[3];
+
+            var itemImage9   = itemRows.split("#")[8].split("?")[0];
+            var itemName9      = itemRows.split("#")[8].split("?")[1];
+            var itemPrice9      = itemRows.split("#")[8].split("?")[2];
+            var itemEndDate9   = itemRows.split("#")[8].split("?")[3];
+
+            document.getElementById("itemImage1").innerHTML = "<img src = '" + itemImage1 + "'></img>";
+            document.getElementById("itemName1").innerHTML = itemName1;
+            document.getElementById("itemPrice1").innerHTML = itemPrice1;
+            document.getElementById("itemEndDate1").innerHTML = itemEndDate1;
+
+            document.getElementById("itemImage2").innerHTML = "<img src = '" + itemImage2 + "'></img>";
+            document.getElementById("itemName2").innerHTML = itemName2;
+            document.getElementById("itemPrice2").innerHTML = itemPrice2;
+            document.getElementById("itemEndDate2").innerHTML = itemEndDate2;
+
+            document.getElementById("itemImage3").innerHTML = "<img src = '" + itemImage3 + "'></img>";
+            document.getElementById("itemName3").innerHTML = itemName3;
+            document.getElementById("itemPrice3").innerHTML = itemPrice3;
+            document.getElementById("itemEndDate3").innerHTML = itemEndDate3;
+
+            document.getElementById("itemImage4").innerHTML = "<img src = '" + itemImage4 + "'></img>";
+            document.getElementById("itemName4").innerHTML = itemName4;
+            document.getElementById("itemPrice4").innerHTML = itemPrice4;
+            document.getElementById("itemEndDate4").innerHTML = itemEndDate4;
+
+            document.getElementById("itemImage5").innerHTML = "<img src = '" + itemImage5 + "'></img>";
+            document.getElementById("itemName5").innerHTML = itemName5;
+            document.getElementById("itemPrice5").innerHTML = itemPrice5;
+            document.getElementById("itemEndDate5").innerHTML = itemEndDate5;
+
+            document.getElementById("itemImage6").innerHTML = "<img src = '" + itemImage6 + "'></img>";
+            document.getElementById("itemName6").innerHTML = itemName6;
+            document.getElementById("itemPrice6").innerHTML = itemPrice6;
+            document.getElementById("itemEndDate6").innerHTML = itemEndDate6;
+
+            document.getElementById("itemImage7").innerHTML = "<img src = '" + itemImage7 + "'></img>";
+            document.getElementById("itemName7").innerHTML = itemName7;
+            document.getElementById("itemPrice7").innerHTML = itemPrice7;
+            document.getElementById("itemEndDate7").innerHTML = itemEndDate7;
+
+            document.getElementById("itemImage8").innerHTML = "<img src = '" + itemImage8 + "'></img>";
+            document.getElementById("itemName8").innerHTML = itemName8;
+            document.getElementById("itemPrice8").innerHTML = itemPrice8;
+            document.getElementById("itemEndDate8").innerHTML = itemEndDate8;
+
+            document.getElementById("itemImage9").innerHTML = "<img src = '" + itemImage9 + "'></img>";
+            document.getElementById("itemName9").innerHTML = itemName9;
+            document.getElementById("itemPrice9").innerHTML = itemPrice9;
+            document.getElementById("itemEndDate9").innerHTML = itemEndDate9;
+
+        }
+    };
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
