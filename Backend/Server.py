@@ -148,6 +148,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                                 content_body = "USERLOGGEDINFAIL".encode()
 
                 if requestContents.startswith("/NEWAUCTION"):
+                        #TODO: verify if user is logged in
                         # print (requestContents)
                         receivedName = requestContents.split("?")[1].replace("%20", " ")
                         receivedCategory = requestContents.split("?")[2].replace("%20", " ")
@@ -177,7 +178,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         page, itemName = requestContents.replace("%20", " ").split("?")[1:]
                         print("to be searched: ", itemName)
                         print("page:", page)
-                        content_body = simpleSearchPage(itemName, page, self.__class__.db_conn)
+                        content_body = simpleSearchPage(itemName.lower(), page, self.__class__.db_conn)
 
                 return content_type, content_body
 
