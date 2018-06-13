@@ -139,19 +139,19 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                 if requestContents.startswith("/NEWAUCTION"):
                         #print (requestContents)
-                        receivedName = requestContents.split ("?")[1]
-                        receivedCategory = requestContents.split ("?")[2]
-                        receivedPicture = requestContents.split ("?")[3]
-                        receivedPrice = requestContents.split ("?")[4]
-                        receivedStartD = requestContents.split ("?")[5]
-                        receivedEndD = requestContents.split ("?")[6]
-                        receivedDesc = requestContents.split ("?")[7]
-                        receivedFabCountry= requestContents.split ("?")[8]
-                        receivedFabYear = requestContents.split ("?")[9]
-                        receivedCondition = requestContents.split ("?")[10]
-                        receivedMaterial = requestContents.split ("?")[11]
-                        receivedColor = requestContents.split ("?")[12]
-                        receivedSpecialCarac = requestContents.split ("?")[13]
+                        receivedName = requestContents.split ("?")[1].replace("%20", " ")
+                        receivedCategory = requestContents.split ("?")[2].replace("%20", " ")
+                        receivedPicture = requestContents.split ("?")[3].replace("%20", " ")
+                        receivedPrice = requestContents.split ("?")[4].replace("%20", " ")
+                        receivedStartD = requestContents.split ("?")[5].replace("%20", " ")
+                        receivedEndD = requestContents.split ("?")[6].replace("%20", " ")
+                        receivedDesc = requestContents.split ("?")[7].replace("%20", " ")
+                        receivedFabCountry= requestContents.split ("?")[8].replace("%20", " ")
+                        receivedFabYear = requestContents.split ("?")[9].replace("%20", " ")
+                        receivedCondition = requestContents.split ("?")[10].replace("%20", " ")
+                        receivedMaterial = requestContents.split ("?")[11].replace("%20", " ")
+                        receivedColor = requestContents.split ("?")[12].replace("%20", " ")
+                        receivedSpecialCarac = requestContents.split ("?")[13].replace("%20", " ")
                         receivedUsernameHash = requestContents.split("?")[14].replace("%20", " ")
                         receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
                         content_body = newAuction (receivedUsername,receivedName, receivedCategory, receivedPicture, receivedPrice, receivedStartD, receivedEndD, receivedDesc, receivedFabCountry, receivedFabYear, receivedCondition, receivedMaterial, receivedColor, receivedSpecialCarac, self.__class__.db_conn)

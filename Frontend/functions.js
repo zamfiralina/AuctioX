@@ -403,7 +403,8 @@ function newAuction(){
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200){
                     //document.getElementById("getText").innerHTML = this.responseText
-                    window.alert(this.responseText)
+                    window.alert(this.responseText);
+                    gotoPage("index");
                 }
             };
     var requestText = "NEWAUCTION" + "?" + "PNAME::::" + document.getElementById("prod_name").value + "?"

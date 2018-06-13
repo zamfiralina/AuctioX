@@ -87,7 +87,6 @@ insert into items values(6,10,'cafea',6,'http://elelur.com/data_images/mammals/w
 insert into items values(7,9,'geanta',2,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',250,sysdate,sysdate,'geanta cara chestii something');
 insert into items values(8,8,'incarcator',8,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',180,sysdate,sysdate,'something something');
 insert into items values(9,7,'papuci',2,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',80,sysdate,sysdate,'talpa verde');
-insert into items values(10,5,'ochelari',2,'site_poza',200,sysdate,sysdate,'ochelari prafuiti si plini de urme');
 insert into items values(11,7,'pisica',1,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',300,sysdate,sysdate,'cuminte si blanda');
 insert into items values(12,7,'lup',1,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',10000,sysdate,sysdate,'excelent animal de companie');
 insert into items values(13,7,'caiet',5,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',3,sysdate,sysdate,'numai bun de notite');

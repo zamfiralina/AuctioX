@@ -41,7 +41,7 @@ def newAuction (receivedUsername,receivedName, receivedCategory, receivedPicture
 
     receivedContent1 = receivedContent1.split ("%20")[0]
     id_category = db_handler.execute(f"select category_id from categories where INSTR(category_name,'{receivedContent1}') > 0  ")
-    category_id=id_category[0][0] + 1
+    category_id=id_category[0][0]
 
     id_item = db_handler.execute(f"select max(item_id) from items")
     id = id_item[0][0] + 1
