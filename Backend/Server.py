@@ -9,6 +9,7 @@ from Backend.Functions.login import login, logout
 from Backend.Functions.newAuction import newAuction
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.register import register
+from Backend.Functions.simpleSearch import simpleSearch
 from Backend.Functions.testSearch import testSearch
 
 
@@ -66,7 +67,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                       f'      requestline.split(" ")[2]: <{self.requestline.split(" ")[2]}> \n')
 
                 content_type = "text/html"
-                content_body = "Error in the dispatch function"
+                content_body = "Error in the dispatch function".encode()
 
                 requestContents = self.requestline.split()[1]
 
@@ -154,8 +155,13 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         receivedUsernameHash = requestContents.split("?")[14].replace("%20", " ")
                         receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
                         content_body = newAuction (receivedUsername,receivedName, receivedCategory, receivedPicture, receivedPrice, receivedStartD, receivedEndD, receivedDesc, receivedFabCountry, receivedFabYear, receivedCondition, receivedMaterial, receivedColor, receivedSpecialCarac, self.__class__.db_conn)
+
+
                         #print(requestContents,requestContents.startswith("/NEWAUCTION"))
 
+                if requestContents.startswith("/GETSIMPLESEARCHRESULTS"):
+                    itemName = requestContents.split("?")[1]
+                    content_body = simpleSearch(itemName, self.__class__.db_conn)
 
                 return content_type, content_body
 
