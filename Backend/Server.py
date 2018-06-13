@@ -164,6 +164,7 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         receivedColor = requestContents.split("?")[12].replace("%20", " ")
                         receivedSpecialCarac = requestContents.split("?")[13].replace("%20", " ")
                         receivedUsernameHash = requestContents.split("?")[14].replace("%20", " ")
+                        print("UsernameHash", receivedUsernameHash)
                         receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
                         content_body = newAuction(receivedUsername, receivedName, receivedCategory, receivedPicture,
                                                   receivedPrice, receivedStartD, receivedEndD, receivedDesc,

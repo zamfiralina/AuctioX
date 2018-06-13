@@ -454,7 +454,7 @@ function getSimpleSearchResultsPage(searchedText, page) {
                 currItem = items[i];
                 window.alert(currItem);
                 itemView = "";
-                itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\"></a> ";
+                itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
                 itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
                 itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
                 itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
