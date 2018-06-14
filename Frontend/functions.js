@@ -855,6 +855,8 @@ function getCurrentItemDetails() {
 
             var itemDetails = this.responseText.split("???");
 
+            var id       = itemDetails[0];
+
             var title    = itemDetails[2];
             var category = itemDetails[9];
 
@@ -871,6 +873,8 @@ function getCurrentItemDetails() {
             var desc     = itemDetails[8];
             var tags     = itemDetails[10];
 
+
+
             document.getElementById("itempage_title").innerHTML       = title;
             document.getElementById("itempage_category").innerHTML    = category;
 
@@ -878,6 +882,7 @@ function getCurrentItemDetails() {
 
             document.getElementById("itempage_price").innerHTML       = price;
             document.getElementById("itempage_enddate").innerHTML     = endDate;
+            document.getElementById("itempage_itemid").innerHTML      = id;
 
             document.getElementById("itempage_seller").innerHTML      = seller;
             document.getElementById("itempage_tlf").innerHTML         = tlf;
@@ -999,5 +1004,42 @@ function getAuctionsAsPdf() {
     xhttp.send();
 }
 
+function newBid() {
+    if (!isUserLoggedIn()) {
+        window.alert("You have to log in to bid on an item!");
+        return;
+    }
 
+    if (document.getElementById("new_offer").value < 1) {
+        window.alert("You have to enter an amount to bid.");
+        return;
+    }
+
+    var price = parseInt(document.getElementById("itempage_price").value);
+    var offer = parseInt(document.getElementById("new_offer").value);
+
+    if (offer <= price) {
+        window.alert("Your offer cannot be lower or equal to the current price.");
+        return;
+    }
+
+    var itemId = document.getElementById("itempage_itemid").innerHTML;
+
+    var requestText = "NEWBID?" + offer + "?" + itemId + "?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            window.alert(this.responseText
+                .replace("BID_TL", "Bid too low. You have to bid more than the current price.")
+                .replace("BID_A", "Bid accepted!")
+            );
+            location.reload();
+        }
+    };
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
 

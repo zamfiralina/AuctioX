@@ -38,9 +38,9 @@
 	      
 		<div class="sidebar">
 
-			<form>
-				<input id = "new_offer" type="number" placeholder="New offer" required> <button id = "new_offer_button" type="submit" onclick=""> Make an offer </button>
-			</form>
+			<input id = "new_offer" type="number" placeholder="New offer" required>
+			<button id = "new_offer_button" onclick="newBid()">Make an offer </button>
+
         </div><!--close sidebar-->
 
 	   
@@ -60,7 +60,12 @@
 						<table>
 							<tr>
 								<td>
-									<h2 class = "price"> Last price: <a id = "itempage_price"> </a></h2>
+									<h2 class = "price"> Last price: <a id = "itempage_price"></a></h2>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p class = "item_owner"> Item ID: <a id = "itempage_itemid"></a></p> <br>
 								</td>
 							</tr>
 							<tr>

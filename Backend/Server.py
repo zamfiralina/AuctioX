@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import itertools
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.newBid import newBid
 from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.deleteAuction import deleteAuction
@@ -212,13 +213,19 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         print ("out of function")
 
                 if requestContents.startswith("/GETJSONEXPORT"):
-                        userHash = requestContents.replace('%20', ' ').split('?')
+                        userHash = requestContents.replace('%20', ' ').split('?')[1]
                         content_body = getAuctionsAsJson(self.db_conn)
 
                 if requestContents.startswith("/GETPDFEXPORT"):
-                        userHash = requestContents.replace('%20', ' ').split('?')
+                        userHash = requestContents.replace('%20', ' ').split('?')[1]
                         content_body = getAuctionsAsPDF(self.db_conn)
                         content_type = 'application/pdf'
+
+                if requestContents.startswith("/NEWBID"):
+                        offer    = requestContents.replace('%20', ' ').split('?')[1]
+                        itemId   = requestContents.replace('%20', ' ').split('?')[2]
+                        userHash = requestContents.replace('%20', ' ').split('?')[3]
+                        content_body = newBid(itemId, offer, self.db_conn)
 
                 return content_type, content_body
 
