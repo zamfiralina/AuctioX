@@ -10,6 +10,7 @@ from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.itemDetails import getItemDetails
 from Backend.Functions.login import login, logout
+from Backend.Functions.mostRecent import mostRecent
 from Backend.Functions.newAuction import newAuction
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.register import register
@@ -121,14 +122,15 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith("/CHANGE"):
                         newFirstName = requestContents.split("?")[1]
                         newLastName = requestContents.split("?")[2]
-                        newCity = requestContents.split("?")[3]
-                        newTel = requestContents.split("?")[4]
-                        newEmail = requestContents.split("?")[5]
-                        newLink = requestContents.split("?")[6]
-                        userHash = requestContents.split("?")[7].replace("%20", " ")
+                        newPass = requestContents.split("?")[3]
+                        newCity = requestContents.split("?")[4]
+                        newTel = requestContents.split("?")[5]
+                        newEmail = requestContents.split("?")[6]
+                        newLink = requestContents.split("?")[7]
+                        userHash = requestContents.split("?")[8].replace("%20", " ")
                         if userHash in self.activeUsers:
                                 username = self.activeUsers[userHash]
-                                content_body = changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink,
+                                content_body = changeInfo(newFirstName, newLastName, newPass, newCity, newTel, newEmail, newLink,
                                                           self.__class__.db_conn, username)
                         else:
                                 content_body = "You are not logged in.".encode()
@@ -182,6 +184,9 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         print("to be searched: ", itemName)
                         print("page:", page)
                         content_body = simpleSearchPage(itemName.lower(), page, self.__class__.db_conn)
+
+                if requestContents.startswith("/RECENT"):
+                    content_body = mostRecent(self.__class__.db_conn)
 
                 if requestContents.startswith("/GETADVANCEDSEARCHRESULTSPAGE"):
                         page, tags = requestContents.replace("%20", " ").split("!")[1:]
