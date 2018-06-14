@@ -6,8 +6,10 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import itertools
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.login import login, logout
+from Backend.Functions.mostRecent import mostRecent
 from Backend.Functions.newAuction import newAuction
 from Backend.Functions.profile import getProfileInfo
 from Backend.Functions.register import register
@@ -184,6 +186,9 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith("/GETADVANCEDSEARCHRESULTSPAGE"):
                         page, tags = requestContents.replace("%20", " ").split("!")[1:]
                         content_body = advancedSearchPage(page, tags, self.db_conn)
+
+                if requestContents.startswith("/RECENT"):
+                    content_body = mostRecent(self.__class__.db_conn)
 
                 return content_type, content_body
 
