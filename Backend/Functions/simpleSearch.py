@@ -17,7 +17,10 @@ def simpleSearchPage(toBeSearched: str, page: str, db_handler: DBConnection) -> 
 
         print("Pages:", pages)
 
-        requestedPage = pages[int(page) - 1]
+        try:
+                requestedPage = pages[int(page) - 1]
+        except IndexError:
+                return b'0!0!0!0!'
 
         print("RequestedPage", requestedPage)
 

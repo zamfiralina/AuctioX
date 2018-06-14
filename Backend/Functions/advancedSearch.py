@@ -43,7 +43,10 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
 
         print("Pages:", pages)
 
-        requestedPage = pages[int(page) - 1]
+        try:
+                requestedPage = pages[int(page) - 1]
+        except IndexError:
+                return b'0!0!0!0!'
 
         print("RequestedPage", requestedPage)
 

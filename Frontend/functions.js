@@ -467,21 +467,34 @@ function getSimpleSearchResultsPage(searchedText, page) {
             maxPage = splitResult[3];
 
             items = splitResult[4];
-            items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("???") });
 
-            for (i = 0; i < items.length; i++) {
-                currItem = items[i];
-                itemView = "";
-                itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
-                itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
-                itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
-                itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
-                itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
-                document.getElementById("td" + (i+1)).innerHTML = itemView;
+            hasItems = (items.length > 0);
+
+            if (hasItems) {
+
+                items = items.split("#").map(function (itemString) {
+                    return itemString.replace("%20", " ").split("???")
+                });
+
+                for (i = 0; i < items.length; i++) {
+                    currItem = items[i];
+                    itemView = "";
+                    itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
+                    itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
+                    itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
+                    itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
+                    itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
+                    document.getElementById("td" + (i + 1)).innerHTML = itemView;
+                }
+
+                for (i = items.length; i < 9; i++)
+                    document.getElementById("td" + (i+1)).innerHTML = "";
             }
-
-            for (i = items.length; i < 9; i++)
-                document.getElementById("td" + (i+1)).innerHTML = "";
+            else {
+                document.getElementById("td1").innerHTML = "No items found :\"(";
+                for (i = 1; i < 9; i++)
+                    document.getElementById("td" + (i + 1)).innerHTML = "";
+            }
 
             document.getElementById("searched_text").innerHTML = "<br>" + "You searched for: " + searchedText + "<br><br>";
 
@@ -678,7 +691,6 @@ function getLastAdvancedSearchResults() {
     var searchedContent = getValueFromCookies("advSrcStr");
 
     result      = getValueFromCookies("advSrcRes");
-
     splitResult = result.split("!");
 
     hasPrevPage = splitResult[0];
@@ -688,32 +700,44 @@ function getLastAdvancedSearchResults() {
     maxPage = splitResult[3];
 
     items = splitResult[4];
-    items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("???") });
 
-    for (i = 0; i < items.length; i++) {
-        currItem = items[i];
-        window.alert(currItem);
-        itemView = "";
-        itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
-        itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
-        itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
-        itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
-        itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
-        document.getElementById("td" + (i+1)).innerHTML = itemView;
+    hasItems = (items.length > 0);
+
+    if (hasItems) {
+
+        items = items.split("#").map(function (itemString) {
+            return itemString.replace("%20", " ").split("???")
+        });
+
+        for (i = 0; i < items.length; i++) {
+            currItem = items[i];
+            itemView = "";
+            itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
+            itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
+            itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
+            itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
+            itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
+            document.getElementById("td" + (i + 1)).innerHTML = itemView;
+        }
+
+        for (i = items.length; i < 9; i++)
+            document.getElementById("td" + (i + 1)).innerHTML = "";
     }
-
-    for (i = items.length; i < 9; i++)
-        document.getElementById("td" + (i+1)).innerHTML = "";
+    else {
+        document.getElementById("td1").innerHTML = "No items found :\"(";
+        for (i = 1; i < 9; i++)
+            document.getElementById("td" + (i + 1)).innerHTML = "";
+    }
 
     if (!hasPrevPage.localeCompare("1"))
         document.getElementById("button_prev").innerHTML =
-            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + (page-1) + ")'>Previous</button>";
+            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + 0 + ")'>Previous</button>";
     else
         document.getElementById("button_prev").innerHTML = "";
 
     if (!hasNextPage.localeCompare("1"))
         document.getElementById("button_next").innerHTML =
-            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + (page+1) + ")'>Next</button>";
+            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + 2 + ")'>Next</button>";
     else
         document.getElementById("button_next").innerHTML = "";
 
@@ -743,7 +767,75 @@ function getLastAdvancedSearchResults() {
 
 
 function getAdvancedSearchResultsPage(queryContent, page) {
-    window.alert("Going to page " + page + " of " + queryContent);
+    queryContent = queryContent.split("!");
+    queryContent = queryContent[0] + "!" + page + "!" + queryContent[2];
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200){
+            result      = this.responseText;
+            splitResult = result.split("!");
+
+            hasPrevPage = splitResult[0];
+            hasNextPage = splitResult[1];
+
+            curPage = splitResult[2];
+            maxPage = splitResult[3];
+
+            items = splitResult[4];
+            items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("???") });
+
+            for (i = 0; i < items.length; i++) {
+                currItem = items[i];
+                itemView = "";
+                itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
+                itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
+                itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
+                itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
+                itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
+                document.getElementById("td" + (i+1)).innerHTML = itemView;
+            }
+
+            for (i = items.length; i < 9; i++)
+                document.getElementById("td" + (i+1)).innerHTML = "";
+
+            if (!hasPrevPage.localeCompare("1"))
+                document.getElementById("button_prev").innerHTML =
+                    "<button onclick='getAdvancedSearchResultsPage(\"" + queryContent + "\", " + (page-1) + ")'>Previous</button>";
+            else
+                document.getElementById("button_prev").innerHTML = "";
+
+            if (!hasNextPage.localeCompare("1"))
+                document.getElementById("button_next").innerHTML =
+                    "<button onclick='getAdvancedSearchResultsPage(\"" + queryContent + "\", " + (page+1) + ")'>Next</button>";
+            else
+                document.getElementById("button_next").innerHTML = "";
+
+            document.getElementById("page").innerHTML = "<h3>" + curPage + " / " + maxPage + "</h3>";
+
+            // GETADVANCEDSEARCHRESULTSPAGE!1!CATEGORY~Animals?NAME~caine?COLOR~black
+            // CATEGORY~Animals?NAME~caine?COLOR~black
+            // CATEGORY~Animals  NAME~caine  COLOR~black
+
+            queryContentTable = "<table>";
+
+            queryContent.split("!")[2].split("?").forEach(
+                function (tagString) {
+                    tagName = tagString.split("~")[0];
+                    tagVal  = tagString.split("~")[1];
+                    queryContentTable += "<tr><td><br>" + tagName + ": </td><td><br>" + tagVal + "</td></tr>";
+                }
+            );
+
+            queryContentTable += "</table>";
+
+            document.getElementById("searched_text").innerHTML =
+                "<br>" + "You searched for:" + queryContentTable + "<br><br>";
+        }
+    };
+    xhttp.open("GET", queryContent, true);
+    xhttp.send();
 }
 
 function getCurrentItemDetails() {
@@ -782,7 +874,7 @@ function getCurrentItemDetails() {
             document.getElementById("itempage_price").innerHTML       = price;
             document.getElementById("itempage_enddate").innerHTML     = endDate;
 
-            document.getElementById("itempage_seller").innerHTML    = seller;
+            document.getElementById("itempage_seller").innerHTML      = seller;
             document.getElementById("itempage_tlf").innerHTML         = tlf;
             document.getElementById("itempage_email").innerHTML       = email;
             document.getElementById("itempage_location").innerHTML    = location;

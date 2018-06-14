@@ -167,14 +167,16 @@
    <script>
 	   if(isUserLoggedIn()) {
            getLoggedInUserIndexInfo();
-           document.getElementById("index_profilepage_button").innerHTML = "<a href=\"#\" onclick=\"gotoPage('profilePage')\">Profile Page</a>";
+           document.getElementById("index_profilepage_button").innerHTML =
+			   "<a href=\"#\" onclick=\"gotoPage('profilePage')\">Profile Page</a>";
        }
 
-	   if (redirectedFromAdvancedSearch())
-	       getLastAdvancedSearchResults();
-	   else
-	       mostRecent();
-
+	   if (redirectedFromAdvancedSearch()) {
+           getLastAdvancedSearchResults();
+       }
+	   else {
+           mostRecent();
+       }
    </script>
 
 </body>
