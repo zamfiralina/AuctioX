@@ -81,11 +81,14 @@ class DBConnection:
     def getResultsInPagesOf(self, pageSize):
             # Returns a list of "pages", lists of tuples, corresponding to the results of the last executed command
         try:
-            pages = int(len(self.__statementResult)/pageSize)
+            pages = len(self.__statementResult)//pageSize + bool(len(self.__statementResult)%pageSize)
+            print("DBConnection - pages: ", pages)
             resultPages = []
 
-            for i in range(pages):
-                resultPages.append(self.__statementResult[pages * pageSize : i * pageSize + pageSize])
+            for iPage in range(pages):
+                print("DBConnection - i: ", iPage)
+                print("Appended page:", self.__statementResult[pageSize * iPage : iPage * pageSize + pageSize])
+                resultPages.append(self.__statementResult[pageSize * iPage : iPage * pageSize + pageSize])
 
             resultPages.append(self.__statementResult[pages * pageSize :])
             return resultPages

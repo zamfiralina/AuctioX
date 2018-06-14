@@ -173,7 +173,7 @@ function isUserLoggedIn() {
 
     // if user hash is empty
     if(!getValueFromCookies("userHash").localeCompare("")) {
-        window.alert("nohash");
+        //window.alert("nohash");
         return false;
     }
     else {
@@ -429,6 +429,7 @@ function newAuction(){
 
 
 function getSimpleSearchResultsPage(searchedText, page) {
+    window.alert("S-a apelat getSimpleSearchResultsPage cu: " + searchedText + " " + page);
     var requestText = "GETSIMPLESEARCHRESULTSPAGE?" + page + "?" + searchedText;
 
     var xhttp = new XMLHttpRequest();
@@ -441,8 +442,8 @@ function getSimpleSearchResultsPage(searchedText, page) {
             splitResult = result.split("!");
 
 
-            hasNextPage = splitResult[0];
-            hasPrevPage = splitResult[1];
+            hasPrevPage = splitResult[0];
+            hasNextPage = splitResult[1];
 
             curPage = splitResult[2];
             maxPage = splitResult[3];
@@ -452,7 +453,7 @@ function getSimpleSearchResultsPage(searchedText, page) {
 
             for (i = 0; i < items.length; i++) {
                 currItem = items[i];
-                window.alert(currItem);
+                //window.alert(currItem);
                 itemView = "";
                 itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
                 itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
@@ -467,17 +468,21 @@ function getSimpleSearchResultsPage(searchedText, page) {
 
             document.getElementById("searched_text").innerHTML = "<br>" + "You searched for: " + searchedText + "<br><br>";
 
-            document.getElementById("button_prev").innerHTML = (!hasPrevPage.localeCompare("1")) ?
-                "<button onclick='getSimpleSearchResultsPage(" + searchedText + ", " + (page-1) + ")'>Previous</button>"
-                :
-                "";
+            if (!hasPrevPage.localeCompare("1"))
+                document.getElementById("button_prev").innerHTML =
+                    "<button onclick='getSimpleSearchResultsPage(\"" + searchedText + "\", " + (page-1) + ")'>Previous</button>";
+            else
+                document.getElementById("button_prev").innerHTML = "";
 
-            document.getElementById("button_next").innerHTML = (!hasNextPage.localeCompare("1")) ?
-                "<button onclick='getSimpleSearchResultsPage(" + searchedText + ", " + (page+1) + ")'>Next</button>"
-                :
-                "";
+            if (!hasNextPage.localeCompare("1"))
+                document.getElementById("button_next").innerHTML =
+                    "<button onclick='getSimpleSearchResultsPage(\"" + searchedText + "\", " + (page+1) + ")'>Next</button>";
+            else
+                document.getElementById("button_next").innerHTML = "";
 
             document.getElementById("page").innerHTML = "<h3>" + curPage + " / " + maxPage + "</h3>";
+
+            window.alert(hasPrevPage + " " + hasNextPage);
 
             // var itemRows = this.responseText;
             //
