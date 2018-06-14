@@ -24,7 +24,7 @@ from Backend.Functions.simpleSearch import simpleSearchPage
 from Backend.Functions.testSearch import testSearch
 
 
-class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
+class HTTPServerRequestHandler(BaseHTTPRequestHandler):
         db_conn = DBConnection.connect("WEB", "WEB", "localhost")
 
         activeUsers = dict()
@@ -241,7 +241,7 @@ def run():
 
         server_address = ('127.0.0.1', 8081)
 
-        httpd = HTTPServer(server_address, TestHTTPServerRequestHandler)
+        httpd = HTTPServer(server_address, HTTPServerRequestHandler)
 
         print('running server...')
         httpd.serve_forever()
