@@ -946,7 +946,7 @@ function getAuction() {
                                     "<a id =" + id_a + ">" +
                                     "</a>" +
                                 "</p>" +
-                                "<a href=\"#\" onclick=\"getItemField()\">" +
+                                "<a href=\"#\" onclick=\"gotoPage('editAuction')\">" +
                                     "Edit" +
                                 "</a>" +
                                 "<button type=\"button\" onclick=\"deleteAuction('" + this.responseText.split("?")[i] + "')\" class=\"delete_auction_b\">" +
@@ -1081,3 +1081,74 @@ function newBid() {
     xhttp.send();
 }
 
+
+function editAuction(){
+   if(isUserLoggedIn()) {
+       var xhttp = new XMLHttpRequest();
+
+       xhttp.onreadystatechange = function () {
+           if (this.readyState === 4 && this.status === 200) {
+               //document.getElementById("getText").innerHTML = this.responseText
+               window.alert(this.responseText);
+               gotoPage("profilePage");
+           }
+       };
+       var requestText = "EDIT" + "???" + "PNAME::::" + document.getElementById("prod_name").value + "???"
+           + "CATEGORY::::" + document.getElementById("category").value + "???"
+           + "PICTURE::::" + document.getElementById("prod_pic").value + "???"
+           + "S_PRICE::::" + document.getElementById("start_price").value + "???"
+           + "S_DATE::::" + document.getElementById("start_date").value + "???"
+           + "END_DATE::::" + document.getElementById("end_date").value + "???"
+           + "DESCRIPTION::::" + document.getElementById("description").value + "???"
+           + "FABRICATION_COUNTRY::::" + document.getElementById("fab_country").value + "???"
+           + "FABRICATION_YEAR::::" + document.getElementById("fab_year").value + "???"
+           + "CONDITION::::" + document.getElementById("condition").value + "???"
+           + "MATERIAL::::" + document.getElementById("material").value + "???"
+           + "COLOR::::" + document.getElementById("color").value + "???"
+           + "OTHER_SPEC::::" + document.getElementById("spec_carac").value + "???"
+           + getValueFromCookies("currItemId");
+
+
+       xhttp.open("GET", requestText, true);
+       xhttp.send();
+   }
+   else {
+        window.alert("You are not logged in.");
+        gotoPage("index");
+    }
+}
+
+function getItemEditDetails(){
+    if(isUserLoggedIn()) {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                //window.alert(this.responseText);
+
+
+                var Name = this.responseText.split("?")[0];
+                var S_price = this.responseText.split("?")[1];
+                var S_date = this.responseText.split("?")[2];
+                var END_date = this.responseText.split("?")[3];
+                var description = this.responseText.split("?")[4];
+
+                document.getElementById("prod_name").value = Name;
+                document.getElementById("start_price").innerHTML = S_price;
+                document.getElementById("start_date").innerHTML = S_date;
+                document.getElementById("end_date").innerHTML = END_date;
+                document.getElementById("description").value = description;
+            }
+        };
+        var requestText = "GETITEMFIELDS" + "???" + getValueFromCookies("currItemId");
+
+
+        xhttp.open("GET", requestText, true);
+        xhttp.send();
+    }
+    else{
+         window.alert("You are not logged in.");
+        gotoPage("index");
+    }
+
+}

@@ -30,7 +30,7 @@ CREATE TABLE ITEMS (ITEM_ID     NUMBER NOT NULL ,
                     USER_ID     NUMBER NOT NULL ,
                     P_NAME      VARCHAR2(100) NOT NULL ,
                     CATEGORY_ID NUMBER NOT NULL ,
-                    PICTURE     VARCHAR2(1000) NOT NULL ,
+                    PICTURE     VARCHAR2(4000) NOT NULL ,
                     S_PRICE     NUMBER NOT NULL ,
                     S_DATE      TIMESTAMP(6) NOT NULL ,
                     END_DATE    TIMESTAMP(6) NOT NULL ,
@@ -70,12 +70,12 @@ insert into site_users values(9,'Ion','Ionescu','ionescu@gmail.com','ionion','38
 insert into site_users values(10,'Alex','Alexa','alex@gmail.com','alex','alehu', 'Romania', 'Vaslui', '0231255255', 'https://ichef.bbci.co.uk/images/ic/720x405/p0517py6.jpg');
 
 insert into categories values(1,'Animals');
-insert into categories values(2,'Chloting, Shoes & Accessories');
-insert into categories values(3,'Toys & Hobbies');
+insert into categories values(2,'Chloting, Shoes and Accessories');
+insert into categories values(3,'Toys and Hobbies');
 insert into categories values(4,'Motorcycles');
-insert into categories values(5,'Home & Office');
-insert into categories values(6,'Health & Beauty');
-insert into categories values(7,'Electrical & Tools');
+insert into categories values(5,'Home and Office');
+insert into categories values(6,'Health and Beauty');
+insert into categories values(7,'Electrical and Tools');
 insert into categories values(8,'Consumer Electronics');
 
 insert into items values(1,2,'sticla',6,'http://elelur.com/data_images/mammals/wolf/wolf-01.jpg',20,sysdate,sysdate,'sticla plastic suc piersici');
@@ -98,7 +98,6 @@ insert into tags values(11,1,'other_spec','birmaneza');
 insert into tags values(5,5,'color','verde');
 
 insert into auctions values(4,12,123);
-insert into auctions values(5,10,500);
 insert into auctions values(3,13,200);
 insert into auctions values(7,1,280);
 insert into auctions values(7,7,800);

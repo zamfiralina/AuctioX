@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>AuctioX</title>
+    <script  src="functions.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+
+  <header id="header">
+    <div id="strapline">
+      <div id="welcome_slogan">
+        <h3>AuctioX</h3>
+      </div><!--close welcome_slogan-->
+    </div><!--close strapline-->
+
+    <nav>
+      <div id="menubar">
+          <ul id="nav">
+             <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
+             <li class="current"><a href="#" onclick="gotoPage('profilePage')">Profile Page</a></li>
+          </ul>
+      </div><!--close menubar-->
+    </nav>
+  </header>
+    <!--end_header-->
+
+
+	<div id="site_content">
+
+      <div class="form_settings" >
+        <h1>Edit Auction:</h1>
+        <br><br><br>
+        <div id="data-auction">
+        <span>Product name: </span><input type="text" placeholder="Enter the product name" id="prod_name" ><br> <br> <br>
+          <span>Category: </span>
+            <select id="category">
+              <option>Animals</option>
+              <option>Chloting, Shoes and Accessories</option>
+              <option>Toys and Hobbies</option>
+              <option>Motorcycles</option>
+              <option>Home and Office</option>
+              <option>Health and Beauty</option>
+              <option>Electrical and Tools</option>
+              <option>Consumer Electronics</option>
+            </select>
+            <br> <br> <br>
+            <span>Link to a picture: </span><input type="url" placeholder="Enter a picture URL" id="prod_pic" ><br> <br> <br>
+            <span>Start price: </span><input type="number" min="1" placeholder="Starting price of the product" id="start_price" ><br> <br> <br>
+            <span>Start date: </span><input type="date" id="start_date" placeholder="" ><br> <br> <br>
+            <span>End date: </span><input type="date" id="end_date" placeholder=""><br> <br> <br>
+
+            <span>Short description: </span><br>
+          <textarea id="description"></textarea>
+            <br><br><br>
+
+
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Fabrication country: </span>
+              <select id="fab_country">
+                <option >Romania</option>
+                <option >Spain</option>
+                <option >Italy</option>
+                <option >Brasil</option>
+                <option >Portugal</option>
+                <option >U.S.A</option>
+                <option >New Zealand</option>
+                <option >Austria</option>
+                <option >Cuba</option>
+                <option >France</option>
+                <option >Panama</option>
+                <option >Greece</option>
+                <option >Israel</option>
+                <option >China</option>
+                <option >Japan</option>
+                <option >India</option>
+                <option >Not specified</option>
+              </select>
+            <br><br><br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Year of fabrication: </span><input type="text" placeholder="Enter the year" id="fab_year" >
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Condition: </span><input type="text" placeholder="ex. new, old.." id="condition">
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Material: </span><input type="text" placeholder="ex. leather, steel, plastic, iron.." id="material">
+            <br><br><br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Color: </span><input type="text" placeholder="Enter the color" id="color">
+            <br> <br> <br>
+            <p><span style="color:red;">*</span> optioanal</p><br>
+            <span>Other specification: </span><input type="text" placeholder="ex. scratched, rusty.." id="spec_carac">
+            <br><br><br>
+            <button type="button" onclick="editAuction()">Edit</button>
+
+          </div><!--data-auction-->
+
+       </div><!--close form_setings-->
+
+  </div><!--close site_content-->
+
+  <script>
+  getItemEditDetails();
+
+  </script>
+
+</body>
+
+</html>

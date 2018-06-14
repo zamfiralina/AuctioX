@@ -6,7 +6,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import itertools
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.editAuction import editAuction
 from Backend.Functions.getAuctionsAsXML import getAuctionsAsXML
+from Backend.Functions.getItemFields import getItemFields
 from Backend.Functions.newBid import newBid
 from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
@@ -232,6 +234,34 @@ class HTTPServerRequestHandler(BaseHTTPRequestHandler):
                         itemId   = requestContents.replace('%20', ' ').split('?')[2]
                         userHash = requestContents.replace('%20', ' ').split('?')[3]
                         content_body = newBid(itemId, offer, self.db_conn)
+
+                if requestContents.startswith ("/EDIT"):
+                    receivedName = requestContents.split ("???")[1].replace ("%20", " ")
+                    receivedCategory = requestContents.split ("???")[2].replace ("%20", " ")
+                    receivedPicture = requestContents.split ("???")[3].replace ("%20", " ")
+                    receivedPrice = requestContents.split ("???")[4].replace ("%20", " ")
+                    receivedStartD = requestContents.split ("???")[5].replace ("%20", " ")
+                    receivedEndD = requestContents.split ("???")[6].replace ("%20", " ")
+                    receivedDesc = requestContents.split ("???")[7].replace ("%20", " ")
+                    receivedFabCountry = requestContents.split ("???")[8].replace ("%20", " ")
+                    receivedFabYear = requestContents.split ("???")[9].replace ("%20", " ")
+                    receivedCondition = requestContents.split ("???")[10].replace ("%20", " ")
+                    receivedMaterial = requestContents.split ("???")[11].replace ("%20", " ")
+                    receivedColor = requestContents.split ("???")[12].replace ("%20", " ")
+                    receivedSpecialCarac = requestContents.split ("???")[13].replace ("%20", " ")
+                    receivedItemId = requestContents.split ("???")[14].replace ("%20", " ")
+                    #print ("ItemId", receivedItemId)
+                    content_body = editAuction (receivedItemId, receivedName, receivedCategory, receivedPicture,
+                                               receivedPrice, receivedStartD, receivedEndD, receivedDesc,
+                                               receivedFabCountry, receivedFabYear, receivedCondition, receivedMaterial,
+                                               receivedColor, receivedSpecialCarac, self.__class__.db_conn)
+
+
+
+                if requestContents.startswith("/GETITEMFIELDS"):
+                    receivedAuctionId = requestContents.split ("???")[1]
+                    #print("LICITATIA ACTIVA" + receivedAuctionId)
+                    content_body = getItemFields(receivedAuctionId, self.__class__.db_conn)
 
                 return content_type, content_body
 
