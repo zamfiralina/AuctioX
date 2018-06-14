@@ -2,7 +2,7 @@ from Backend.DBController.DBConnection import DBConnection
 from Backend.Functions.unicodeHash import unicodeHash
 
 
-def changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, db_conn: DBConnection, username):
+def changeInfo(newFirstName, newLastName, newPass, newCity, newTel, newEmail, newLink, db_conn: DBConnection, username):
     ok=1
     if newFirstName != "":
         result1 = db_conn.execute(f"UPDATE SITE_USERS SET FIRST_NAME='{newFirstName}' WHERE username LIKE '{username}'")
@@ -17,6 +17,15 @@ def changeInfo(newFirstName, newLastName, newCity, newTel, newEmail, newLink, db
             ok=0
         else:
             db_conn.execute("Commit")
+
+    hashPass = unicodeHash(newPass)
+    if newPass != "":
+        result = db_conn.execute(f"UPDATE SITE_USERS SET PASSWORD='{hashPass}' WHERE username LIKE '{username}'")
+        if result == []:
+            ok=0
+        else:
+            db_conn.execute("Commit")
+
 
     if newCity != "":
         result3 = db_conn.execute(f"UPDATE SITE_USERS SET CITY='{newCity}' WHERE username LIKE '{username}'")
