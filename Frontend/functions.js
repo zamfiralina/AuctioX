@@ -98,7 +98,7 @@ function getLoggedInUserIndexInfo() {
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200){
 
-            var profileFields = this.responseText.split("?");
+            var profileFields = this.responseText.split("???");
 
             var firstName = profileFields[0];
             var lastName  = profileFields[1];
@@ -132,7 +132,7 @@ function getLoggedInUserProfileInfo() {
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
 
-                var profileFields = this.responseText.split("?");
+                var profileFields = this.responseText.split("???");
 
                 var firstName = profileFields[0];
                 var lastName = profileFields[1];
@@ -445,7 +445,7 @@ function getSimpleSearchResultsPage(searchedText, page) {
             maxPage = splitResult[3];
 
             items = splitResult[4];
-            items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("?") });
+            items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("???") });
 
             for (i = 0; i < items.length; i++) {
                 currItem = items[i];
@@ -666,10 +666,11 @@ function getLastAdvancedSearchResults() {
     maxPage = splitResult[3];
 
     items = splitResult[4];
-    items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("?") });
+    items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("???") });
 
     for (i = 0; i < items.length; i++) {
         currItem = items[i];
+        window.alert(currItem);
         itemView = "";
         itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
         itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
@@ -733,7 +734,7 @@ function getCurrentItemDetails() {
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
 
-            var itemDetails = this.responseText.split("?");
+            var itemDetails = this.responseText.split("???");
 
             var title    = itemDetails[2];
             var category = itemDetails[9];

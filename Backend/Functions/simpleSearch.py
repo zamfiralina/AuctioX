@@ -35,7 +35,7 @@ def simpleSearchPage(toBeSearched: str, page: str, db_handler: DBConnection) -> 
                 str(curPage),
                 str(maxPage),
                 '#'.join(
-                        '?'.join(row) for row in requestedPage
+                        '???'.join(row) for row in requestedPage
                 )
         ))
 

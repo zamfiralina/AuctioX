@@ -8,4 +8,4 @@ def getProfileInfo(username: str, db_conn: DBConnection) -> bytes:
 
         #firstName, lastName, email, _, country, city, tel, picLink = result
 
-        return "?".join(result).encode()
+        return "???".join(result).encode()

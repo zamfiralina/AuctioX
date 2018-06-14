@@ -36,7 +36,6 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
 
                 query += _constraint_types[tag_name](tag_val)
 
-        # TODO execute the select n shit
         db_conn.execute(query)
 
         pages = db_conn.getResultsInPagesOf(9)
@@ -62,7 +61,7 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
                 str(curPage),
                 str(maxPage),
                 '#'.join(
-                        '?'.join(row) for row in requestedPage
+                        '???'.join(row) for row in requestedPage
                         )
                 ))
 

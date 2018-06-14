@@ -18,4 +18,4 @@ def getItemDetails(itemId: int, db_conn: DBConnection) -> bytes:
         itemDetails.append(itemEmail)
         itemDetails.append(itemLocation)
 
-        return "?".join(itemDetails).encode()
+        return "???".join(itemDetails).encode()
