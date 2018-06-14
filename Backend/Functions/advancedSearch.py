@@ -1,8 +1,16 @@
 from Backend.DBController.DBConnection import DBConnection
 
+_search_template = "TO_CHAR(ITEM_ID), TO_CHAR(USER_ID), P_NAME, TO_CHAR(CATEGORY_ID), PICTURE, TO_CHAR(S_PRICE), TO_CHAR(S_DATE), TO_CHAR(END_DATE), DESCRIPTION"
+
 _constraint_types = {
-        "CATEGORY" : lambda val: f"CATEGORY_ID IN (SELECT CATEGORY_ID FROM CATEGORIES WHERE CATEGORY_NAME LIKE '%{val}%')",
-        "NAME"     : lambda val: f"P_NAME LIKE '%{val}%'"
+        "CATEGORY"            : lambda val: f"CATEGORY_ID IN (SELECT CATEGORY_ID FROM CATEGORIES WHERE CATEGORY_NAME LIKE '%{val}%')",
+        "NAME"                : lambda val: f"LOWER(P_NAME) LIKE '%{val}%'",
+        "FABRICATIONLOCATION" : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'FABRICATION_COUNTRY' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%')",
+        "FABRICATIONYEAR"     : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'FABRICATION_YEAR' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%' )",
+        "CONDITION"           : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'CONDITION' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%')",
+        "MATERIAL"            : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'MATERIAL' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%')",
+        "COLOR"               : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'COLOR' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%')",
+        "OTHER"               : lambda val: f"ITEM_ID IN (SELECT ITEM_ID FROM TAGS WHERE CHARACTERISTIC_NAME LIKE 'OTHER_SPEC' AND LOWER(CHARACTERISTIC_VALUE) LIKE '%{val}%')"
         }
 
 def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
@@ -10,7 +18,7 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
         tags = [constraint.split("~") for constraint in tags.split("?")]
         tags = {name : value for name, value in tags}
 
-        query = "SELECT * FROM ITEMS"
+        query = f"SELECT {_search_template} FROM ITEMS"
 
         # CATEGORY
         # NAME
@@ -21,7 +29,7 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
         # COLOR
         # OTHER
         for tag_name, tag_val in tags.items():
-                if query == "SELECT * FROM ITEMS":
+                if query == f"SELECT {_search_template} FROM ITEMS":
                         query += " WHERE "
                 else:
                         query += " AND "
@@ -32,6 +40,7 @@ def advancedSearchPage(page: str, tags: str, db_conn: DBConnection) -> bytes:
         db_conn.execute(query)
 
         pages = db_conn.getResultsInPagesOf(9)
+        pages = [page for page in pages if page]
 
         print("Pages:", pages)
 

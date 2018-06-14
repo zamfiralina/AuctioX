@@ -426,7 +426,6 @@ function newAuction(){
 }
 
 function getSimpleSearchResultsPage(searchedText, page) {
-    window.alert("S-a apelat getSimpleSearchResultsPage cu: " + searchedText + " " + page);
     var requestText = "GETSIMPLESEARCHRESULTSPAGE?" + page + "?" + searchedText;
 
     var xhttp = new XMLHttpRequest();
@@ -450,7 +449,6 @@ function getSimpleSearchResultsPage(searchedText, page) {
 
             for (i = 0; i < items.length; i++) {
                 currItem = items[i];
-                //window.alert(currItem);
                 itemView = "";
                 itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
                 itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
@@ -478,105 +476,6 @@ function getSimpleSearchResultsPage(searchedText, page) {
                 document.getElementById("button_next").innerHTML = "";
 
             document.getElementById("page").innerHTML = "<h3>" + curPage + " / " + maxPage + "</h3>";
-
-            window.alert(hasPrevPage + " " + hasNextPage);
-
-            // var itemRows = this.responseText;
-            //
-            // window.alert(this.responseText);
-            //
-            // var numberOfObjects = this.responseText.charAt(this.responseText.length)
-            //
-            // var itemImage1 = itemRows.split("#")[0].split("?")[0];
-            // var itemName1  = itemRows.split("#")[0].split("?")[1];
-            // var itemPrice1     = itemRows.split("#")[0].split("?")[2];
-            // var itemEndDate1  = itemRows.split("#")[0].split("?")[3];
-            //
-            // var itemImage2   = itemRows.split("#")[1].split("?")[0];
-            // var itemName2      = itemRows.split("#")[1].split("?")[1];
-            // var itemPrice2      = itemRows.split("#")[1].split("?")[2];
-            // var itemEndDate2   = itemRows.split("#")[1].split("?")[3];
-            //
-            // var itemImage3   = itemRows.split("#")[2].split("?")[0];
-            // var itemName3      = itemRows.split("#")[2].split("?")[1];
-            // var itemPrice3      = itemRows.split("#")[2].split("?")[2];
-            // var itemEndDate3   = itemRows.split("#")[2].split("?")[3];
-            //
-            // var itemImage4   = itemRows.split("#")[3].split("?")[0];
-            // var itemName4      = itemRows.split("#")[3].split("?")[1];
-            // var itemPrice4      = itemRows.split("#")[3].split("?")[2];
-            // var itemEndDate4   = itemRows.split("#")[3].split("?")[3];
-            //
-            // var itemImage5   = itemRows.split("#")[4].split("?")[0];
-            // var itemName5      = itemRows.split("#")[4].split("?")[1];
-            // var itemPrice5      = itemRows.split("#")[4].split("?")[2];
-            // var itemEndDate5   = itemRows.split("#")[4].split("?")[3];
-            //
-            // var itemImage6   = itemRows.split("#")[5].split("?")[0];
-            // var itemName6      = itemRows.split("#")[5].split("?")[1];
-            // var itemPrice6      = itemRows.split("#")[5].split("?")[2];
-            // var itemEndDate6   = itemRows.split("#")[5].split("?")[3];
-            //
-            // var itemImage7   = itemRows.split("#")[6].split("?")[0];
-            // var itemName7      = itemRows.split("#")[6].split("?")[1];
-            // var itemPrice7      = itemRows.split("#")[6].split("?")[2];
-            // var itemEndDate7   = itemRows.split("#")[6].split("?")[3];
-            //
-            // var itemImage8   = itemRows.split("#")[7].split("?")[0];
-            // var itemName8      = itemRows.split("#")[7].split("?")[1];
-            // var itemPrice8      = itemRows.split("#")[7].split("?")[2];
-            // var itemEndDate8   = itemRows.split("#")[7].split("?")[3];
-            //
-            // var itemImage9   = itemRows.split("#")[8].split("?")[0];
-            // var itemName9      = itemRows.split("#")[8].split("?")[1];
-            // var itemPrice9      = itemRows.split("#")[8].split("?")[2];
-            // var itemEndDate9   = itemRows.split("#")[8].split("?")[3];
-            //
-            // document.getElementById("itemImage1").innerHTML = "<img src = '" + itemImage1 + "'></img>";
-            // document.getElementById("itemName1").innerHTML = itemName1;
-            // document.getElementById("itemPrice1").innerHTML = itemPrice1;
-            // document.getElementById("itemEndDate1").innerHTML = itemEndDate1;
-            //
-            // document.getElementById("itemImage2").innerHTML = "<img src = '" + itemImage2 + "'></img>";
-            // document.getElementById("itemName2").innerHTML = itemName2;
-            // document.getElementById("itemPrice2").innerHTML = itemPrice2;
-            // document.getElementById("itemEndDate2").innerHTML = itemEndDate2;
-            //
-            // document.getElementById("itemImage3").innerHTML = "<img src = '" + itemImage3 + "'></img>";
-            // document.getElementById("itemName3").innerHTML = itemName3;
-            // document.getElementById("itemPrice3").innerHTML = itemPrice3;
-            // document.getElementById("itemEndDate3").innerHTML = itemEndDate3;
-            //
-            // document.getElementById("itemImage4").innerHTML = "<img src = '" + itemImage4 + "'></img>";
-            // document.getElementById("itemName4").innerHTML = itemName4;
-            // document.getElementById("itemPrice4").innerHTML = itemPrice4;
-            // document.getElementById("itemEndDate4").innerHTML = itemEndDate4;
-            //
-            // document.getElementById("itemImage5").innerHTML = "<img src = '" + itemImage5 + "'></img>";
-            // document.getElementById("itemName5").innerHTML = itemName5;
-            // document.getElementById("itemPrice5").innerHTML = itemPrice5;
-            // document.getElementById("itemEndDate5").innerHTML = itemEndDate5;
-            //
-            // document.getElementById("itemImage6").innerHTML = "<img src = '" + itemImage6 + "'></img>";
-            // document.getElementById("itemName6").innerHTML = itemName6;
-            // document.getElementById("itemPrice6").innerHTML = itemPrice6;
-            // document.getElementById("itemEndDate6").innerHTML = itemEndDate6;
-            //
-            // document.getElementById("itemImage7").innerHTML = "<img src = '" + itemImage7 + "'></img>";
-            // document.getElementById("itemName7").innerHTML = itemName7;
-            // document.getElementById("itemPrice7").innerHTML = itemPrice7;
-            // document.getElementById("itemEndDate7").innerHTML = itemEndDate7;
-            //
-            // document.getElementById("itemImage8").innerHTML = "<img src = '" + itemImage8 + "'></img>";
-            // document.getElementById("itemName8").innerHTML = itemName8;
-            // document.getElementById("itemPrice8").innerHTML = itemPrice8;
-            // document.getElementById("itemEndDate8").innerHTML = itemEndDate8;
-            //
-            // document.getElementById("itemImage9").innerHTML = "<img src = '" + itemImage9 + "'></img>";
-            // document.getElementById("itemName9").innerHTML = itemName9;
-            // document.getElementById("itemPrice9").innerHTML = itemPrice9;
-            // document.getElementById("itemEndDate9").innerHTML = itemEndDate9;
-
         }
     };
     xhttp.open("GET", requestText, true);
@@ -597,28 +496,28 @@ function getAdvancedSearchResultsFromForm() {
     var finalQuery = "GETADVANCEDSEARCHRESULTSPAGE!1!";
 
     if (category.length > 0)
-        finalQuery.append("CATEGORY~" + category);
+        finalQuery += "CATEGORY~" + category;
 
     if (name.length > 0)
-        finalQuery.append("?" + "NAME~" + name);
+        finalQuery += "?" + "NAME~" + name;
 
     if (originLoc.length > 0)
-        finalQuery.append("?" + "FABRICATIONLOCATION~" + originLoc);
+        finalQuery += "?" + "FABRICATIONLOCATION~" + originLoc;
 
     if (originYr.length > 0)
-        finalQuery.append("?" + "FABRICATIONYEAR~" + originYr);
+        finalQuery += "?" + "FABRICATIONYEAR~" + originYr;
 
     if (condition.length > 0)
-        finalQuery.append("?" + "CONDITION~" + condition);
+        finalQuery += "?" + "CONDITION~" + condition;
 
     if (material.length > 0)
-        finalQuery.append("?" + "MATERIAL~" + material);
+        finalQuery += "?" + "MATERIAL~" + material;
 
     if (color.length > 0)
-        finalQuery.append("?" + "COLOR~" + color);
+        finalQuery += "?" + "COLOR~" + color;
 
     if (other.length > 0)
-        finalQuery.append("?" + "OTHER~" + other);
+        finalQuery += "?" + "OTHER~" + other;
 
     var xhttp = new XMLHttpRequest();
 
@@ -754,10 +653,75 @@ function mostRecent() {
 
 function getLastAdvancedSearchResults() {
 
-    // TODO do shite
-    window.alert("adv src");
+    var searchedContent = getValueFromCookies("advSrcStr");
+
+    result      = getValueFromCookies("advSrcRes");
+
+    splitResult = result.split("!");
+
+    hasPrevPage = splitResult[0];
+    hasNextPage = splitResult[1];
+
+    curPage = splitResult[2];
+    maxPage = splitResult[3];
+
+    items = splitResult[4];
+    items = items.split("#").map(function (itemString) { return itemString.replace("%20", " ").split("?") });
+
+    for (i = 0; i < items.length; i++) {
+        currItem = items[i];
+        itemView = "";
+        itemView = itemView + "<a id = \"itemImage1\"><img src = \"" + currItem[4] + "\" height=\"150\" width=\"150\"></a> ";
+        itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
+        itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
+        itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
+        itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
+        document.getElementById("td" + (i+1)).innerHTML = itemView;
+    }
+
+    for (i = items.length; i < 9; i++)
+        document.getElementById("td" + (i+1)).innerHTML = "";
+
+    if (!hasPrevPage.localeCompare("1"))
+        document.getElementById("button_prev").innerHTML =
+            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + (page-1) + ")'>Previous</button>";
+    else
+        document.getElementById("button_prev").innerHTML = "";
+
+    if (!hasNextPage.localeCompare("1"))
+        document.getElementById("button_next").innerHTML =
+            "<button onclick='getAdvancedSearchResultsPage(\"" + searchedContent + "\", " + (page+1) + ")'>Next</button>";
+    else
+        document.getElementById("button_next").innerHTML = "";
+
+    document.getElementById("page").innerHTML = "<h3>" + curPage + " / " + maxPage + "</h3>";
+
+    // GETADVANCEDSEARCHRESULTSPAGE!1!CATEGORY~Animals?NAME~caine?COLOR~black
+    // CATEGORY~Animals?NAME~caine?COLOR~black
+    // CATEGORY~Animals  NAME~caine  COLOR~black
+
+    searchedContentTable = "<table>";
+
+    searchedContent.split("!")[2].split("?").forEach(
+        function (tagString) {
+            tagName = tagString.split("~")[0];
+            tagVal  = tagString.split("~")[1];
+            searchedContentTable += "<tr><td><br>" + tagName + ": </td><td><br>" + tagVal + "</td></tr>";
+        }
+    );
+
+    searchedContentTable += "</table>";
+
+    document.getElementById("searched_text").innerHTML = "<br>" + "You searched for:" + searchedContentTable + "<br><br>";
+
+    putValueInCookies("advSrcStr", "");
+    putValueInCookies("advSrcRes", "");
 }
 
+
+function getAdvancedSearchResultsPage(queryContent, page) {
+    window.alert("Going to page " + page + " of " + queryContent);
+}
 
 function getCurrentItemDetails() {
 
@@ -768,8 +732,6 @@ function getCurrentItemDetails() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-
-            window.alert(this.responseText.replace("?", "\n"));
 
             var itemDetails = this.responseText.split("?");
 
@@ -808,7 +770,7 @@ function getCurrentItemDetails() {
 
             tags.split("!").forEach(
                 function (tagString) {
-                    var tag = tagString.split("~")[0];
+                    var tag = tagString.split("~")[0].replace("_", " ");
                     var val = tagString.split("~")[1];
                     tagTable += "<tr><td>" + tag + ":</td><td>" + val + "</td></tr>";
                 }

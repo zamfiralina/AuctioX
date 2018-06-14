@@ -23,6 +23,8 @@
 	    <div id="menubar">
           <ul id="nav">
 			  <li class="current"><a href="#" onclick="gotoPage('index')">Home</a></li>
+			  <li class="current"><a href="#" onclick="gotoPage('AdvancedSearch')">Advanced Search</a></li>
+			  <li id = "index_profilepage_button" class="current"></li>
           </ul>
         </div><!--close menubar-->
       </nav>
@@ -165,11 +167,13 @@
 	</div><!--site_content-->
 
    <script>
-	   if(isUserLoggedIn())
-	       getLoggedInUserIndexInfo();
+	   if(isUserLoggedIn()) {
+           getLoggedInUserIndexInfo();
+           document.getElementById("index_profilepage_button").innerHTML = "<a href=\"#\" onclick=\"gotoPage('profilePage')\">Profile Page</a>";
+       }
 
 	   if (redirectedFromAdvancedSearch())
-	       getValueFromCookies();
+	       getLastAdvancedSearchResults();
 
    </script>
 
