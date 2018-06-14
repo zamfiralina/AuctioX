@@ -8,6 +8,8 @@ import itertools
 from Backend.DBController.DBConnection import DBConnection
 from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
+from Backend.Functions.deleteAuction import deleteAuction
+from Backend.Functions.getAuctions import getAuction
 from Backend.Functions.itemDetails import getItemDetails
 from Backend.Functions.login import login, logout
 from Backend.Functions.mostRecent import mostRecent
@@ -195,6 +197,18 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith("/GETITEMDETAILS"):
                         itemId = int(requestContents.split("?")[-1])
                         content_body = getItemDetails(itemId, self.db_conn)
+
+                if requestContents.startswith ("/USERAUCTIONS"):
+                    receivedUsernameHash = requestContents.split ("?")[1].replace ("%20", " ")
+                    receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
+                    content_body = getAuction (receivedUsername, self.__class__.db_conn)
+
+                if requestContents.startswith ("/DELETE"):
+                    receivedAuctionId = requestContents.split ("?")[1]
+                    print (receivedAuctionId)
+                    content_body = deleteAuction (receivedAuctionId, self.__class__.db_conn)
+                    print ("out of function")
+
 
                 return content_type, content_body
 
