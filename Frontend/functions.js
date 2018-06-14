@@ -1004,6 +1004,44 @@ function getAuctionsAsPdf() {
     xhttp.send();
 }
 
+function getAuctionsAsXml() {
+
+    var queryContent = "GETXMLEXPORT?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+
+            var exportTab = window.open();
+
+            exportTab.document.write(
+                "<!DOCTYPE html>" +
+                    "<html>" +
+                        "<head>" +
+                        "</head>" +
+                        "<body>" +
+                            "<div id='xml_frame'>" +
+                        "</body>" +
+                "</html>");
+
+            function insertLiteral(literalString, targetElement) {
+                var textNode = document.createTextNode(literalString);
+                targetElement.appendChild(textNode);
+                return textNode;
+            }
+
+            var xmlString     = this.responseText;
+            var targetElement = exportTab.document.getElementById("xml_frame");
+            var xmlTextNode   = insertLiteral(xmlString, targetElement);
+        }
+    };
+
+    xhttp.open("GET", queryContent, true);
+    xhttp.send();
+}
+
+
 function newBid() {
     if (!isUserLoggedIn()) {
         window.alert("You have to log in to bid on an item!");

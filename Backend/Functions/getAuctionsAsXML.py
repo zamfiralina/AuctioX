@@ -2,7 +2,7 @@ import xml.etree.cElementTree as ET
 from Backend.DBController.DBConnection import DBConnection
 
 
-def getAuctionsAsXML(db_handler : DBConnection):
+def getAuctionsAsXML(db_handler : DBConnection) -> bytes:
     result = db_handler.execute(f"SELECT TO_CHAR(ITEM_ID), P_NAME, TO_CHAR(S_PRICE), DESCRIPTION, TO_CHAR(END_DATE) FROM ITEMS  WHERE SYSDATE < END_DATE")
     auctions = ET.Element("auctions")
     for ind in range(len(result)):
@@ -21,3 +21,5 @@ def getAuctionsAsXML(db_handler : DBConnection):
 
     tree = ET.ElementTree(auctions)
     tree.write('auctions.xml')
+
+    return open('auctions.xml', 'rb').read()

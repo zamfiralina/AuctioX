@@ -6,6 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import itertools
 
 from Backend.DBController.DBConnection import DBConnection
+from Backend.Functions.getAuctionsAsXML import getAuctionsAsXML
 from Backend.Functions.newBid import newBid
 from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
@@ -220,6 +221,11 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         userHash = requestContents.replace('%20', ' ').split('?')[1]
                         content_body = getAuctionsAsPDF(self.db_conn)
                         content_type = 'application/pdf'
+
+                if requestContents.startswith("/GETXMLEXPORT"):
+                        userHash = requestContents.replace('%20', ' ').split('?')[1]
+                        content_body = getAuctionsAsXML(self.db_conn)
+                        content_type = 'text/xml'
 
                 if requestContents.startswith("/NEWBID"):
                         offer    = requestContents.replace('%20', ' ').split('?')[1]
