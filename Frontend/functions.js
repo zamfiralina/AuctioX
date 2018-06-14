@@ -405,19 +405,19 @@ function newAuction(){
                     gotoPage("index");
                 }
             };
-    var requestText = "NEWAUCTION" + "?" + "PNAME::::" + document.getElementById("prod_name").value + "?"
-                    + "CATEGORY::::" + document.getElementById("category").value + "?"
-                    + "PICTURE::::" + document.getElementById("prod_pic").value + "?"
-                    + "S_PRICE::::" + document.getElementById("start_price").value + "?"
-                    + "S_DATE::::" + document.getElementById("start_date").value + "?"
-                    + "END_DATE::::" + document.getElementById("end_date").value + "?"
-                    + "DESCRIPTION::::" + document.getElementById("description").value + "?"
-                    + "FABRICATION_COUNTRY::::" + document.getElementById("fab_country").value + "?"
-                    + "FABRICATION_YEAR::::" + document.getElementById("fab_year").value + "?"
-                    + "CONDITION::::" + document.getElementById("condition").value + "?"
-                    + "MATERIAL::::" + document.getElementById("material").value + "?"
-                    + "COLOR::::" + document.getElementById("color").value + "?"
-                    + "OTHER_SPEC::::" + document.getElementById("spec_carac").value + "?"
+    var requestText = "NEWAUCTION" + "???" + "PNAME::::" + document.getElementById("prod_name").value + "???"
+                    + "CATEGORY::::" + document.getElementById("category").value + "???"
+                    + "PICTURE::::" + document.getElementById("prod_pic").value + "???"
+                    + "S_PRICE::::" + document.getElementById("start_price").value + "???"
+                    + "S_DATE::::" + document.getElementById("start_date").value + "???"
+                    + "END_DATE::::" + document.getElementById("end_date").value + "???"
+                    + "DESCRIPTION::::" + document.getElementById("description").value + "???"
+                    + "FABRICATION_COUNTRY::::" + document.getElementById("fab_country").value + "???"
+                    + "FABRICATION_YEAR::::" + document.getElementById("fab_year").value + "???"
+                    + "CONDITION::::" + document.getElementById("condition").value + "???"
+                    + "MATERIAL::::" + document.getElementById("material").value + "???"
+                    + "COLOR::::" + document.getElementById("color").value + "???"
+                    + "OTHER_SPEC::::" + document.getElementById("spec_carac").value + "???"
                     + getValueFromCookies("userHash");
 
 
