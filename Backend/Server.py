@@ -10,6 +10,8 @@ from Backend.Functions.advancedSearch import advancedSearchPage
 from Backend.Functions.changeInfo import changeInfo
 from Backend.Functions.deleteAuction import deleteAuction
 from Backend.Functions.getAuctions import getAuction
+from Backend.Functions.getAuctionsAsJson import getAuctionsAsJson
+from Backend.Functions.getAuctionsAsPDF import getAuctionsAsPDF
 from Backend.Functions.itemDetails import getItemDetails
 from Backend.Functions.login import login, logout
 from Backend.Functions.mostRecent import mostRecent
@@ -211,10 +213,12 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
 
                 if requestContents.startswith("/GETJSONEXPORT"):
                         userHash = requestContents.replace('%20', ' ').split('?')
+                        content_body = getAuctionsAsJson(self.db_conn)
 
-                if requestContents.startswith("/GETJSONEXPORT"):
+                if requestContents.startswith("/GETPDFEXPORT"):
                         userHash = requestContents.replace('%20', ' ').split('?')
-
+                        content_body = getAuctionsAsPDF(self.db_conn)
+                        content_type = 'application/pdf'
 
                 return content_type, content_body
 

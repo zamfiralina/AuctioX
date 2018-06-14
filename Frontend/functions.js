@@ -968,7 +968,6 @@ function getAuction() {
 }
 
 function getAuctionsAsJson() {
-    window.alert("getting json");
 
     var queryContent = "GETJSONEXPORT?" + getValueFromCookies("userHash");
 
@@ -976,7 +975,7 @@ function getAuctionsAsJson() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            window.alert(this.responseText);
+            window.open().document.write(this.responseText);
         }
     };
 
@@ -985,7 +984,6 @@ function getAuctionsAsJson() {
 }
 
 function getAuctionsAsPdf() {
-    window.alert("getting pdf");
 
     var queryContent = "GETPDFEXPORT?" + getValueFromCookies("userHash");
 
@@ -993,7 +991,7 @@ function getAuctionsAsPdf() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            window.alert(this.responseText);
+            window.open().document.write(this.responseText);
         }
     };
 

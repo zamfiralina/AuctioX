@@ -1,6 +1,9 @@
 import json
 
-def getAuctionsAsJson(db_handler):
+from Backend.DBController.DBConnection import DBConnection
+
+
+def getAuctionsAsJson(db_handler: DBConnection) -> bytes:
     result = db_handler.execute(f"SELECT ITEM_ID, P_NAME, S_PRICE, DESCRIPTION, TO_CHAR(END_DATE) FROM ITEMS  WHERE SYSDATE < END_DATE")
 
     auctions = dict()
@@ -19,3 +22,5 @@ def getAuctionsAsJson(db_handler):
     print(auctions)
     print()
     print(jsn)
+
+    return jsn.encode()

@@ -1,8 +1,10 @@
 import fpdf
 from fpdf import  FPDF
 
+from Backend.DBController.DBConnection import DBConnection
 
-def getAuctionsAsPDF(db_handler):
+
+def getAuctionsAsPDF(db_handler: DBConnection) -> bytes:
     result = db_handler.execute(f"SELECT TO_CHAR(I.ITEM_ID), I.P_NAME, TO_CHAR(I.S_PRICE), TO_CHAR(I.S_DATE), TO_CHAR(I.END_DATE), C.CATEGORY_NAME FROM ITEMS I JOIN CATEGORIES C ON I.CATEGORY_ID = C.CATEGORY_ID WHERE SYSDATE < I.END_DATE")
 
     print(result)
@@ -47,3 +49,6 @@ def getAuctionsAsPDF(db_handler):
         curString = results.split('endl')[index]
         pdf.cell(0, 10, curString, 0, 2)
     pdf.output('auctionsPDF.pdf', 'F')
+
+    return open('auctionsPDF.pdf', 'rb').read()
+
