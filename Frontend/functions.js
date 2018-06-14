@@ -70,7 +70,6 @@ function login() {
     xhttp.send();
 }
 
-
 function logout() {
     var requestText = "LOGOUT" + "?" + getValueFromCookies("userHash");
 
@@ -90,7 +89,6 @@ function logout() {
     xhttp.open("GET", requestText, true);
     xhttp.send();
 }
-
 
 function getLoggedInUserIndexInfo() {
      var requestText = "GETPROFILEINFO?" + getValueFromCookies("userHash");
@@ -427,7 +425,6 @@ function newAuction(){
     xhttp.send();
 }
 
-
 function getSimpleSearchResultsPage(searchedText, page) {
     window.alert("S-a apelat getSimpleSearchResultsPage cu: " + searchedText + " " + page);
     var requestText = "GETSIMPLESEARCHRESULTSPAGE?" + page + "?" + searchedText;
@@ -459,7 +456,7 @@ function getSimpleSearchResultsPage(searchedText, page) {
                 itemView = itemView + "<p><a id = \"itemName1\">" + currItem[2] + "</a></p> ";
                 itemView = itemView + "<p><span>Last price: </span><a id = \"itemPrice1\">" + currItem[5] + "</a></p> ";
                 itemView = itemView + "<p><span>End date: </span><a id = \"itemEndDate1\">" + currItem[7] + "</a></p> ";
-                itemView = itemView + "<a href = \"#\" onclick=\"gotoPage('ItemPage')\"> Read more... </a> ";
+                itemView = itemView + "<a href = \"#\" onclick=\"putValueInCookies('currItemId', '" + currItem[0] + "');gotoPage('ItemPage')\"> Read more... </a> ";
                 document.getElementById("td" + (i+1)).innerHTML = itemView;
             }
 
@@ -646,4 +643,68 @@ function getLastAdvancedSearchResults() {
 
     // TODO do shite
     window.alert("adv src");
+}
+
+
+function getCurrentItemDetails() {
+
+    var lastItemId  = getValueFromCookies("currItemId");
+    var requestText = "GETITEMDETAILS?" + lastItemId;
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+
+            window.alert(this.responseText.replace("?", "\n"));
+
+            var itemDetails = this.responseText.split("?");
+
+            var title    = itemDetails[2];
+            var category = itemDetails[9];
+
+            var imgLink  = itemDetails[4];
+
+            var price    = itemDetails[5];
+            var endDate  = itemDetails[7];
+
+            var seller   = itemDetails[11];
+            var tlf      = itemDetails[12];
+            var email    = itemDetails[13];
+            var location = itemDetails[14];
+
+            var desc     = itemDetails[8];
+            var tags     = itemDetails[10];
+
+            document.getElementById("itempage_title").innerHTML       = title;
+            document.getElementById("itempage_category").innerHTML    = category;
+
+            document.getElementById("itempage_img").innerHTML         = "<img src='" + imgLink + "' width='350' height='350'>";
+
+            document.getElementById("itempage_price").innerHTML       = price;
+            document.getElementById("itempage_enddate").innerHTML     = endDate;
+
+            document.getElementById("itempage_seller").innerHTML    = seller;
+            document.getElementById("itempage_tlf").innerHTML         = tlf;
+            document.getElementById("itempage_email").innerHTML       = email;
+            document.getElementById("itempage_location").innerHTML    = location;
+
+            document.getElementById("itempage_description").innerHTML = desc;
+
+            var tagTable = "";
+
+            tags.split("!").forEach(
+                function (tagString) {
+                    var tag = tagString.split("~")[0];
+                    var val = tagString.split("~")[1];
+                    tagTable += "<tr><td>" + tag + ":</td><td>" + val + "</td></tr>";
+                }
+            );
+
+            document.getElementById("itempage_tags").innerHTML = tagTable;
+        }
+    };
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
 }
