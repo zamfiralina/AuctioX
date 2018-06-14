@@ -34,10 +34,10 @@
 		<div class="sidebar">
 
 		  	<button type="button" onclick="gotoPage('auction')">New auction</button>
-		  	<button onclick="document.getElementById('id01').style.display='block'">My auctions</button>
+		  	<button onclick="getAuction()">My auctions</button>
 
 		  	<div id="id01" class="modal">
-  
+
   				<form class="modal-content animate">
     		   		<div class="imgcontainer">
       			    	<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -46,13 +46,8 @@
    			  		<div class="container">
       					<h3 id="auctionsheader"> My auctions: </h3>
       					<br>
-      					<ul>
-      					<li> Auction 1 </li>
-      					<li> Auction 2 </li>
-      					<li> ........  </li>
-      					<li> ........  </li>
-      					<li> ........  </li>
-      					<li> ........  </li>
+      					<ul id="auctions_area">
+
       					</ul>
     				  </div>
 
@@ -61,7 +56,6 @@
     				  </div>
   				</form>
 		   	</div><!--close id01-->
-
 
     </div><!--close sidebar-->
        

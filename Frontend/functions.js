@@ -417,34 +417,39 @@ function changeInfo() {
 }
 
 function newAuction(){
+   if(isUserLoggedIn()) {
+       var xhttp = new XMLHttpRequest();
 
-    var xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200){
-                    //document.getElementById("getText").innerHTML = this.responseText
-                    window.alert(this.responseText);
-                    gotoPage("index");
-                }
-            };
-    var requestText = "NEWAUCTION" + "???" + "PNAME::::" + document.getElementById("prod_name").value + "???"
-                    + "CATEGORY::::" + document.getElementById("category").value + "???"
-                    + "PICTURE::::" + document.getElementById("prod_pic").value + "???"
-                    + "S_PRICE::::" + document.getElementById("start_price").value + "???"
-                    + "S_DATE::::" + document.getElementById("start_date").value + "???"
-                    + "END_DATE::::" + document.getElementById("end_date").value + "???"
-                    + "DESCRIPTION::::" + document.getElementById("description").value + "???"
-                    + "FABRICATION_COUNTRY::::" + document.getElementById("fab_country").value + "???"
-                    + "FABRICATION_YEAR::::" + document.getElementById("fab_year").value + "???"
-                    + "CONDITION::::" + document.getElementById("condition").value + "???"
-                    + "MATERIAL::::" + document.getElementById("material").value + "???"
-                    + "COLOR::::" + document.getElementById("color").value + "???"
-                    + "OTHER_SPEC::::" + document.getElementById("spec_carac").value + "???"
-                    + getValueFromCookies("userHash");
+       xhttp.onreadystatechange = function () {
+           if (this.readyState === 4 && this.status === 200) {
+               //document.getElementById("getText").innerHTML = this.responseText
+               window.alert(this.responseText);
+               gotoPage("profilePage");
+           }
+       };
+       var requestText = "NEWAUCTION" + "???" + "PNAME::::" + document.getElementById("prod_name").value + "???"
+           + "CATEGORY::::" + document.getElementById("category").value + "???"
+           + "PICTURE::::" + document.getElementById("prod_pic").value + "???"
+           + "S_PRICE::::" + document.getElementById("start_price").value + "???"
+           + "S_DATE::::" + document.getElementById("start_date").value + "???"
+           + "END_DATE::::" + document.getElementById("end_date").value + "???"
+           + "DESCRIPTION::::" + document.getElementById("description").value + "???"
+           + "FABRICATION_COUNTRY::::" + document.getElementById("fab_country").value + "???"
+           + "FABRICATION_YEAR::::" + document.getElementById("fab_year").value + "???"
+           + "CONDITION::::" + document.getElementById("condition").value + "???"
+           + "MATERIAL::::" + document.getElementById("material").value + "???"
+           + "COLOR::::" + document.getElementById("color").value + "???"
+           + "OTHER_SPEC::::" + document.getElementById("spec_carac").value + "???"
+           + getValueFromCookies("userHash");
 
 
-    xhttp.open("GET", requestText, true);
-    xhttp.send();
+       xhttp.open("GET", requestText, true);
+       xhttp.send();
+   }
+   else {
+        window.alert("You are not logged in.");
+        gotoPage("index");
+    }
 }
 
 function getSimpleSearchResultsPage(searchedText, page) {
@@ -806,3 +811,69 @@ function getCurrentItemDetails() {
     xhttp.open("GET", requestText, true);
     xhttp.send();
 }
+
+function deleteAuction(itemId) {
+    var requestText = "DELETE" + "?" + itemId;
+    var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+
+                    //window.alert(this.responseText);
+                    gotoPage('profilePage');
+                }
+            };
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
+
+function getAuction() {
+     var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200){
+                     var auctions = this.responseText;
+                     //document.getElementById("auction1").innerHTML = auctions.split("?")[1];
+                     var nr_auctions = auctions.split("?")[0];
+                     var auctionsList = "";
+                     for( i=1; i<=nr_auctions;i++){
+                         var id_a = 'auction' + i;
+                         auctionsList =
+                             auctionsList +
+                             "<br><br>" +
+                             "<li>" +
+                                "<p>" +
+                                    "<span>" +
+                                    "</span>" +
+                                    "<a id =" + id_a + ">" +
+                                    "</a>" +
+                                "</p>" +
+                                "<a href=\"#\" onclick=\"getItemField()\">" +
+                                    "Edit" +
+                                "</a>" +
+                                "<button type=\"button\" onclick=\"deleteAuction('" + this.responseText.split("?")[i] + "')\" class=\"delete_auction_b\">" +
+                                    "Delete" +
+                                "</button>" +
+                             "</li>";
+                    }
+                    document.getElementById("auctions_area").innerHTML = auctionsList;
+                    for( i=1; i<=nr_auctions;i++){
+                         document.getElementById('auction'+ i).innerHTML =
+                             "<a href = \"#\" onclick = \"putValueInCookies('currItemId', '" + this.responseText.split("?")[i] + "');gotoPage('ItemPage')\">" +
+                             this.responseText.split("?")[i] + "</a>";
+                    }
+                    //window.alert(this.responseText);
+                    document.getElementById('id01').style.display='block';
+                }
+            };
+
+    var requestText = "USERAUCTIONS" + "?" + getValueFromCookies("userHash");
+
+
+    xhttp.open("GET", requestText, true);
+    xhttp.send();
+}
+
+
+
