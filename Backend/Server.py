@@ -199,15 +199,21 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         content_body = getItemDetails(itemId, self.db_conn)
 
                 if requestContents.startswith ("/USERAUCTIONS"):
-                    receivedUsernameHash = requestContents.split ("?")[1].replace ("%20", " ")
-                    receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
-                    content_body = getAuction (receivedUsername, self.__class__.db_conn)
+                        receivedUsernameHash = requestContents.split ("?")[1].replace ("%20", " ")
+                        receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
+                        content_body = getAuction (receivedUsername, self.__class__.db_conn)
 
                 if requestContents.startswith ("/DELETE"):
-                    receivedAuctionId = requestContents.split ("?")[1]
-                    print (receivedAuctionId)
-                    content_body = deleteAuction (receivedAuctionId, self.__class__.db_conn)
-                    print ("out of function")
+                        receivedAuctionId = requestContents.split ("?")[1]
+                        print (receivedAuctionId)
+                        content_body = deleteAuction (receivedAuctionId, self.__class__.db_conn)
+                        print ("out of function")
+
+                if requestContents.startswith("/GETJSONEXPORT"):
+                        userHash = requestContents.replace('%20', ' ').split('?')
+
+                if requestContents.startswith("/GETJSONEXPORT"):
+                        userHash = requestContents.replace('%20', ' ').split('?')
 
 
                 return content_type, content_body

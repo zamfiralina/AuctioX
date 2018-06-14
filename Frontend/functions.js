@@ -967,5 +967,39 @@ function getAuction() {
     xhttp.send();
 }
 
+function getAuctionsAsJson() {
+    window.alert("getting json");
+
+    var queryContent = "GETJSONEXPORT?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            window.alert(this.responseText);
+        }
+    };
+
+    xhttp.open("GET", queryContent, true);
+    xhttp.send();
+}
+
+function getAuctionsAsPdf() {
+    window.alert("getting pdf");
+
+    var queryContent = "GETPDFEXPORT?" + getValueFromCookies("userHash");
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            window.alert(this.responseText);
+        }
+    };
+
+    xhttp.open("GET", queryContent, true);
+    xhttp.send();
+}
+
 
 
