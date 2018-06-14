@@ -343,6 +343,25 @@ function changeInfo() {
         window.alert("Enter only alpha numeric values.");
         return;
     }
+    if (document.getElementById("pass").value.length < 5 && document.getElementById("pass").value.length > 0)
+    {
+        window.alert("Password too short(min. 5 characters).");
+        return;
+    }
+
+    if (isAlphaNumeric(document.getElementById("pass").value) === false)
+    {
+        window.alert("Enter only alphanumeric values.");
+        return;
+    }
+
+    var n = document.getElementById("pass").value.localeCompare(document.getElementById("pass_confirm").value);
+    if (n !== 0)
+    {
+        window.alert("Password doesn't match.");
+        return;
+    }
+
     if (isAlphaNumeric(document.getElementById("city").value) === false)
     {
         window.alert("Enter only alpha numeric values.");
@@ -378,12 +397,15 @@ function changeInfo() {
         if (this.readyState === 4 && this.status === 200) {
             //document.getElementById("getText").innerHTML = this.responseText
             window.alert(this.responseText);
+            if (this.responseText === "Update successful.")
+                        gotoPage('profilePage');
         }
     };
 
     var requestText= "CHANGE" +
         "?" + document.getElementById("f_name").value +
         "?" + document.getElementById("l_name").value +
+        "?" + document.getElementById("pass").value +
         "?" + document.getElementById("city").value +
         "?" + document.getElementById("tel").value +
         "?" + document.getElementById("email").value +
