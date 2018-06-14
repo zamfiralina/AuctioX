@@ -585,3 +585,65 @@ function getSimpleSearchResultsPage(searchedText, page) {
     xhttp.open("GET", requestText, true);
     xhttp.send();
 }
+
+function getAdvancedSearchResultsFromForm() {
+
+    var category  = document.getElementById("search_category")           .value;
+    var name      = document.getElementById("search_item_name")          .value;
+    var originLoc = document.getElementById("search_fabrication_country").value;
+    var originYr  = document.getElementById("search_fabrication_year")   .value;
+    var condition = document.getElementById("search_condition")          .value;
+    var material  = document.getElementById("search_material")           .value;
+    var color     = document.getElementById("search_color")              .value;
+    var other     = document.getElementById("search_other")              .value;
+
+    var finalQuery = "GETADVANCEDSEARCHRESULTSPAGE!1!";
+
+    if (category.length > 0)
+        finalQuery.append("CATEGORY~" + category);
+
+    if (name.length > 0)
+        finalQuery.append("?" + "NAME~" + name);
+
+    if (originLoc.length > 0)
+        finalQuery.append("?" + "FABRICATIONLOCATION~" + originLoc);
+
+    if (originYr.length > 0)
+        finalQuery.append("?" + "FABRICATIONYEAR~" + originYr);
+
+    if (condition.length > 0)
+        finalQuery.append("?" + "CONDITION~" + condition);
+
+    if (material.length > 0)
+        finalQuery.append("?" + "MATERIAL~" + material);
+
+    if (color.length > 0)
+        finalQuery.append("?" + "COLOR~" + color);
+
+    if (other.length > 0)
+        finalQuery.append("?" + "OTHER~" + other);
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            putValueInCookies("advSrcStr", finalQuery);
+            putValueInCookies("advSrcRes", this.responseText);
+            gotoPage("index");
+        }
+    };
+
+    xhttp.open("GET", finalQuery, true);
+    xhttp.send();
+
+}
+
+function redirectedFromAdvancedSearch() {
+    return (getValueFromCookies("advSrcStr").length > 0 && getValueFromCookies("advSrcRes").length > 0);
+}
+
+function getLastAdvancedSearchResults() {
+
+    // TODO do shite
+    window.alert("adv src");
+}

@@ -181,6 +181,10 @@ class TestHTTPServerRequestHandler(BaseHTTPRequestHandler):
                         print("page:", page)
                         content_body = simpleSearchPage(itemName.lower(), page, self.__class__.db_conn)
 
+                if requestContents.startswith("/GETADVANCEDSEARCHRESULTSPAGE"):
+                        page, tags = requestContents.replace("%20", " ").split("!")[1:]
+                        content_body = advancedSearchPage(page, tags, self.db_conn)
+
                 return content_type, content_body
 
 
