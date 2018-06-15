@@ -26,7 +26,7 @@ from Backend.Functions.simpleSearch import simpleSearchPage
 from Backend.Functions.testSearch import testSearch
 
 
-class HTTPServerRequestHandler(BaseHTTPRequestHandler):
+class Server(BaseHTTPRequestHandler):
         db_conn = DBConnection.connect("WEB", "WEB", "localhost")
 
         activeUsers = dict()
@@ -144,13 +144,6 @@ class HTTPServerRequestHandler(BaseHTTPRequestHandler):
                                 content_body = "You are not logged in.".encode()
 
                 if requestContents.startswith("/ISUSERLOGGEDIN"):
-                        # try:
-                        #         # if requestContents.split("?")[1] in self.__class__.activeUsers:
-                        #         #         print("HASH ",self.activeUsers[requestContents.split("?")[1]])
-                        #         #         content_body = "USERLOGGEDINSUCCESS".encode()
-                        #         # else:
-                        #         #         content_body = "USERLOGGEDINFAIL".encode()
-                        #         userHash = self.__class__.activeUsers[requestContents.split("?")[1]]
                         print("requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers",
                               requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers)
                         if requestContents.split('?')[1].replace('%20', ' ') in self.activeUsers:
@@ -207,12 +200,12 @@ class HTTPServerRequestHandler(BaseHTTPRequestHandler):
                 if requestContents.startswith ("/USERAUCTIONS"):
                         receivedUsernameHash = requestContents.split ("?")[1].replace ("%20", " ")
                         receivedUsername = self.__class__.activeUsers[receivedUsernameHash]
-                        content_body = getAuction (receivedUsername, self.__class__.db_conn)
+                        content_body = getAuction(receivedUsername, self.__class__.db_conn)
 
                 if requestContents.startswith ("/DELETE"):
                         receivedAuctionId = requestContents.split ("?")[1]
                         print (receivedAuctionId)
-                        content_body = deleteAuction (receivedAuctionId, self.__class__.db_conn)
+                        content_body = deleteAuction(receivedAuctionId, self.__class__.db_conn)
                         print ("out of function")
 
                 if requestContents.startswith("/GETJSONEXPORT"):
@@ -271,7 +264,7 @@ def run():
 
         server_address = ('127.0.0.1', 8081)
 
-        httpd = HTTPServer(server_address, HTTPServerRequestHandler)
+        httpd = HTTPServer(server_address, Server)
 
         print('running server...')
         httpd.serve_forever()

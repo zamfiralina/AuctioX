@@ -42,6 +42,7 @@ def newAuction(receivedUsername, receivedName, receivedCategory, receivedPicture
         receivedContent6 = receivedDesc.split("::::")[1]
 
         receivedContent1 = receivedContent1.split("%20")[0]
+        receivedContent1 = receivedContent1.replace("and","&")
         print("recContent",receivedContent1)
         id_category = db_handler.execute(
                 f"select category_id from categories where INSTR(category_name,'{receivedContent1}') > 0  ")

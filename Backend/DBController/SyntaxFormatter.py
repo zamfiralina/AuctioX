@@ -1,8 +1,6 @@
 import abc
 
 class SyntaxFormatter:
-    __metaclass__ = abc.ABCMeta
-
     __keywordsSingle   = ["SELECT ", "FROM ", "GROUP BY ", "HAVING ", "WHERE "]
     __keywordsMultiple = ["JOIN ", "ON ", "IS ", "IN ", "LIKE ", "AND ", "OR ", "NOT "]
 
