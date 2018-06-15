@@ -19,7 +19,7 @@ body {
 }
 
 
-/*green bottom with title  */
+/*-----------------------------green bottom with title------------------------------  */
 
 #strapline{ 
   width: 960px;
@@ -567,7 +567,7 @@ ul#nav li.current a, ul#nav li:hover a{
 
 /* Add Zoom Animation */
 .animate {
-    -webkit-animation: animatezoom 0.6s;
+    /*-webkit-animation: animatezoom 0.6s;*/
     animation: animatezoom 0.6s
 }
 
@@ -609,92 +609,112 @@ span.psw {
 
 @media
 only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+(min-device-width: 768px) and (max-device-width: 1024px) {
 
+    table, th, td, tr {
+        display: block;
+    }
 
-  table, th, td, tr {
-    display: block;
-  }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
 
+    tr {
+        border: 1px solid #ccc;
+    }
 
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
+    td {
 
-  tr { border: 1px solid #ccc; }
+        border: none;
+        border-top: 10px solid #eee;
+        border-bottom: 10px solid #eee;
+        border-left: 10px solid #eee;
+        border-right: 10px solid #eee;
+        position: relative;
+        width: 280px;
+        /*width:40%*/
+        /*padding-left: 50%;*/
+        font-size: 100%;
+    }
 
-  td {
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        /*width: 40%;*/
+        /*padding-right: 10px; */
+        white-space: nowrap;
+        /*font-size: 60%;*/
 
-    border: none;
-    border-top: 10px solid #eee;
-    border-bottom: 10px solid #eee;
-    border-left: 10px solid #eee;
-    border-right: 10px solid #eee;
-    position: relative;
-    width: 280px;
-    padding :auto;
-    /*width:40%*/
-    /*padding-left: 50%;*/
-    font-size: 100%;
-  }
+    }
 
-  td:before {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    /*width: 40%;*/
-    /*padding-right: 10px; */
-    white-space: nowrap;
-    /*font-size: 60%;*/
+    /*---------------------------header------------------------------*/
+    header {
+        /*width:800px;*/
+        width: 102%;
+    }
 
-  }
+    #welcome_slogan {
+        width: auto;
+        margin-left: 250px;
 
-  #index_search{
-    width: 300px;
-  }
+    }
 
-  #button_search{
-     width: 100px;
-     margin-left: 180px;
-     margin-bottom: 20%;
-  }
+    /*-------------------------site "body"--------------------------*/
+    #site_content {
+        width: 700px;
+    }
 
-  header {
-    width:730px;
-  }
+    .sidebar {
+        /*margin: 0px 0px 0px 0px;*/
+        margin-bottom: 10px;
+        margin-right: 400px;
+        width: 250px;
+        height: auto;
+    }
 
-  #welcome_slogan {
-    width:auto;
-    margin-left: 250px;
+    #content {
+        width: 730px;
+    }
 
-  }
+    .container {
+        /*width: 200px;*/
+        width: 200px;
 
-  .sidebar {
-    width: 100px;
-    height: auto;
-  }
+    }
 
-  #pics {
-    width:830px;
-  }
-  #search-bar {
-    width: 630px;
-  }
+    body {
+        width: 100%;
+    }
 
-  #content {
-    width: 730px;
-  }
+    /*--------------------------search------------------------------ */
+    #index_search {
+        /*margin: 0px 0px 0px 0px;*/
+        margin-bottom: 20px;
+        width: 300px;
+        height: auto;
+    }
 
-  .container {
-    width: 100px;
-  }
+    #button_search {
+        width: 100px;
+        height: auto;
+        margin-left: 180px;
+        /* margin-bottom: 20%;*/
+     }
+     #search-bar {
+         margin:0px 0px 0px 0px;
+         height: auto;
+         /*width: 500px;*/
+        width: 630px;
+    }
 
-  body {
-    width:730px;
-  }
-
+    /*----------------------------auctions_pics--------------------------*/
+    #pics {
+        /* width:500px;*/
+        width: 830px;
+    }
 
 }
 
